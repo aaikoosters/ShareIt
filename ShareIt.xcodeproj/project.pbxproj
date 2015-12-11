@@ -26,6 +26,10 @@
 		ABEBE5081C1AC43F00E320F2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5071C1AC43F00E320F2 /* libz.tbd */; };
 		ABEBE50A1C1AC44900E320F2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5091C1AC44900E320F2 /* libsqlite3.tbd */; };
 		ABEBE50D1C1AC5E900E320F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */; };
+		ABEBE50F1C1B0E3100E320F2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */; };
+		ABEBE5111C1B0E5B00E320F2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */; };
+		ABEBE5131C1B0E6900E320F2 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE5121C1B0E6900E320F2 /* SingUpViewController.swift */; };
+		ABEBE5151C1B0E7B00E320F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE5141C1B0E7B00E320F2 /* ResetPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,10 @@
 		ABEBE5071C1AC43F00E320F2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		ABEBE5091C1AC44900E320F2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ABEBE5121C1B0E6900E320F2 /* SingUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
+		ABEBE5141C1B0E7B00E320F2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +145,10 @@
 				ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */,
 				ABEBE4C71C1A00C500E320F2 /* ViewController.swift */,
 				ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */,
+				ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */,
+				ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */,
+				ABEBE5121C1B0E6900E320F2 /* SingUpViewController.swift */,
+				ABEBE5141C1B0E7B00E320F2 /* ResetPasswordViewController.swift */,
 				ABEBE4CC1C1A00C500E320F2 /* Assets.xcassets */,
 				ABEBE4CE1C1A00C500E320F2 /* LaunchScreen.storyboard */,
 				ABEBE4D11C1A00C500E320F2 /* Info.plist */,
@@ -312,8 +324,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABEBE50F1C1B0E3100E320F2 /* LoginViewController.swift in Sources */,
 				ABEBE4C81C1A00C500E320F2 /* ViewController.swift in Sources */,
+				ABEBE5131C1B0E6900E320F2 /* SingUpViewController.swift in Sources */,
+				ABEBE5151C1B0E7B00E320F2 /* ResetPasswordViewController.swift in Sources */,
 				ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */,
+				ABEBE5111C1B0E5B00E320F2 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
