@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */; };
 		ABEBE4C81C1A00C500E320F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE4C71C1A00C500E320F2 /* ViewController.swift */; };
-		ABEBE4CB1C1A00C500E320F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABEBE4C91C1A00C500E320F2 /* Main.storyboard */; };
 		ABEBE4CD1C1A00C500E320F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABEBE4CC1C1A00C500E320F2 /* Assets.xcassets */; };
 		ABEBE4D01C1A00C500E320F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABEBE4CE1C1A00C500E320F2 /* LaunchScreen.storyboard */; };
 		ABEBE4DB1C1A00C600E320F2 /* ShareItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE4DA1C1A00C600E320F2 /* ShareItTests.swift */; };
@@ -26,6 +25,7 @@
 		ABEBE5061C1AC43200E320F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5051C1AC43200E320F2 /* SystemConfiguration.framework */; };
 		ABEBE5081C1AC43F00E320F2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5071C1AC43F00E320F2 /* libz.tbd */; };
 		ABEBE50A1C1AC44900E320F2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5091C1AC44900E320F2 /* libsqlite3.tbd */; };
+		ABEBE50D1C1AC5E900E320F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,6 @@
 		ABEBE4C21C1A00C500E320F2 /* ShareIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABEBE4C71C1A00C500E320F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		ABEBE4CA1C1A00C500E320F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ABEBE4CC1C1A00C500E320F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABEBE4CF1C1A00C500E320F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABEBE4D11C1A00C500E320F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		ABEBE5051C1AC43200E320F2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ABEBE5071C1AC43F00E320F2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		ABEBE5091C1AC44900E320F2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,7 @@
 			children = (
 				ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */,
 				ABEBE4C71C1A00C500E320F2 /* ViewController.swift */,
-				ABEBE4C91C1A00C500E320F2 /* Main.storyboard */,
+				ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */,
 				ABEBE4CC1C1A00C500E320F2 /* Assets.xcassets */,
 				ABEBE4CE1C1A00C500E320F2 /* LaunchScreen.storyboard */,
 				ABEBE4D11C1A00C500E320F2 /* Info.plist */,
@@ -285,9 +285,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABEBE50D1C1AC5E900E320F2 /* Main.storyboard in Resources */,
 				ABEBE4D01C1A00C500E320F2 /* LaunchScreen.storyboard in Resources */,
 				ABEBE4CD1C1A00C500E320F2 /* Assets.xcassets in Resources */,
-				ABEBE4CB1C1A00C500E320F2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,14 +349,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		ABEBE4C91C1A00C500E320F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ABEBE4CA1C1A00C500E320F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ABEBE4CE1C1A00C500E320F2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
