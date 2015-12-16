@@ -22,6 +22,24 @@ class SingUpViewController: UIViewController {
         let email = self.emailField.text
         let finalEmail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
+        if email?.characters.count < 1 {
+            let alert = UIAlertView(title: "Invalid", message: "Email is too short", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        else if username?.characters.count < 3 {
+            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            
+        } else if password?.characters.count < 8 {
+            let alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            
+        } else if email?.characters.count < 8 {
+            let alert = UIAlertView(title: "Invalid", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            
+        } else {
+        
         let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
         spinner.startAnimating()
         
@@ -49,6 +67,7 @@ class SingUpViewController: UIViewController {
                 })
             }
         })
+        }
     }
 
 }

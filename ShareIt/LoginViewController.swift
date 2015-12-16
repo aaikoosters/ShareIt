@@ -20,6 +20,13 @@ class LoginViewController: UIViewController {
         let username = self.username.text
         let password = self.password.text
         
+        if username?.characters.count < 3 {
+            let alert = UIAlertView(title: "Fout.. ", message: "Gebruikersnaam is te kort", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+        } else if password?.characters.count < 8 {
+            let alert = UIAlertView(title: "Fout.. ", message: "Wachtwoord is te kort", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+        } else {
         let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
         spinner.startAnimating()
         
@@ -43,6 +50,7 @@ class LoginViewController: UIViewController {
                 alert.show()
             }
         })
+        }
         
     }
 }
