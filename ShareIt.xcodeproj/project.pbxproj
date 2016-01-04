@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30DDEEC71C3AF1EE003BB707 /* logo200.png in Resources */ = {isa = PBXBuildFile; fileRef = 30DDEEC61C3AF1EE003BB707 /* logo200.png */; };
+		30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */; };
 		ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */; };
 		ABEBE4C81C1A00C500E320F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE4C71C1A00C500E320F2 /* ViewController.swift */; };
 		ABEBE4CD1C1A00C500E320F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABEBE4CC1C1A00C500E320F2 /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30DDEEC61C3AF1EE003BB707 /* logo200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo200.png; sourceTree = "<group>"; };
+		30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLogoViewController.swift; sourceTree = "<group>"; };
 		ABEBE4C21C1A00C500E320F2 /* ShareIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABEBE4C71C1A00C500E320F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30DDEEC41C3AF00A003BB707 /* OtherAssets */ = {
+			isa = PBXGroup;
+			children = (
+				ABEBE4CE1C1A00C500E320F2 /* LaunchScreen.storyboard */,
+				ABEBE4CC1C1A00C500E320F2 /* Assets.xcassets */,
+				ABEBE4D11C1A00C500E320F2 /* Info.plist */,
+				30DDEEC51C3AF1E0003BB707 /* Images */,
+			);
+			name = OtherAssets;
+			sourceTree = "<group>";
+		};
+		30DDEEC51C3AF1E0003BB707 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				30DDEEC61C3AF1EE003BB707 /* logo200.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		ABEBE4B91C1A00C500E320F2 = {
 			isa = PBXGroup;
 			children = (
@@ -143,15 +166,14 @@
 			isa = PBXGroup;
 			children = (
 				ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */,
+				30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */,
 				ABEBE4C71C1A00C500E320F2 /* ViewController.swift */,
 				ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */,
 				ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */,
 				ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */,
 				ABEBE5121C1B0E6900E320F2 /* SingUpViewController.swift */,
 				ABEBE5141C1B0E7B00E320F2 /* ResetPasswordViewController.swift */,
-				ABEBE4CC1C1A00C500E320F2 /* Assets.xcassets */,
-				ABEBE4CE1C1A00C500E320F2 /* LaunchScreen.storyboard */,
-				ABEBE4D11C1A00C500E320F2 /* Info.plist */,
+				30DDEEC41C3AF00A003BB707 /* OtherAssets */,
 			);
 			path = ShareIt;
 			sourceTree = "<group>";
@@ -298,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABEBE50D1C1AC5E900E320F2 /* Main.storyboard in Resources */,
+				30DDEEC71C3AF1EE003BB707 /* logo200.png in Resources */,
 				ABEBE4D01C1A00C500E320F2 /* LaunchScreen.storyboard in Resources */,
 				ABEBE4CD1C1A00C500E320F2 /* Assets.xcassets in Resources */,
 			);
@@ -326,6 +349,7 @@
 			files = (
 				ABEBE50F1C1B0E3100E320F2 /* LoginViewController.swift in Sources */,
 				ABEBE4C81C1A00C500E320F2 /* ViewController.swift in Sources */,
+				30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */,
 				ABEBE5131C1B0E6900E320F2 /* SingUpViewController.swift in Sources */,
 				ABEBE5151C1B0E7B00E320F2 /* ResetPasswordViewController.swift in Sources */,
 				ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */,
@@ -468,6 +492,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ShareIt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Aaik.Oosters.ShareIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -483,6 +508,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ShareIt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Aaik.Oosters.ShareIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -556,6 +582,7 @@
 				ABEBE4EC1C1A00C600E320F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ABEBE4ED1C1A00C600E320F2 /* Build configuration list for PBXNativeTarget "ShareItTests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +591,7 @@
 				ABEBE4EF1C1A00C600E320F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ABEBE4F01C1A00C600E320F2 /* Build configuration list for PBXNativeTarget "ShareItUITests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +600,7 @@
 				ABEBE4F21C1A00C600E320F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
