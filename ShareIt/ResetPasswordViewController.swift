@@ -9,9 +9,19 @@
 import UIKit
 import Parse
 
-class ResetPasswordViewController: UIViewController {
+class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.emailField.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     @IBAction func passwordReset(sender: AnyObject) {
         let email = self.emailField.text

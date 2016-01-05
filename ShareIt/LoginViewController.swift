@@ -9,11 +9,21 @@
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController {
-
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.username.delegate = self
+        self.password.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
     @IBAction func loginButton(sender: AnyObject) {
         
@@ -41,7 +51,7 @@ class LoginViewController: UIViewController {
                 alert.show()
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home") as UIViewController
+                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("navHome") as UIViewController
                     self.presentViewController(viewController, animated: true, completion: nil)
                 })
                 

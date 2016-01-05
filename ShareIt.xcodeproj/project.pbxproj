@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		30DDEEC71C3AF1EE003BB707 /* logo200.png in Resources */ = {isa = PBXBuildFile; fileRef = 30DDEEC61C3AF1EE003BB707 /* logo200.png */; };
 		30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */; };
+		AB593BDD1C3BDCD700650C80 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */; };
 		ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */; };
 		ABEBE4C81C1A00C500E320F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE4C71C1A00C500E320F2 /* ViewController.swift */; };
 		ABEBE4CD1C1A00C500E320F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABEBE4CC1C1A00C500E320F2 /* Assets.xcassets */; };
@@ -30,7 +31,7 @@
 		ABEBE50D1C1AC5E900E320F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */; };
 		ABEBE50F1C1B0E3100E320F2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */; };
 		ABEBE5111C1B0E5B00E320F2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */; };
-		ABEBE5131C1B0E6900E320F2 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE5121C1B0E6900E320F2 /* SingUpViewController.swift */; };
+		ABEBE5131C1B0E6900E320F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE5121C1B0E6900E320F2 /* SignUpViewController.swift */; };
 		ABEBE5151C1B0E7B00E320F2 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE5141C1B0E7B00E320F2 /* ResetPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		30DDEEC61C3AF1EE003BB707 /* logo200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo200.png; sourceTree = "<group>"; };
 		30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLogoViewController.swift; sourceTree = "<group>"; };
+		AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ABEBE4C21C1A00C500E320F2 /* ShareIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABEBE4C71C1A00C500E320F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +83,7 @@
 		ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		ABEBE5121C1B0E6900E320F2 /* SingUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
+		ABEBE5121C1B0E6900E320F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		ABEBE5141C1B0E7B00E320F2 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,7 +173,8 @@
 				ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */,
 				ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */,
 				ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */,
-				ABEBE5121C1B0E6900E320F2 /* SingUpViewController.swift */,
+				AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */,
+				ABEBE5121C1B0E6900E320F2 /* SignUpViewController.swift */,
 				ABEBE5141C1B0E7B00E320F2 /* ResetPasswordViewController.swift */,
 				30DDEEC41C3AF00A003BB707 /* OtherAssets */,
 			);
@@ -283,6 +286,7 @@
 				TargetAttributes = {
 					ABEBE4C11C1A00C500E320F2 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 9Z69644A6V;
 					};
 					ABEBE4D51C1A00C600E320F2 = {
 						CreatedOnToolsVersion = 7.2;
@@ -350,10 +354,11 @@
 				ABEBE50F1C1B0E3100E320F2 /* LoginViewController.swift in Sources */,
 				ABEBE4C81C1A00C500E320F2 /* ViewController.swift in Sources */,
 				30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */,
-				ABEBE5131C1B0E6900E320F2 /* SingUpViewController.swift in Sources */,
+				ABEBE5131C1B0E6900E320F2 /* SignUpViewController.swift in Sources */,
 				ABEBE5151C1B0E7B00E320F2 /* ResetPasswordViewController.swift in Sources */,
 				ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */,
 				ABEBE5111C1B0E5B00E320F2 /* HomeViewController.swift in Sources */,
+				AB593BDD1C3BDCD700650C80 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +441,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -475,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -487,6 +492,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -496,6 +503,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Aaik.Oosters.ShareIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -503,6 +511,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -512,6 +522,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Aaik.Oosters.ShareIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

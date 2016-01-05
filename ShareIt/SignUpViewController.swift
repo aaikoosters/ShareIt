@@ -9,11 +9,24 @@
 import UIKit
 import Parse
 
-class SingUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.emailField.delegate = self
+        self.usernameField.delegate = self
+        self.passwordField.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     @IBAction func signUpAction(sender: AnyObject) {
         
