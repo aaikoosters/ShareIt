@@ -9,10 +9,16 @@
 import UIKit
 import Parse
 
+//static color
+//{
+//    logoColor
+//}
+
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var viewContainer : UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +26,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.password.delegate = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //border color and roundness
+        viewContainer.layer.borderWidth = 2.0
+        
+
+        viewContainer.layer.borderColor = logoColor.redColor.CGColor
+        
+        viewContainer.layer.cornerRadius = 15
+        viewContainer.layer.masksToBounds = true
+        
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+
 
     @IBAction func loginButton(sender: AnyObject) {
         

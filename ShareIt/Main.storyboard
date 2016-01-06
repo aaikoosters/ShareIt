@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Reset Password View Controller-->
@@ -21,7 +22,7 @@
                                 <rect key="frame" x="165" y="127" width="270" height="346"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kkg-AR-t1r">
-                                        <rect key="frame" x="13" y="8" width="245" height="30"/>
+                                        <rect key="frame" x="20" y="20" width="230" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="I0k-90-9Cq"/>
                                             <constraint firstAttribute="width" constant="245" id="TT1-Ci-fz3"/>
@@ -39,7 +40,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGN-dH-fMV">
-                                        <rect key="frame" x="45" y="104" width="180" height="30"/>
+                                        <rect key="frame" x="45" y="116" width="180" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="9hE-qI-fU4"/>
                                             <constraint firstAttribute="width" constant="178" id="KAy-pI-f84"/>
@@ -62,7 +63,7 @@
                                         </connections>
                                     </button>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqB-l6-50s">
-                                        <rect key="frame" x="85" y="46" width="100" height="50"/>
+                                        <rect key="frame" x="85" y="58" width="100" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="CwD-gz-Fyp"/>
@@ -85,17 +86,17 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="gqB-l6-50s" firstAttribute="centerX" secondItem="hF5-3L-Fvb" secondAttribute="centerX" id="2nv-UG-YC8"/>
-                                    <constraint firstAttribute="trailing" secondItem="kkg-AR-t1r" secondAttribute="trailing" constant="12" id="6Ts-VV-dcT"/>
+                                    <constraint firstAttribute="trailing" secondItem="kkg-AR-t1r" secondAttribute="trailing" constant="20" symbolic="YES" id="6Ts-VV-dcT"/>
                                     <constraint firstItem="EGN-dH-fMV" firstAttribute="centerX" secondItem="kkg-AR-t1r" secondAttribute="centerX" constant="-0.5" id="7ZP-Gl-k48"/>
-                                    <constraint firstItem="gqB-l6-50s" firstAttribute="top" secondItem="kkg-AR-t1r" secondAttribute="bottom" constant="8" id="9WS-GH-Avq"/>
+                                    <constraint firstItem="gqB-l6-50s" firstAttribute="top" secondItem="kkg-AR-t1r" secondAttribute="bottom" constant="8" symbolic="YES" id="9WS-GH-Avq"/>
                                     <constraint firstItem="EGN-dH-fMV" firstAttribute="top" secondItem="gqB-l6-50s" secondAttribute="bottom" constant="8" id="RQC-ei-Pt0"/>
                                     <constraint firstAttribute="height" constant="346" id="T1c-WS-ena"/>
                                     <constraint firstItem="EGN-dH-fMV" firstAttribute="top" secondItem="kkg-AR-t1r" secondAttribute="bottom" constant="57" id="dlg-Pc-Vbc"/>
                                     <constraint firstItem="EGN-dH-fMV" firstAttribute="centerX" secondItem="hF5-3L-Fvb" secondAttribute="centerX" id="fV7-cs-hQa"/>
                                     <constraint firstAttribute="width" constant="270" id="kpZ-fq-aHX"/>
-                                    <constraint firstItem="kkg-AR-t1r" firstAttribute="top" secondItem="hF5-3L-Fvb" secondAttribute="top" constant="8" id="udE-54-U2L"/>
+                                    <constraint firstItem="kkg-AR-t1r" firstAttribute="top" secondItem="hF5-3L-Fvb" secondAttribute="top" constant="20" symbolic="YES" id="udE-54-U2L"/>
                                     <constraint firstItem="kkg-AR-t1r" firstAttribute="centerX" secondItem="hF5-3L-Fvb" secondAttribute="centerX" id="wRH-3q-9Y2"/>
-                                    <constraint firstItem="kkg-AR-t1r" firstAttribute="leading" secondItem="hF5-3L-Fvb" secondAttribute="leading" constant="13" id="xN7-aV-Hks"/>
+                                    <constraint firstItem="kkg-AR-t1r" firstAttribute="leading" secondItem="hF5-3L-Fvb" secondAttribute="leading" constant="20" symbolic="YES" id="xN7-aV-Hks"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -113,6 +114,7 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="kkg-AR-t1r" id="Mnb-Lm-xat"/>
+                        <outlet property="viewContainer" destination="hF5-3L-Fvb" id="7uu-bK-e7h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NG4-oL-4YQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -249,7 +251,7 @@
             </objects>
             <point key="canvasLocation" x="468" y="621"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="U56-pu-fWm">
             <objects>
                 <viewController storyboardIdentifier="Login" id="EAn-nz-Zos" customClass="LoginViewController" customModule="ShareIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -445,10 +447,11 @@
                             <constraint firstAttribute="centerX" secondItem="8ed-Ye-BFH" secondAttribute="centerX" id="dJv-Li-2Vt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FTz-bJ-7Ov"/>
+                    <navigationItem key="navigationItem" title="Login" id="FTz-bJ-7Ov"/>
                     <connections>
                         <outlet property="password" destination="sr2-Qf-iN0" id="2NE-Il-2tJ"/>
                         <outlet property="username" destination="eIn-wW-qg4" id="Q4q-O8-Q8x"/>
+                        <outlet property="viewContainer" destination="8ed-Ye-BFH" id="3mb-rA-T74"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mtc-BG-LEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -613,6 +616,7 @@
                         <outlet property="emailField" destination="UOz-tS-XVp" id="aWP-BS-HwV"/>
                         <outlet property="passwordField" destination="Jcj-sR-Vlo" id="wUS-gq-BkL"/>
                         <outlet property="usernameField" destination="4IT-7M-gza" id="sK4-QK-dlC"/>
+                        <outlet property="viewContainer" destination="QiR-tl-yjV" id="KHm-sF-8tN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kNV-FU-MXv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -659,7 +663,19 @@
                     <view key="view" contentMode="scaleToFill" id="fX2-gh-G2O">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rqo-iT-63e">
+                                <rect key="frame" x="180" y="72" width="240" height="205"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OTo-fg-56G" firstAttribute="top" secondItem="rqo-iT-63e" secondAttribute="bottom" constant="274" id="ifY-He-KqQ"/>
+                            <constraint firstItem="rqo-iT-63e" firstAttribute="centerX" secondItem="fX2-gh-G2O" secondAttribute="centerX" id="kW9-T4-aVa"/>
+                            <constraint firstItem="rqo-iT-63e" firstAttribute="leading" secondItem="fX2-gh-G2O" secondAttribute="leadingMargin" constant="160" id="sl7-fw-uYe"/>
+                            <constraint firstItem="rqo-iT-63e" firstAttribute="top" secondItem="ZDj-6b-hOj" secondAttribute="bottom" constant="8" id="vGc-Aj-AqZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rqo-iT-63e" secondAttribute="trailing" constant="160" id="zJ1-qv-aK0"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="MapView" id="VSp-oS-DzL"/>
                 </viewController>
@@ -931,7 +947,7 @@
         <!--Navigation Controller-->
         <scene sceneID="H0D-Fd-bSV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zOF-2z-0oi" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="zOF-2z-0oi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RYn-3U-HHN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

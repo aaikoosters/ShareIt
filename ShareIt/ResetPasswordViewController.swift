@@ -12,11 +12,27 @@ import Parse
 class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var viewContainer : UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.emailField.delegate = self
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //border color and roundness
+        viewContainer.layer.borderWidth = 2.0
+        
+        let red = UIColor(red: 252.0/255.0, green: 86.0/255.0, blue: 68.0/255.0, alpha: 1.0)
+        viewContainer.layer.borderColor = red.CGColor
+        
+        viewContainer.layer.cornerRadius = 15
+        viewContainer.layer.masksToBounds = true
+        
+    }
+
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
