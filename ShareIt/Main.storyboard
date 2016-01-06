@@ -626,7 +626,7 @@
         <!--Vriendenlijst-->
         <scene sceneID="zSp-Js-mc2">
             <objects>
-                <tableViewController title="Vriendenlijst" id="khY-a3-5qV" sceneMemberID="viewController">
+                <tableViewController title="Vriendenlijst" id="khY-a3-5qV" customClass="FriendListViewController" customModule="ShareIt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zKH-4a-cue">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -655,7 +655,7 @@
         <!--MapView-->
         <scene sceneID="FhC-QU-1vO">
             <objects>
-                <viewController storyboardIdentifier="MapView" title="MapView" id="bKz-8m-5SX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapView" title="MapView" id="bKz-8m-5SX" customClass="MapViewViewController" customModule="ShareIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZDj-6b-hOj"/>
                         <viewControllerLayoutGuide type="bottom" id="OTo-fg-56G"/>
@@ -665,19 +665,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rqo-iT-63e">
-                                <rect key="frame" x="180" y="72" width="240" height="205"/>
+                                <rect key="frame" x="20" y="72" width="560" height="210"/>
                             </mapView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ud7-9L-eEK">
+                                <rect key="frame" x="20" y="290" width="560" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0wM-RT-cPh"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="3WY-yk-rHf"/>
+                                    <constraint firstAttribute="width" constant="100" id="5NU-Vd-NpS"/>
+                                    <constraint firstAttribute="height" constant="20" id="bbw-o1-PuE"/>
+                                    <constraint firstAttribute="width" constant="100" id="ma3-x7-Yuh"/>
+                                    <constraint firstAttribute="height" constant="50" id="vEQ-W6-LnN"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="yPZ-OW-ifB"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0wM-RT-cPh"/>
+                                        <exclude reference="3WY-yk-rHf"/>
+                                        <exclude reference="5NU-Vd-NpS"/>
+                                        <exclude reference="ma3-x7-Yuh"/>
+                                        <exclude reference="vEQ-W6-LnN"/>
+                                        <exclude reference="yPZ-OW-ifB"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Ud7-9L-eEK" secondAttribute="leading" id="5fn-T0-WC0"/>
+                            <constraint firstItem="rqo-iT-63e" firstAttribute="centerX" secondItem="fX2-gh-G2O" secondAttribute="centerX" id="Mef-mK-rt7"/>
+                            <constraint firstItem="Ud7-9L-eEK" firstAttribute="top" secondItem="rqo-iT-63e" secondAttribute="bottom" constant="8" symbolic="YES" id="Rkg-R7-cco"/>
+                            <constraint firstItem="Ud7-9L-eEK" firstAttribute="centerX" secondItem="fX2-gh-G2O" secondAttribute="centerX" id="SKS-Hx-fB2"/>
+                            <constraint firstItem="Ud7-9L-eEK" firstAttribute="centerY" secondItem="fX2-gh-G2O" secondAttribute="centerY" id="YyL-AX-r7d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ud7-9L-eEK" secondAttribute="trailing" id="beE-Ye-bbc"/>
+                            <constraint firstItem="rqo-iT-63e" firstAttribute="top" secondItem="ZDj-6b-hOj" secondAttribute="bottom" constant="8" symbolic="YES" id="ckU-Ml-YFz"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="rqo-iT-63e" secondAttribute="leading" id="hfg-dk-iwg"/>
                             <constraint firstItem="OTo-fg-56G" firstAttribute="top" secondItem="rqo-iT-63e" secondAttribute="bottom" constant="274" id="ifY-He-KqQ"/>
                             <constraint firstItem="rqo-iT-63e" firstAttribute="centerX" secondItem="fX2-gh-G2O" secondAttribute="centerX" id="kW9-T4-aVa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rqo-iT-63e" secondAttribute="trailing" id="m1c-Xc-Xwy"/>
                             <constraint firstItem="rqo-iT-63e" firstAttribute="leading" secondItem="fX2-gh-G2O" secondAttribute="leadingMargin" constant="160" id="sl7-fw-uYe"/>
                             <constraint firstItem="rqo-iT-63e" firstAttribute="top" secondItem="ZDj-6b-hOj" secondAttribute="bottom" constant="8" id="vGc-Aj-AqZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rqo-iT-63e" secondAttribute="trailing" constant="160" id="zJ1-qv-aK0"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kW9-T4-aVa"/>
+                                <exclude reference="sl7-fw-uYe"/>
+                                <exclude reference="vGc-Aj-AqZ"/>
+                                <exclude reference="zJ1-qv-aK0"/>
+                                <exclude reference="ifY-He-KqQ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="MapView" id="VSp-oS-DzL"/>
+                    <connections>
+                        <outlet property="mapView" destination="rqo-iT-63e" id="Z4T-Is-fv6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7mQ-yu-CiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1010,10 +1054,10 @@
             </objects>
             <point key="canvasLocation" x="3734" y="649"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="nNX-mg-OTr">
             <objects>
-                <tabBarController restorationIdentifier="HomeTab" storyboardIdentifier="HomeTab" automaticallyAdjustsScrollViewInsets="NO" id="6bk-Tv-QFd" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="HomeTab" storyboardIdentifier="HomeTab" automaticallyAdjustsScrollViewInsets="NO" id="6bk-Tv-QFd" customClass="MainTabBarViewController" customModule="ShareIt" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ppA-ok-T8R"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Fyl-Bi-Cfx">
