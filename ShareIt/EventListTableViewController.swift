@@ -8,7 +8,20 @@
 
 import UIKit
 
+struct Evenemten {
+    let title: String
+    let date: String
+    let beschrijving: String
+}
+
 class EventListTableViewController: UITableViewController {
+    
+    var evenemt = [
+        Evenemten(title: "Event 1", date: "10-01-2016", beschrijving: "beschrijving bij event 1"),
+        Evenemten(title: "Event 2", date: "10-01-2016", beschrijving: "beschrijving bij event 1"),
+        Evenemten(title: "Event 3", date: "10-01-2016", beschrijving: "beschrijving bij event 1")
+        
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,25 +40,25 @@ class EventListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        print(evenemt.count, " <----- evenemtnen")
+        return evenemt.count
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
-        // Configure the cell...
-
-        return cell
+    override func tableView(tableView: UITableView,
+        cellForRowAtIndexPath indexPath: NSIndexPath)
+        -> UITableViewCell {
+            let cell = tableView.dequeueReusableCellWithIdentifier("CELL")!
+            cell.textLabel?.text = evenemt[indexPath.row].title
+            cell.detailTextLabel?.text = evenemt[indexPath.row].date
+            return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
