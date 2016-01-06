@@ -286,7 +286,7 @@
 				TargetAttributes = {
 					ABEBE4C11C1A00C500E320F2 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 9Z69644A6V;
+						DevelopmentTeam = CQQXXRYWW3;
 					};
 					ABEBE4D51C1A00C600E320F2 = {
 						CreatedOnToolsVersion = 7.2;
@@ -501,7 +501,7 @@
 				INFOPLIST_FILE = ShareIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Aaik.Oosters.ShareIt;
+				PRODUCT_BUNDLE_IDENTIFIER = hhs.groep10.ShareIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -520,7 +520,7 @@
 				INFOPLIST_FILE = ShareIt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Aaik.Oosters.ShareIt;
+				PRODUCT_BUNDLE_IDENTIFIER = hhs.groep10.ShareIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
