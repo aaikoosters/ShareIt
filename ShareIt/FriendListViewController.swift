@@ -10,6 +10,8 @@ import UIKit
 
 class FriendListViewController: UITableViewController
 {
+    var friendList = FriendList()
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         

@@ -12,6 +12,7 @@
 		307719111C3D468300469969 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307719101C3D468300469969 /* MapViewViewController.swift */; };
 		30DDEEC71C3AF1EE003BB707 /* logo200.png in Resources */ = {isa = PBXBuildFile; fileRef = 30DDEEC61C3AF1EE003BB707 /* logo200.png */; };
 		30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */; };
+		3FCDED051C3D6212004252C0 /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDED041C3D6212004252C0 /* FriendList.swift */; };
 		AB593BDD1C3BDCD700650C80 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */; };
 		ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */; };
 		ABEBE4C81C1A00C500E320F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE4C71C1A00C500E320F2 /* ViewController.swift */; };
@@ -61,6 +62,7 @@
 		307719101C3D468300469969 /* MapViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
 		30DDEEC61C3AF1EE003BB707 /* logo200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo200.png; sourceTree = "<group>"; };
 		30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLogoViewController.swift; sourceTree = "<group>"; };
+		3FCDED041C3D6212004252C0 /* FriendList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
 		AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ABEBE4C21C1A00C500E320F2 /* ShareIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				ABEBE5121C1B0E6900E320F2 /* SignUpViewController.swift */,
 				ABEBE5141C1B0E7B00E320F2 /* ResetPasswordViewController.swift */,
 				3077190C1C3D3E2400469969 /* FriendListViewController.swift */,
+				3FCDED041C3D6212004252C0 /* FriendList.swift */,
 				307719101C3D468300469969 /* MapViewViewController.swift */,
 				3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */,
 				30DDEEC41C3AF00A003BB707 /* OtherAssets */,
@@ -371,6 +374,7 @@
 				ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */,
 				ABEBE5111C1B0E5B00E320F2 /* HomeViewController.swift in Sources */,
 				AB593BDD1C3BDCD700650C80 /* SettingsViewController.swift in Sources */,
+				3FCDED051C3D6212004252C0 /* FriendList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
