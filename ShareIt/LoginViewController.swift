@@ -72,7 +72,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 alert.show()
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("navHome") as UIViewController
+                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HomeTab") as UIViewController
+                    
+                    viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
                     self.presentViewController(viewController, animated: true, completion: nil)
                 })
                 
