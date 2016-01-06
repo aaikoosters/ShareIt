@@ -19,7 +19,7 @@ class MainLogoViewController: UIViewController
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
 //        self.navigationItem.title = "Home"
 //        if (PFUser.currentUser() == nil) {
 //            dispatch_async(dispatch_get_main_queue(), { () -> Void in
