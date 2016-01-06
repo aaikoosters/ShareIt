@@ -14,7 +14,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView : MKMapView!{
         didSet {
             mapView.delegate = self
-            mapView.mapType = .Satellite
+            mapView.mapType = .Standard
 
         }
     }

@@ -17,6 +17,13 @@ class MainTabBarViewController: UITabBarController
         self.tabBar.tintColor = UIColor.whiteColor()
         
         
+        //images in tabbar items
+        for controller in self.viewControllers!
+        {
+            controller.tabBarItem.image = UIImage(named: "message")
+        }
+
+        
         
     }
     

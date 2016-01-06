@@ -10,6 +10,9 @@
 		3077190D1C3D3E2400469969 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077190C1C3D3E2400469969 /* FriendListViewController.swift */; };
 		3077190F1C3D3EF400469969 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */; };
 		307719111C3D468300469969 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307719101C3D468300469969 /* MapViewViewController.swift */; };
+		307719131C3D740600469969 /* idea.txt in Resources */ = {isa = PBXBuildFile; fileRef = 307719121C3D740600469969 /* idea.txt */; };
+		3077191C1C3D7A7800469969 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 3077191A1C3D7A7800469969 /* message.png */; };
+		3077191D1C3D7A7800469969 /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3077191B1C3D7A7800469969 /* message@2x.png */; };
 		30DDEEC71C3AF1EE003BB707 /* logo200.png in Resources */ = {isa = PBXBuildFile; fileRef = 30DDEEC61C3AF1EE003BB707 /* logo200.png */; };
 		30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */; };
 		3FCDED051C3D6212004252C0 /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDED041C3D6212004252C0 /* FriendList.swift */; };
@@ -60,6 +63,9 @@
 		3077190C1C3D3E2400469969 /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		307719101C3D468300469969 /* MapViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
+		307719121C3D740600469969 /* idea.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = idea.txt; sourceTree = "<group>"; };
+		3077191A1C3D7A7800469969 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		3077191B1C3D7A7800469969 /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
 		30DDEEC61C3AF1EE003BB707 /* logo200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo200.png; sourceTree = "<group>"; };
 		30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLogoViewController.swift; sourceTree = "<group>"; };
 		3FCDED041C3D6212004252C0 /* FriendList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
@@ -147,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				30DDEEC61C3AF1EE003BB707 /* logo200.png */,
+				3077191A1C3D7A7800469969 /* message.png */,
+				3077191B1C3D7A7800469969 /* message@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 				3FCDED041C3D6212004252C0 /* FriendList.swift */,
 				307719101C3D468300469969 /* MapViewViewController.swift */,
 				3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */,
+				307719121C3D740600469969 /* idea.txt */,
 				30DDEEC41C3AF00A003BB707 /* OtherAssets */,
 			);
 			path = ShareIt;
@@ -338,7 +347,10 @@
 				ABEBE50D1C1AC5E900E320F2 /* Main.storyboard in Resources */,
 				30DDEEC71C3AF1EE003BB707 /* logo200.png in Resources */,
 				ABEBE4D01C1A00C500E320F2 /* LaunchScreen.storyboard in Resources */,
+				3077191D1C3D7A7800469969 /* message@2x.png in Resources */,
 				ABEBE4CD1C1A00C500E320F2 /* Assets.xcassets in Resources */,
+				307719131C3D740600469969 /* idea.txt in Resources */,
+				3077191C1C3D7A7800469969 /* message.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
