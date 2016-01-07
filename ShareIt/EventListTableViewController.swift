@@ -47,7 +47,8 @@ class EventListTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(evenemt.count, " <----- evenemtnen")
-        return evenemt.count
+//        return evenemt.count
+        return 0
     }
 
 
