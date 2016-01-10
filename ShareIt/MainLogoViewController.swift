@@ -35,18 +35,14 @@ class MainLogoViewController: UIViewController
         //title font color and size
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         
-        
-
-        
-        
-//        self.navigationItem.title = "Home"
-//        if (PFUser.currentUser() == nil) {
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                
-//                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
-//                self.presentViewController(viewController, animated: true, completion: nil)
-//            })
-//        }
+        self.navigationItem.title = "Home"
+        if (PFUser.currentUser() != nil) {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                
+                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HomeTab")
+                self.presentViewController(viewController, animated: true, completion: nil)
+            })
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {

@@ -1,5 +1,5 @@
-
-
-
+inlog bug (inloggen loading bar, en dus niet meer klikken op inloggen) -> zelfde geld voor registratie en wachtwoord vergeten
 
 status bar appearance white
+
+Design table niet in de boven kant zitten

@@ -195,13 +195,13 @@
 		ABEBE4C41C1A00C500E320F2 /* ShareIt */ = {
 			isa = PBXGroup;
 			children = (
+				ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */,
 				ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */,
 				30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */,
 				ABEBE4C71C1A00C500E320F2 /* ViewController.swift */,
 				AB593BEC1C3D943100650C80 /* EventSeeViewController.swift */,
 				AB593BEE1C3D943C00650C80 /* EventMakeViewController.swift */,
 				AB593BF01C3D944F00650C80 /* EventListTableViewController.swift */,
-				ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */,
 				ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */,
 				ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */,
 				AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */,
@@ -322,7 +322,7 @@
 				TargetAttributes = {
 					ABEBE4C11C1A00C500E320F2 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = CQQXXRYWW3;
+						DevelopmentTeam = 9Z69644A6V;
 					};
 					ABEBE4D51C1A00C600E320F2 = {
 						CreatedOnToolsVersion = 7.2;
