@@ -24,15 +24,14 @@ class ContentLoader
             
             if error == nil
             {
-                // Do something with the found objects
-                if let objects = objects {
-                    for object in objects {
-                        
+                if let objects = objects
+                {
+                    for object in objects
+                    {
                         if let message = object as? Message
                         {
                             self.messages.append(message)
                         }
-
                     }
                 }
                 
