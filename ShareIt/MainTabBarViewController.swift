@@ -12,7 +12,7 @@ class MainTabBarViewController: UITabBarController
 {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBar.barTintColor = logoColor.greyColor
+        self.tabBar.barTintColor = UIAssets.logoColor.greyColor
         self.tabBar.translucent = false
         self.tabBar.tintColor = UIColor.whiteColor()
         

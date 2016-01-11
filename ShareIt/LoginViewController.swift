@@ -33,7 +33,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         viewContainer.layer.borderWidth = 2.0
         
 
-        viewContainer.layer.borderColor = logoColor.redColor.CGColor
+        viewContainer.layer.borderColor = UIAssets.logoColor.redColor.CGColor
         
         viewContainer.layer.cornerRadius = 15
         viewContainer.layer.masksToBounds = true
@@ -61,8 +61,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
         spinner.startAnimating()
         
+            
         // Send a request to login
-        PFUser.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
+        User.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
             
             // Stop the spinner
             spinner.stopAnimating()

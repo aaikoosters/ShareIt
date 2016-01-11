@@ -15,6 +15,7 @@ class MapViewViewController: UIViewController, MKMapViewDelegate {
         didSet {
             mapView.delegate = self
             mapView.mapType = .Standard
+            mapView.showsUserLocation = true
 
         }
     }

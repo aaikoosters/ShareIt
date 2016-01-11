@@ -16,7 +16,7 @@ class FriendListViewController: UITableViewController
         super.viewWillAppear(animated)
         
         //navigation bar color
-        self.navigationController?.navigationBar.barTintColor = logoColor.redColor
+        self.navigationController?.navigationBar.barTintColor = UIAssets.logoColor.redColor
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         

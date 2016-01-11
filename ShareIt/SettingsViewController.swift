@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController {
     @IBAction func logoutButton(sender: AnyObject) {
         
         // Send a request to log out a user
-        PFUser.logOut()
+        User.logOut()
         
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainNavigationController") as UIViewController

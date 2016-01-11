@@ -983,8 +983,17 @@
                                     <segue destination="dvG-nJ-ce7" kind="show" id="YXu-6H-qK6"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bOm-sE-aaF">
+                                <rect key="frame" x="20" y="72" width="560" height="471"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bOm-sE-aaF" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="1L4-GJ-Boz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bOm-sE-aaF" secondAttribute="trailing" id="LF7-vo-UGg"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="bOm-sE-aaF" secondAttribute="leading" id="LPK-ir-YNx"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bOm-sE-aaF" secondAttribute="bottom" constant="8" symbolic="YES" id="ejW-PK-SZT"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="MQh-OI-Cu8"/>
@@ -999,6 +1008,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="bOm-sE-aaF" id="Cho-eq-Xvl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
