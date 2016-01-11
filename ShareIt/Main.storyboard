@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zOF-2z-0oi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zOF-2z-0oi">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -345,15 +345,6 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bar" translatesAutoresizingMaskIntoConstraints="NO" id="zJD-a7-y8O">
-                                        <rect key="frame" x="0.0" y="284" width="270" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="Iuk-Pc-CrK"/>
-                                            <constraint firstAttribute="width" constant="270" id="Ux0-EW-CYW"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Zl5-zD-Af2"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="ojT-AX-94D"/>
-                                        </constraints>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGv-H4-2DO">
                                         <rect key="frame" x="70" y="154" width="130" height="50"/>
                                         <constraints>
@@ -389,7 +380,6 @@
                                     <constraint firstItem="sr2-Qf-iN0" firstAttribute="top" secondItem="eIn-wW-qg4" secondAttribute="bottom" constant="23" id="B4D-3c-sd8"/>
                                     <constraint firstItem="sr2-Qf-iN0" firstAttribute="leading" secondItem="8ed-Ye-BFH" secondAttribute="leading" constant="20" symbolic="YES" id="BfM-1h-Yh1"/>
                                     <constraint firstAttribute="centerX" secondItem="sr2-Qf-iN0" secondAttribute="centerX" id="C6k-p0-rLx"/>
-                                    <constraint firstAttribute="centerX" secondItem="zJD-a7-y8O" secondAttribute="centerX" id="CK3-3W-P9o"/>
                                     <constraint firstItem="eIn-wW-qg4" firstAttribute="centerX" secondItem="8ed-Ye-BFH" secondAttribute="centerX" id="HXR-wz-xrg"/>
                                     <constraint firstItem="sr2-Qf-iN0" firstAttribute="leading" secondItem="8ed-Ye-BFH" secondAttribute="leading" constant="13" id="JLz-iH-4te"/>
                                     <constraint firstItem="sr2-Qf-iN0" firstAttribute="top" secondItem="eIn-wW-qg4" secondAttribute="bottom" constant="8" symbolic="YES" id="MJ5-K0-wsq"/>
@@ -410,10 +400,8 @@
                                     <constraint firstAttribute="centerX" secondItem="fpE-ed-7RH" secondAttribute="centerX" id="mRR-C1-qyz"/>
                                     <constraint firstItem="sr2-Qf-iN0" firstAttribute="centerX" secondItem="8ed-Ye-BFH" secondAttribute="centerX" id="oqM-99-eC0"/>
                                     <constraint firstItem="EGv-H4-2DO" firstAttribute="top" secondItem="dMo-KG-3q3" secondAttribute="bottom" constant="8" symbolic="YES" id="pvL-dv-30B"/>
-                                    <constraint firstItem="zJD-a7-y8O" firstAttribute="top" secondItem="fpE-ed-7RH" secondAttribute="bottom" constant="-2" id="qn2-hP-fmx"/>
                                     <constraint firstAttribute="trailing" secondItem="eIn-wW-qg4" secondAttribute="trailing" constant="20" symbolic="YES" id="rfJ-sg-yJY"/>
                                     <constraint firstItem="fpE-ed-7RH" firstAttribute="centerX" secondItem="8ed-Ye-BFH" secondAttribute="centerX" id="sAG-aI-ocf"/>
-                                    <constraint firstItem="zJD-a7-y8O" firstAttribute="top" secondItem="fpE-ed-7RH" secondAttribute="bottom" constant="-8" id="sYS-Jy-mdw"/>
                                     <constraint firstItem="EGv-H4-2DO" firstAttribute="centerX" secondItem="8ed-Ye-BFH" secondAttribute="centerX" id="uvT-m3-s28"/>
                                     <constraint firstItem="eIn-wW-qg4" firstAttribute="centerX" secondItem="8ed-Ye-BFH" secondAttribute="centerX" id="xEa-7P-Alr"/>
                                 </constraints>
@@ -435,8 +423,6 @@
                                         <exclude reference="Zo9-eV-90v"/>
                                         <exclude reference="mRR-C1-qyz"/>
                                         <exclude reference="sAG-aI-ocf"/>
-                                        <exclude reference="qn2-hP-fmx"/>
-                                        <exclude reference="sYS-Jy-mdw"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1111,7 +1097,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bar" width="300" height="20"/>
         <image name="logo200.png" width="200" height="200"/>
         <image name="settings" width="30" height="30"/>
         <image name="user" width="126" height="126"/>
