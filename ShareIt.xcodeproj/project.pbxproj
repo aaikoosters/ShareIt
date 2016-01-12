@@ -27,7 +27,7 @@
 		30F2DF8C1C4415180051F7D6 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2DF8B1C4415180051F7D6 /* ContentLoader.swift */; };
 		3FCDED051C3D6212004252C0 /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDED041C3D6212004252C0 /* FriendList.swift */; };
 		AB593BDD1C3BDCD700650C80 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */; };
-		AB593BED1C3D943100650C80 /* EventSeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BEC1C3D943100650C80 /* EventSeeViewController.swift */; };
+		AB593BED1C3D943100650C80 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BEC1C3D943100650C80 /* EventDetailViewController.swift */; };
 		AB593BEF1C3D943C00650C80 /* EventMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BEE1C3D943C00650C80 /* EventMakeViewController.swift */; };
 		AB593BF11C3D944F00650C80 /* EventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BF01C3D944F00650C80 /* EventListTableViewController.swift */; };
 		ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */; };
@@ -92,7 +92,7 @@
 		30F2DF8B1C4415180051F7D6 /* ContentLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
 		3FCDED041C3D6212004252C0 /* FriendList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
 		AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		AB593BEC1C3D943100650C80 /* EventSeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSeeViewController.swift; sourceTree = "<group>"; };
+		AB593BEC1C3D943100650C80 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		AB593BEE1C3D943C00650C80 /* EventMakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMakeViewController.swift; sourceTree = "<group>"; };
 		AB593BF01C3D944F00650C80 /* EventListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListTableViewController.swift; sourceTree = "<group>"; };
 		ABEBE4C21C1A00C500E320F2 /* ShareIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,7 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */,
-				AB593BEC1C3D943100650C80 /* EventSeeViewController.swift */,
+				AB593BEC1C3D943100650C80 /* EventDetailViewController.swift */,
 				AB593BEE1C3D943C00650C80 /* EventMakeViewController.swift */,
 				AB593BF01C3D944F00650C80 /* EventListTableViewController.swift */,
 				ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */,
@@ -438,7 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABEBE50F1C1B0E3100E320F2 /* LoginViewController.swift in Sources */,
-				AB593BED1C3D943100650C80 /* EventSeeViewController.swift in Sources */,
+				AB593BED1C3D943100650C80 /* EventDetailViewController.swift in Sources */,
 				3077190D1C3D3E2400469969 /* FriendListViewController.swift in Sources */,
 				30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */,
 				30F2DF8C1C4415180051F7D6 /* ContentLoader.swift in Sources */,

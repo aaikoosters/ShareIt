@@ -34,8 +34,7 @@ class Message : PFObject, PFSubclassing
         return "Message"
     }
     
-        
-        
+
 //        func iconView() -> UIImageView
 //        {
 //            let view = PFImageView(imageView: PlaceholderImage)
@@ -43,51 +42,8 @@ class Message : PFObject, PFSubclassing
 //            view.loadInBackground()
 //            return view
 //        }
-
-    
-//    func fetchTest()
-//    {
-//        let query = PFQuery(className:"Message")
-////        query.whereKey("playerName", equalTo:"Sean Plott")
-//        query.findObjectsInBackgroundWithBlock {
-//        (objects: [PFObject]?, error: NSError?) -> Void in
-//        
-//        if error == nil {
-//        // The find succeeded.
-//        print("Successfully retrieved \(objects!.count) scores.")
-//        // Do something with the found objects
-//        if let objects = objects {
-//        for object in objects {
-//        print(object.objectId)
-//        }
-//        }
-//        } else {
-//        // Log details of the failure
-//        print("Error: \(error!) \(error!.userInfo)")
-//        }
-//        }
-//        
-//        
-//
-//        //subclass queries
-//        let query = Armor.query()
-//        query.whereKey("rupees", lessThanOrEqualTo: PFUser.currentUser()["rupees"])
-//        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
-//            if error == nil {
-//                if let objects = objects as? [Armor], firstArmor = objects.first {
-//                    //...
-//                }
-//            }
-//        }
-//
-//    }
 }
 
-//do {
-//}
-//catch {
-//    print("Error")
-//}
 
 
 
