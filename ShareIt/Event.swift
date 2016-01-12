@@ -13,6 +13,7 @@ class Event : PFObject, PFSubclassing
 {
     @NSManaged var content: String
     @NSManaged var position: PFGeoPoint
+    @NSManaged var startDate: NSDate
     
     @NSManaged var imageFile: PFFile
     

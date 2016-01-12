@@ -93,5 +93,5 @@ class Message : PFObject, PFSubclassing
 
 //let message = Message()
 //message.Content = "test"
-//message.User = "cdvfewf232"
+//message.User = User.getCurrentUser()?.objectId
 //message.saveInBackground()
