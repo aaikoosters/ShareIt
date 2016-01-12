@@ -3,3 +3,20 @@ inlog bug (inloggen loading bar, en dus niet meer klikken op inloggen) -> zelfde
 status bar appearance white
 
 Design table niet in de boven kant zitten
+
+--
+wanneer je de applicatie opend kan er in homeLogo komt dan in viewWilAppear checken nieuw bericht met vorige inlog tijd om te kunnen controleren of de mesasges al een keer gezien zijn
+
+--
+private en public events
+--
+vrienden toevoegen aan event en opzoeken
+--
+events die zijn geweest niet meer laten zien op de kaart
+bij event dus ook begin en eind datum
+--
+mogelijk later als er tijd over is fb implementatie goo.gl/VuX49W
+--
+vrienden toevoegen met bevesting (could have)
+--
+
