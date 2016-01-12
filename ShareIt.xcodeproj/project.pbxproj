@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300875511C45414000278850 /* CoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300875501C45414000278850 /* CoreLocation.swift */; };
 		3077190D1C3D3E2400469969 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077190C1C3D3E2400469969 /* FriendListViewController.swift */; };
 		3077190F1C3D3EF400469969 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */; };
 		307719111C3D468300469969 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307719101C3D468300469969 /* MapViewViewController.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		300875501C45414000278850 /* CoreLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocation.swift; sourceTree = "<group>"; };
 		3077190C1C3D3E2400469969 /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		307719101C3D468300469969 /* MapViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				30F2DF871C440B220051F7D6 /* AnnotationPin.swift */,
+				300875501C45414000278850 /* CoreLocation.swift */,
 				30F2DF891C4411F00051F7D6 /* Annotation.swift */,
 			);
 			name = MapClasses;
@@ -438,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABEBE50F1C1B0E3100E320F2 /* LoginViewController.swift in Sources */,
+				300875511C45414000278850 /* CoreLocation.swift in Sources */,
 				AB593BED1C3D943100650C80 /* EventDetailViewController.swift in Sources */,
 				3077190D1C3D3E2400469969 /* FriendListViewController.swift in Sources */,
 				30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */,

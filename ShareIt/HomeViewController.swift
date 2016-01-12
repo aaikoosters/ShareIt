@@ -13,13 +13,9 @@ class HomeViewController: UIViewController, MKMapViewDelegate
 {
 
     var loader = ContentLoader()
-    {
-        didSet
-        {
-            
-        }
-    }
     
+    let coreLocation = CoreLocation()
+
     
     override func viewDidLoad()
     {
@@ -38,10 +34,86 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         loader.loadAllMessages({
-            messages in self.addPointsToMap(messages)
+            messages in
+            dispatch_async(dispatch_get_main_queue(),{
+                    self.addPointsToMap(messages)
+            })
+
         })
 
     }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        print( (coreLocation.currentLocation.timestamp))
+        
+        switch CLLocationManager.authorizationStatus()
+        {
+        case .AuthorizedAlways, .AuthorizedWhenInUse:
+            // ...
+            break
+        case .NotDetermined:
+            coreLocation.manager.requestWhenInUseAuthorization()
+        case .Restricted, .Denied:
+            let alertController = UIAlertController(
+                title: "Location Access Disabled",
+                message: "Please open this app's settings and set location access to 'When in use'.",
+                preferredStyle: .Alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            
+            let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
+                if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            alertController.addAction(openAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+
+        coreLocation.loadCurrentLocation({
+            location in
+            
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                let region = MKCoordinateRegionMakeWithDistance(
+                    location.coordinate, 2000, 2000)
+                self.mapView?.setRegion(region, animated: true)
+            })
+        })
+        
+
+    }
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
+    {
+        dispatch_async(dispatch_get_main_queue(),{
+            
+            //let region = MKCoordinateRegionMakeWithDistance(
+               // self.coreLocation.currentLocation.coordinate, 2000, 2000)
+            //self.mapView.setRegion(region, animated: true)
+            struct Static
+            {
+                static var onceToken : dispatch_once_t = 0;
+            }
+            dispatch_once(&Static.onceToken)
+            {
+                self.mapView?.setCenterCoordinate(self.coreLocation.currentLocation.coordinate, animated: true)
+            }
+
+        })
+
+    }
+    
+    
+    
+    
+    
     override func viewWillDisappear(animated: Bool) {
        // self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewWillDisappear(animated)
@@ -60,7 +132,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     {
         
         mapView.addAnnotations(anotations)
-        mapView.showAnnotations(anotations, animated: true)
+        //mapView.showAnnotations(anotations, animated: true)
         
     }
 
