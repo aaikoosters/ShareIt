@@ -20,7 +20,12 @@ class MainTabBarViewController: UITabBarController
         //images in tabbar items
         for controller in self.viewControllers!
         {
-            controller.tabBarItem.image = UIImage(named: "message")
+            controller.tabBarItem.image = UIImage(named: "message")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+            controller.tabBarItem.selectedImage = UIImage(named: "messageRed")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+             UITabBar.appearance().tintColor = UIAssets.logoColor.redColor
+            
+            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIAssets.logoColor.redColor], forState:.Selected)
+            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
         }
 
         

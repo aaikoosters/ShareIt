@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		300875511C45414000278850 /* CoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300875501C45414000278850 /* CoreLocation.swift */; };
+		30238F001C4577F9009D026D /* FriendsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30238EFF1C4577F9009D026D /* FriendsSearchViewController.swift */; };
+		30238F021C4581C7009D026D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30238F011C4581C7009D026D /* PostViewController.swift */; };
+		30238F051C458425009D026D /* messageRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 30238F031C458425009D026D /* messageRed.png */; };
+		30238F061C458425009D026D /* messageRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30238F041C458425009D026D /* messageRed@2x.png */; };
+		3024C7441C45983A0087F424 /* ContentLoaderUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024C7431C45983A0087F424 /* ContentLoaderUser.swift */; };
 		3077190D1C3D3E2400469969 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077190C1C3D3E2400469969 /* FriendListViewController.swift */; };
 		3077190F1C3D3EF400469969 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */; };
 		307719111C3D468300469969 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307719101C3D468300469969 /* MapViewViewController.swift */; };
@@ -74,6 +79,11 @@
 
 /* Begin PBXFileReference section */
 		300875501C45414000278850 /* CoreLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreLocation.swift; sourceTree = "<group>"; };
+		30238EFF1C4577F9009D026D /* FriendsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsSearchViewController.swift; sourceTree = "<group>"; };
+		30238F011C4581C7009D026D /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		30238F031C458425009D026D /* messageRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageRed.png; sourceTree = "<group>"; };
+		30238F041C458425009D026D /* messageRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageRed@2x.png"; sourceTree = "<group>"; };
+		3024C7431C45983A0087F424 /* ContentLoaderUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentLoaderUser.swift; sourceTree = "<group>"; };
 		3077190C1C3D3E2400469969 /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		307719101C3D468300469969 /* MapViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +174,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30238EFE1C4577A9009D026D /* FriendsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3077190C1C3D3E2400469969 /* FriendListViewController.swift */,
+				30238EFF1C4577F9009D026D /* FriendsSearchViewController.swift */,
+			);
+			name = FriendsViewControllers;
+			sourceTree = "<group>";
+		};
 		30DDEEC41C3AF00A003BB707 /* OtherAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +200,8 @@
 			children = (
 				30DDEEC61C3AF1EE003BB707 /* logo200.png */,
 				3077191A1C3D7A7800469969 /* message.png */,
+				30238F031C458425009D026D /* messageRed.png */,
+				30238F041C458425009D026D /* messageRed@2x.png */,
 				3077191B1C3D7A7800469969 /* message@2x.png */,
 				3077191F1C3D7FD100469969 /* settings.png */,
 				307719201C3D7FD100469969 /* settings@2x.png */,
@@ -200,9 +221,10 @@
 				ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */,
 				ABEBE5121C1B0E6900E320F2 /* SignUpViewController.swift */,
 				ABEBE5141C1B0E7B00E320F2 /* ResetPasswordViewController.swift */,
-				3077190C1C3D3E2400469969 /* FriendListViewController.swift */,
 				307719101C3D468300469969 /* MapViewViewController.swift */,
 				3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */,
+				30238F011C4581C7009D026D /* PostViewController.swift */,
+				30238EFE1C4577A9009D026D /* FriendsViewControllers */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -216,6 +238,7 @@
 				30F2DF841C4408F10051F7D6 /* Event.swift */,
 				30F2DF7E1C43FE1C0051F7D6 /* UserHandler.swift */,
 				30F2DF8B1C4415180051F7D6 /* ContentLoader.swift */,
+				3024C7431C45983A0087F424 /* ContentLoaderUser.swift */,
 			);
 			name = ParseBackEnd;
 			sourceTree = "<group>";
@@ -407,6 +430,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30238F061C458425009D026D /* messageRed@2x.png in Resources */,
 				307719211C3D7FD100469969 /* settings.png in Resources */,
 				307719221C3D7FD100469969 /* settings@2x.png in Resources */,
 				ABEBE50D1C1AC5E900E320F2 /* Main.storyboard in Resources */,
@@ -414,6 +438,7 @@
 				ABEBE4D01C1A00C500E320F2 /* LaunchScreen.storyboard in Resources */,
 				3077191D1C3D7A7800469969 /* message@2x.png in Resources */,
 				ABEBE4CD1C1A00C500E320F2 /* Assets.xcassets in Resources */,
+				30238F051C458425009D026D /* messageRed.png in Resources */,
 				307719131C3D740600469969 /* idea.txt in Resources */,
 				3077191C1C3D7A7800469969 /* message.png in Resources */,
 			);
@@ -443,7 +468,10 @@
 				ABEBE50F1C1B0E3100E320F2 /* LoginViewController.swift in Sources */,
 				300875511C45414000278850 /* CoreLocation.swift in Sources */,
 				AB593BED1C3D943100650C80 /* EventDetailViewController.swift in Sources */,
+				3024C7441C45983A0087F424 /* ContentLoaderUser.swift in Sources */,
 				3077190D1C3D3E2400469969 /* FriendListViewController.swift in Sources */,
+				30238F021C4581C7009D026D /* PostViewController.swift in Sources */,
+				30238F001C4577F9009D026D /* FriendsSearchViewController.swift in Sources */,
 				30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */,
 				30F2DF8C1C4415180051F7D6 /* ContentLoader.swift in Sources */,
 				30F2DF7F1C43FE1C0051F7D6 /* UserHandler.swift in Sources */,

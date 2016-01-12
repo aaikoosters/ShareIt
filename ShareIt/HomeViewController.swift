@@ -15,6 +15,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     var loader = ContentLoader()
     
     let coreLocation = CoreLocation()
+    
+    var didCheckPos = false
 
     
     override func viewDidLoad()
@@ -30,6 +32,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         //title font color and size
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         
@@ -40,19 +44,26 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             })
 
         })
-
+        
+        coreLocation.loadCurrentLocation({
+            location in
+            
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    let region = MKCoordinateRegionMakeWithDistance(
+                        location.coordinate, 2000, 2000)
+                    self.mapView?.setRegion(region, animated: true)
+            })
+        })
     }
     
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
         
-        print( (coreLocation.currentLocation.timestamp))
-        
         switch CLLocationManager.authorizationStatus()
         {
         case .AuthorizedAlways, .AuthorizedWhenInUse:
-            // ...
             break
         case .NotDetermined:
             coreLocation.manager.requestWhenInUseAuthorization()
@@ -74,50 +85,33 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             
             self.presentViewController(alertController, animated: true, completion: nil)
         }
-        
-
-        coreLocation.loadCurrentLocation({
-            location in
-            
-            dispatch_async(dispatch_get_main_queue(),
-                {
-                let region = MKCoordinateRegionMakeWithDistance(
-                    location.coordinate, 2000, 2000)
-                self.mapView?.setRegion(region, animated: true)
-            })
-        })
-        
-
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
     {
         dispatch_async(dispatch_get_main_queue(),{
             
-            //let region = MKCoordinateRegionMakeWithDistance(
-               // self.coreLocation.currentLocation.coordinate, 2000, 2000)
-            //self.mapView.setRegion(region, animated: true)
-            struct Static
-            {
-                static var onceToken : dispatch_once_t = 0;
-            }
-            dispatch_once(&Static.onceToken)
+//            let region = MKCoordinateRegionMakeWithDistance(
+//                self.coreLocation.currentLocation.coordinate, 2000, 2000)
+//            self.mapView.setRegion(region, animated: true)
+            if (self.didCheckPos == false)
             {
                 self.mapView?.setCenterCoordinate(self.coreLocation.currentLocation.coordinate, animated: true)
+                self.didCheckPos = true
             }
+            
 
         })
 
     }
     
     
-    
-    
-    
+
     override func viewWillDisappear(animated: Bool) {
        // self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewWillDisappear(animated)
     }
+    
     
     @IBOutlet weak var mapView : MKMapView!{
         didSet {
@@ -130,10 +124,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate
 
     func addPointsToMap( anotations : [Message])
     {
-        
         mapView.addAnnotations(anotations)
         //mapView.showAnnotations(anotations, animated: true)
-        
     }
 
     

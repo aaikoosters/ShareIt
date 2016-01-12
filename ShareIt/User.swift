@@ -15,6 +15,13 @@ class User  : PFUser
     @NSManaged var surname: String?
     @NSManaged var phoneNumber: String?
     
+    
+    
+    static func Username() -> String
+    {
+        return "username"
+    }
+    
     override class func initialize()
     {
         struct Static

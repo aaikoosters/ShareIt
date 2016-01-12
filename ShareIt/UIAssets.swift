@@ -13,6 +13,6 @@ class UIAssets
     struct logoColor
     {
         static var redColor =  UIColor(red: 251.0/255.0, green: 78.0/255.0, blue: 77.0/255.0, alpha: 1.0)
-        static var greyColor =  UIColor(red: 126.0/255.0, green: 43.0/255.0, blue: 34.0/255.0, alpha: 1.0)
+        static var greyColor =  UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 1.0)
     }
 }

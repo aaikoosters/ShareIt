@@ -12,6 +12,8 @@ import Parse
 
 class UserHandler
 {
+
+
     class func isUserLoggedIn() -> Bool
     {
         if(User.currentUser() == nil)

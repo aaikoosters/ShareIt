@@ -28,6 +28,8 @@ class MainLogoViewController: UIViewController
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
+        UIApplication.sharedApplication().statusBarStyle = .Default
+        
         //title font color and size
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         
