@@ -7,11 +7,34 @@
 //
 
 import UIKit
+import Parse
 
 class EventMakeViewController: UIViewController {
 
+    @IBOutlet weak var content: UITextView!
+    @IBOutlet weak var nameEvent: UITextField!
+    @IBOutlet weak var geoLocation: UITextField!
+    @IBOutlet weak var geoLocationTwo: UITextField!
+    @IBOutlet weak var endDate: UITextField!
+    @IBOutlet weak var startDate: UITextField!
+    
+    let event = Event()
+    
+    @IBAction func saveEvent(sender: AnyObject) {
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+//        let date = dateFormatter.dateFromString(startDate.text!)
+        
+        event.startDate = dateFormatter.dateFromString(startDate.text!)!
+        event.endDate = dateFormatter.dateFromString(endDate.text!)!
+//        event.position
+        event.content = content.text!
+        event.saveInBackground()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
