@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zOF-2z-0oi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zOF-2z-0oi">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -622,7 +622,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CSW-n2-2Qp" id="YD7-K9-yJ7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -734,7 +734,6 @@
         <!--EvenementenLijst-->
         <scene sceneID="QCG-EN-oVp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xzU-6j-82O" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController title="EvenementenLijst" id="bK2-U5-h7y" customClass="EventListTableViewController" customModule="ShareIt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ss8-iw-ajO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -751,7 +750,7 @@
                                 <rect key="frame" x="0.0" y="58" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Ij-gm-dVG" id="HH4-FI-Ufx">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JZ1-ZU-ZWv">
@@ -786,6 +785,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Events" id="Zqe-dA-Wzs"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xzU-6j-82O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4988" y="1579"/>
         </scene>
@@ -984,20 +984,30 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bOm-sE-aaF">
-                                <rect key="frame" x="20" y="72" width="560" height="471"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bOm-sE-aaF" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="1L4-GJ-Boz"/>
+                            <constraint firstItem="bOm-sE-aaF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Hig-Qr-ONF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bOm-sE-aaF" secondAttribute="trailing" id="LF7-vo-UGg"/>
+                            <constraint firstItem="bOm-sE-aaF" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="LKq-tb-qQu"/>
                             <constraint firstAttribute="leadingMargin" secondItem="bOm-sE-aaF" secondAttribute="leading" id="LPK-ir-YNx"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bOm-sE-aaF" secondAttribute="bottom" constant="8" symbolic="YES" id="ejW-PK-SZT"/>
+                            <constraint firstAttribute="trailing" secondItem="bOm-sE-aaF" secondAttribute="trailing" id="llx-Qz-TUM"/>
+                            <constraint firstItem="bOm-sE-aaF" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="zYe-hP-yaI"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="MQh-OI-Cu8"/>
                                 <exclude reference="L7M-9O-IIq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1L4-GJ-Boz"/>
+                                <exclude reference="LF7-vo-UGg"/>
+                                <exclude reference="LPK-ir-YNx"/>
+                                <exclude reference="ejW-PK-SZT"/>
                             </mask>
                         </variation>
                     </view>

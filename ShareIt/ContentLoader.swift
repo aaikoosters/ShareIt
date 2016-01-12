@@ -34,7 +34,6 @@ class ContentLoader
                         }
                     }
                 }
-                
                 completion(returnMessages: self.messages)
             }
             else
