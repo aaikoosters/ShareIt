@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zOF-2z-0oi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zOF-2z-0oi">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -649,7 +649,7 @@
         <scene sceneID="K04-0Y-IKV">
             <objects>
                 <tableViewController id="SX7-XQ-blO" customClass="FriendsSearchViewController" customModule="ShareIt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HPF-cq-a5n">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="HPF-cq-a5n">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -666,13 +666,48 @@
                             </scopeButtonTitles>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsSearchCell" id="xrW-WE-0lM">
-                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsSearchCell" rowHeight="80" id="xrW-WE-0lM" customClass="FriendSearchViewCell" customModule="ShareIt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xrW-WE-0lM" id="CFO-gD-r1U">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Emy-nc-mhC">
+                                            <rect key="frame" x="8" y="8" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="0t7-aJ-RXH"/>
+                                                <constraint firstAttribute="width" constant="60" id="KKx-UU-ljd"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHc-V2-emv">
+                                            <rect key="frame" x="76" y="22" width="56" height="30.5"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bHc-V2-emv" firstAttribute="leading" secondItem="Emy-nc-mhC" secondAttribute="trailing" constant="8" symbolic="YES" id="0wL-VM-Ob0"/>
+                                        <constraint firstItem="bHc-V2-emv" firstAttribute="top" secondItem="CFO-gD-r1U" secondAttribute="topMargin" constant="14" id="3bN-oA-ri4"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="Emy-nc-mhC" secondAttribute="leading" id="D3P-eC-isD"/>
+                                        <constraint firstItem="bHc-V2-emv" firstAttribute="leading" secondItem="Emy-nc-mhC" secondAttribute="trailing" constant="8" symbolic="YES" id="P0S-Pq-FGe"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bHc-V2-emv" secondAttribute="trailing" constant="308" id="X9w-ot-k7G"/>
+                                        <constraint firstAttribute="topMargin" secondItem="Emy-nc-mhC" secondAttribute="top" id="hCs-Ep-dDh"/>
+                                        <constraint firstAttribute="topMargin" secondItem="bHc-V2-emv" secondAttribute="top" id="qnI-Wx-xtq"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="0wL-VM-Ob0"/>
+                                            <exclude reference="X9w-ot-k7G"/>
+                                            <exclude reference="qnI-Wx-xtq"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="userDisplay" destination="Emy-nc-mhC" id="Jpb-Sd-Kw1"/>
+                                    <outlet property="userName" destination="bHc-V2-emv" id="ZCy-Dp-IRv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

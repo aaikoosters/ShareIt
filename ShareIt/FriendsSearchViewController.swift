@@ -52,9 +52,12 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell  = tableView.dequeueReusableCellWithIdentifier("FriendsSearchCell", forIndexPath: indexPath)
+        let cell  = tableView.dequeueReusableCellWithIdentifier("FriendsSearchCell", forIndexPath: indexPath) as! FriendSearchViewCell
         let user = userLoader.users[indexPath.row]
-        cell.textLabel?.text = user.username
+        
+        cell.userName.text = user.username
+        cell.userDisplay.image = UIImage(named: "logo200")
+        
         return cell
     }
     

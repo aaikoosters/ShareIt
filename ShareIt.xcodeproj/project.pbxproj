@@ -13,6 +13,7 @@
 		30238F051C458425009D026D /* messageRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 30238F031C458425009D026D /* messageRed.png */; };
 		30238F061C458425009D026D /* messageRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30238F041C458425009D026D /* messageRed@2x.png */; };
 		3024C7441C45983A0087F424 /* ContentLoaderUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024C7431C45983A0087F424 /* ContentLoaderUser.swift */; };
+		3024C7461C45AAB40087F424 /* FriendSearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024C7451C45AAB40087F424 /* FriendSearchViewCell.swift */; };
 		3077190D1C3D3E2400469969 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077190C1C3D3E2400469969 /* FriendListViewController.swift */; };
 		3077190F1C3D3EF400469969 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */; };
 		307719111C3D468300469969 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307719101C3D468300469969 /* MapViewViewController.swift */; };
@@ -49,7 +50,6 @@
 		ABEBE4FE1C1AC40C00E320F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE4FD1C1AC40C00E320F2 /* CoreLocation.framework */; };
 		ABEBE5001C1AC41800E320F2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE4FF1C1AC41800E320F2 /* QuartzCore.framework */; };
 		ABEBE5021C1AC42000E320F2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5011C1AC42000E320F2 /* Security.framework */; };
-		ABEBE5041C1AC42700E320F2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5031C1AC42700E320F2 /* StoreKit.framework */; };
 		ABEBE5061C1AC43200E320F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5051C1AC43200E320F2 /* SystemConfiguration.framework */; };
 		ABEBE5081C1AC43F00E320F2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5071C1AC43F00E320F2 /* libz.tbd */; };
 		ABEBE50A1C1AC44900E320F2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5091C1AC44900E320F2 /* libsqlite3.tbd */; };
@@ -84,6 +84,7 @@
 		30238F031C458425009D026D /* messageRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageRed.png; sourceTree = "<group>"; };
 		30238F041C458425009D026D /* messageRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageRed@2x.png"; sourceTree = "<group>"; };
 		3024C7431C45983A0087F424 /* ContentLoaderUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentLoaderUser.swift; sourceTree = "<group>"; };
+		3024C7451C45AAB40087F424 /* FriendSearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewCell.swift; sourceTree = "<group>"; };
 		3077190C1C3D3E2400469969 /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		307719101C3D468300469969 /* MapViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +127,6 @@
 		ABEBE4FD1C1AC40C00E320F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		ABEBE4FF1C1AC41800E320F2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ABEBE5011C1AC42000E320F2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		ABEBE5031C1AC42700E320F2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		ABEBE5051C1AC43200E320F2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ABEBE5071C1AC43F00E320F2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		ABEBE5091C1AC44900E320F2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -145,7 +145,6 @@
 				ABEBE50A1C1AC44900E320F2 /* libsqlite3.tbd in Frameworks */,
 				ABEBE5081C1AC43F00E320F2 /* libz.tbd in Frameworks */,
 				ABEBE5061C1AC43200E320F2 /* SystemConfiguration.framework in Frameworks */,
-				ABEBE5041C1AC42700E320F2 /* StoreKit.framework in Frameworks */,
 				ABEBE5021C1AC42000E320F2 /* Security.framework in Frameworks */,
 				ABEBE5001C1AC41800E320F2 /* QuartzCore.framework in Frameworks */,
 				ABEBE4FE1C1AC40C00E320F2 /* CoreLocation.framework in Frameworks */,
@@ -179,6 +178,7 @@
 			children = (
 				3077190C1C3D3E2400469969 /* FriendListViewController.swift */,
 				30238EFF1C4577F9009D026D /* FriendsSearchViewController.swift */,
+				3024C7451C45AAB40087F424 /* FriendSearchViewCell.swift */,
 			);
 			name = FriendsViewControllers;
 			sourceTree = "<group>";
@@ -312,7 +312,6 @@
 				ABEBE5091C1AC44900E320F2 /* libsqlite3.tbd */,
 				ABEBE5071C1AC43F00E320F2 /* libz.tbd */,
 				ABEBE5051C1AC43200E320F2 /* SystemConfiguration.framework */,
-				ABEBE5031C1AC42700E320F2 /* StoreKit.framework */,
 				ABEBE5011C1AC42000E320F2 /* Security.framework */,
 				ABEBE4FF1C1AC41800E320F2 /* QuartzCore.framework */,
 				ABEBE4FD1C1AC40C00E320F2 /* CoreLocation.framework */,
@@ -393,7 +392,12 @@
 				TargetAttributes = {
 					ABEBE4C11C1A00C500E320F2 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 9Z69644A6V;
+						DevelopmentTeam = CQQXXRYWW3;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					ABEBE4D51C1A00C600E320F2 = {
 						CreatedOnToolsVersion = 7.2;
@@ -482,6 +486,7 @@
 				307719111C3D468300469969 /* MapViewViewController.swift in Sources */,
 				ABEBE5151C1B0E7B00E320F2 /* ResetPasswordViewController.swift in Sources */,
 				ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */,
+				3024C7461C45AAB40087F424 /* FriendSearchViewCell.swift in Sources */,
 				30F2DF811C43FE6F0051F7D6 /* UIAssets.swift in Sources */,
 				ABEBE5111C1B0E5B00E320F2 /* HomeViewController.swift in Sources */,
 				AB593BEF1C3D943C00650C80 /* EventMakeViewController.swift in Sources */,
