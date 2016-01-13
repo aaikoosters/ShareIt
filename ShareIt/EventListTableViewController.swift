@@ -8,20 +8,20 @@
 
 import UIKit
 
-struct Evenemten {
-    let title: String
-    let date: String
-    let beschrijving: String
-}
+//struct Evenemten {
+//    let title: String
+//    let date: String
+//    let beschrijving: String
+//}
 
 class EventListTableViewController: UITableViewController, UISearchBarDelegate {
     
-    var evenemt = [
-        Evenemten(title: "Event 1", date: "10-01-2016", beschrijving: "beschrijving bij event 1"),
-        Evenemten(title: "Event 2", date: "10-01-2016", beschrijving: "beschrijving bij event 1"),
-        Evenemten(title: "Event 3", date: "10-01-2016", beschrijving: "beschrijving bij event 1")
-        
-    ]
+//    var evenemt = [
+//        Evenemten(title: "Event 1", date: "10-01-2016", beschrijving: "beschrijving bij event 1"),
+//        Evenemten(title: "Event 2", date: "10-01-2016", beschrijving: "beschrijving bij event 1"),
+//        Evenemten(title: "Event 3", date: "10-01-2016", beschrijving: "beschrijving bij event 1")
+//        
+//    ]
     
     var searchText = "a"
     var eventList = Event()
@@ -39,6 +39,13 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
         eventLoader.searchEvent(searchText) { (returnMessages) -> Void in
             self.tableView.reloadData() }
     }
+    
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.text?.removeAll()
+    }
+    
     
     
     
@@ -62,12 +69,16 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
         
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier("CELL")!
-            let event = eventLoader.events[indexPath.row]
-            cell.textLabel?.text = event.eventName
-//            cell.detailTextLabel?.text = evenemt[indexPath.row].date
-            return cell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCellWithIdentifier("EventSearchCell")!  as! EventSearchViewCell
+        let event = eventLoader.events[indexPath.row]
+        
+        cell.eventName.text = event.eventName
+        cell.eventDisplay.image = UIImage(named: "logo200")
+        
+        return cell
+        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int

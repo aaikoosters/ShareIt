@@ -22,6 +22,7 @@
 		3077191D1C3D7A7800469969 /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3077191B1C3D7A7800469969 /* message@2x.png */; };
 		307719211C3D7FD100469969 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3077191F1C3D7FD100469969 /* settings.png */; };
 		307719221C3D7FD100469969 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 307719201C3D7FD100469969 /* settings@2x.png */; };
+		30919D0D1C4674EA005CFAB7 /* EventSearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30919D0C1C4674EA005CFAB7 /* EventSearchViewCell.swift */; };
 		30DDEEC71C3AF1EE003BB707 /* logo200.png in Resources */ = {isa = PBXBuildFile; fileRef = 30DDEEC61C3AF1EE003BB707 /* logo200.png */; };
 		30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */; };
 		30F2DF7C1C43F4B40051F7D6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2DF7B1C43F4B40051F7D6 /* Message.swift */; };
@@ -94,6 +95,7 @@
 		3077191B1C3D7A7800469969 /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
 		3077191F1C3D7FD100469969 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		307719201C3D7FD100469969 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		30919D0C1C4674EA005CFAB7 /* EventSearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchViewCell.swift; sourceTree = "<group>"; };
 		30DDEEC61C3AF1EE003BB707 /* logo200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo200.png; sourceTree = "<group>"; };
 		30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLogoViewController.swift; sourceTree = "<group>"; };
 		30F2DF7B1C43F4B40051F7D6 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				AB593BEC1C3D943100650C80 /* EventDetailViewController.swift */,
 				AB593BEE1C3D943C00650C80 /* EventMakeViewController.swift */,
 				AB593BF01C3D944F00650C80 /* EventListTableViewController.swift */,
+				30919D0C1C4674EA005CFAB7 /* EventSearchViewCell.swift */,
 			);
 			name = EventViewControllers;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				30F2DF851C4408F10051F7D6 /* Event.swift in Sources */,
 				AB593BF11C3D944F00650C80 /* EventListTableViewController.swift in Sources */,
 				3077190F1C3D3EF400469969 /* MainTabBarViewController.swift in Sources */,
+				30919D0D1C4674EA005CFAB7 /* EventSearchViewCell.swift in Sources */,
 				307719111C3D468300469969 /* MapViewViewController.swift in Sources */,
 				ABEBE5151C1B0E7B00E320F2 /* ResetPasswordViewController.swift in Sources */,
 				ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */,
