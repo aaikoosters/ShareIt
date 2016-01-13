@@ -69,10 +69,5 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
 //            cell.detailTextLabel?.text = evenemt[indexPath.row].date
             return cell
     }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return eventLoader.events.count
-    }
 
 }
