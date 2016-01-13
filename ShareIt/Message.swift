@@ -36,6 +36,11 @@ class Message : PFObject, PFSubclassing
         return "Message"
     }
     
+    func setPosition(latitude : Double, longitudeInput : Double )
+    {
+        self.position = PFGeoPoint(latitude: latitude, longitude: longitudeInput)
+    }
+    
 
 //        func iconView() -> UIImageView
 //        {

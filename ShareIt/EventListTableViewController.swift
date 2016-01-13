@@ -52,6 +52,9 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.eventLoader.events.removeAll()
+        self.tableView.reloadData()
+        
         eventLoader.loadAllEvents({
             users in
             dispatch_async(dispatch_get_main_queue(),{

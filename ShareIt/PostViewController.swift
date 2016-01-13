@@ -27,6 +27,9 @@ class PostViewController: UITableViewController {
         //title font color and size
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         
+        self.postLoader.posts.removeAll()
+        self.tableView.reloadData()
+        
         postLoader.loadAllPosts({
             posts in
             dispatch_async(dispatch_get_main_queue(),{

@@ -40,8 +40,8 @@ class User  : PFUser
         }
     }
     
-    class func getCurrentUser() -> User?
+    class func getCurrentUserId() -> String
     {
-        return PFUser.currentUser() as? User
+        return (PFUser.currentUser()?.objectId!)!
     }
 }

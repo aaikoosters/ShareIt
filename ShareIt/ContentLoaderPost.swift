@@ -37,12 +37,16 @@ class ContentLoaderPost
                         }
                     }
                     
-                    for post in self.posts
-                    {
-                        self.loadUserForPost(post)
-                    }
+                    self.loadUserForPost({ (returnMessages) -> Void in
+
+                        dispatch_async(dispatch_get_main_queue(),{
+                            
+                             completion(returnMessages: self.posts)
+                        })
+
+                    })
                     
-                    completion(returnMessages: self.posts)
+                    
                 }
                 else
                 {
@@ -52,24 +56,38 @@ class ContentLoaderPost
         }
     }
     
-    func loadUserForPost(message : Message)
+    func loadUserForPost(completionReturn: (returnMessages: [Message]) -> Void)
     {
-        let query1 = User.query()
-        query1?.whereKey(User.ObjectId(), equalTo: message.user)
-        
-        do {
-            let users = try query1?.findObjects()
-            
-            if let objects = users
-            {
-                message.userObject = objects[0]["username"] as! String
-            }
-
-        } catch
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0))
         {
-            print(error)
-        }
-
+                for post in self.posts
+                {
+                    let query1 = User.query()
+                    query1?.whereKey(User.ObjectId(), equalTo: post.user)
+                    
+                    do {
+                        let users = try query1?.findObjects()
+                        
+                        if let objects = users
+                        {
+                            post.userObject = objects[0]["username"] as! String
+                        }
+                        
+                    } catch
+                    {
+                        print(error)
+                    }
+                    
+                }
+            
+            dispatch_async(dispatch_get_main_queue(),{
+                
+                 completionReturn(returnMessages: self.posts)
+            })
+    }
+       
+       
         
 //        let query = User.query()
 //        //        query?.getObjectWithId(<#T##objectId: String##String#>)
