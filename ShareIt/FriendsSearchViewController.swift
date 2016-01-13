@@ -32,6 +32,11 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
 
     }
     
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.text?.removeAll()
+    }
+    
 
     
     var userLoader = ContentLoaderUser()
