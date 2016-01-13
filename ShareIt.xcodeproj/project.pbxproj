@@ -33,7 +33,22 @@
 		30F2DF8A1C4411F00051F7D6 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2DF891C4411F00051F7D6 /* Annotation.swift */; };
 		30F2DF8C1C4415180051F7D6 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2DF8B1C4415180051F7D6 /* ContentLoader.swift */; };
 		3FCDED051C3D6212004252C0 /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDED041C3D6212004252C0 /* FriendList.swift */; };
+<<<<<<< Updated upstream
 		AB189E841C4654BE00C63230 /* ContentLoaderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB189E831C4654BE00C63230 /* ContentLoaderEvent.swift */; };
+=======
+		A35E84651C4594AF00828E48 /* ShareIt_app icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E84641C4594AF00828E48 /* ShareIt_app icon.png */; };
+		A35E84671C4594BE00828E48 /* ShareIt_Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E84661C4594BE00828E48 /* ShareIt_Splash.png */; };
+		A35E84721C4594E200828E48 /* ShareIt-06.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E84681C4594E200828E48 /* ShareIt-06.png */; };
+		A35E84731C4594E200828E48 /* ShareIt-07.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E84691C4594E200828E48 /* ShareIt-07.png */; };
+		A35E84741C4594E200828E48 /* ShareIt-08.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E846A1C4594E200828E48 /* ShareIt-08.png */; };
+		A35E84751C4594E200828E48 /* ShareIt-09.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E846B1C4594E200828E48 /* ShareIt-09.png */; };
+		A35E84761C4594E200828E48 /* ShareIt-10.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E846C1C4594E200828E48 /* ShareIt-10.png */; };
+		A35E84771C4594E200828E48 /* ShareIt-11.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E846D1C4594E200828E48 /* ShareIt-11.png */; };
+		A35E84781C4594E200828E48 /* ShareIt-12.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E846E1C4594E200828E48 /* ShareIt-12.png */; };
+		A35E84791C4594E200828E48 /* ShareIt-13.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E846F1C4594E200828E48 /* ShareIt-13.png */; };
+		A35E847A1C4594E200828E48 /* ShareIt-14.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E84701C4594E200828E48 /* ShareIt-14.png */; };
+		A35E847B1C4594E200828E48 /* ShareIt-15.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E84711C4594E200828E48 /* ShareIt-15.png */; };
+>>>>>>> Stashed changes
 		AB593BDD1C3BDCD700650C80 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */; };
 		AB593BED1C3D943100650C80 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BEC1C3D943100650C80 /* EventDetailViewController.swift */; };
 		AB593BEF1C3D943C00650C80 /* EventMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BEE1C3D943C00650C80 /* EventMakeViewController.swift */; };
@@ -105,7 +120,22 @@
 		30F2DF891C4411F00051F7D6 /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		30F2DF8B1C4415180051F7D6 /* ContentLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
 		3FCDED041C3D6212004252C0 /* FriendList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		AB189E831C4654BE00C63230 /* ContentLoaderEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentLoaderEvent.swift; sourceTree = "<group>"; };
+=======
+		A35E84641C4594AF00828E48 /* ShareIt_app icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ShareIt_app icon.png"; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt_app icon.png"; sourceTree = "<group>"; };
+		A35E84661C4594BE00828E48 /* ShareIt_Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShareIt_Splash.png; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt_Splash.png"; sourceTree = "<group>"; };
+		A35E84681C4594E200828E48 /* ShareIt-06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ShareIt-06.png"; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt-06.png"; sourceTree = "<group>"; };
+		A35E84691C4594E200828E48 /* ShareIt-07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ShareIt-07.png"; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt-07.png"; sourceTree = "<group>"; };
+		A35E846A1C4594E200828E48 /* ShareIt-08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ShareIt-08.png"; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt-08.png"; sourceTree = "<group>"; };
+		A35E846B1C4594E200828E48 /* ShareIt-09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ShareIt-09.png"; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt-09.png"; sourceTree = "<group>"; };
+		A35E846C1C4594E200828E48 /* ShareIt-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ShareIt-10.png"; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt-10.png"; sourceTree = "<group>"; };
+		A35E846D1C4594E200828E48 /* ShareIt-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ShareIt-11.png"; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt-11.png"; sourceTree = "<group>"; };
+		A35E846E1C4594E200828E48 /* ShareIt-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ShareIt-12.png"; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt-12.png"; sourceTree = "<group>"; };
+		A35E846F1C4594E200828E48 /* ShareIt-13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ShareIt-13.png"; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt-13.png"; sourceTree = "<group>"; };
+		A35E84701C4594E200828E48 /* ShareIt-14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ShareIt-14.png"; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt-14.png"; sourceTree = "<group>"; };
+		A35E84711C4594E200828E48 /* ShareIt-15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ShareIt-15.png"; path = "../../../Desktop/Icoontjes.rar Folder/ShareIt-15.png"; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AB593BEC1C3D943100650C80 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		AB593BEE1C3D943C00650C80 /* EventMakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMakeViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +230,18 @@
 		30DDEEC51C3AF1E0003BB707 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A35E84681C4594E200828E48 /* ShareIt-06.png */,
+				A35E84691C4594E200828E48 /* ShareIt-07.png */,
+				A35E846A1C4594E200828E48 /* ShareIt-08.png */,
+				A35E846B1C4594E200828E48 /* ShareIt-09.png */,
+				A35E846C1C4594E200828E48 /* ShareIt-10.png */,
+				A35E846D1C4594E200828E48 /* ShareIt-11.png */,
+				A35E846E1C4594E200828E48 /* ShareIt-12.png */,
+				A35E846F1C4594E200828E48 /* ShareIt-13.png */,
+				A35E84701C4594E200828E48 /* ShareIt-14.png */,
+				A35E84711C4594E200828E48 /* ShareIt-15.png */,
+				A35E84661C4594BE00828E48 /* ShareIt_Splash.png */,
+				A35E84641C4594AF00828E48 /* ShareIt_app icon.png */,
 				30DDEEC61C3AF1EE003BB707 /* logo200.png */,
 				3077191A1C3D7A7800469969 /* message.png */,
 				30238F031C458425009D026D /* messageRed.png */,
@@ -447,15 +489,30 @@
 			files = (
 				30238F061C458425009D026D /* messageRed@2x.png in Resources */,
 				307719211C3D7FD100469969 /* settings.png in Resources */,
+				A35E84671C4594BE00828E48 /* ShareIt_Splash.png in Resources */,
+				A35E84771C4594E200828E48 /* ShareIt-11.png in Resources */,
+				A35E84781C4594E200828E48 /* ShareIt-12.png in Resources */,
+				A35E84741C4594E200828E48 /* ShareIt-08.png in Resources */,
 				307719221C3D7FD100469969 /* settings@2x.png in Resources */,
 				ABEBE50D1C1AC5E900E320F2 /* Main.storyboard in Resources */,
+				A35E847A1C4594E200828E48 /* ShareIt-14.png in Resources */,
+				A35E84731C4594E200828E48 /* ShareIt-07.png in Resources */,
+				A35E84721C4594E200828E48 /* ShareIt-06.png in Resources */,
+				A35E84751C4594E200828E48 /* ShareIt-09.png in Resources */,
 				30DDEEC71C3AF1EE003BB707 /* logo200.png in Resources */,
+				A35E84651C4594AF00828E48 /* ShareIt_app icon.png in Resources */,
 				ABEBE4D01C1A00C500E320F2 /* LaunchScreen.storyboard in Resources */,
 				3077191D1C3D7A7800469969 /* message@2x.png in Resources */,
+				A35E847B1C4594E200828E48 /* ShareIt-15.png in Resources */,
 				ABEBE4CD1C1A00C500E320F2 /* Assets.xcassets in Resources */,
+<<<<<<< Updated upstream
 				30238F051C458425009D026D /* messageRed.png in Resources */,
+=======
+				A35E84791C4594E200828E48 /* ShareIt-13.png in Resources */,
+>>>>>>> Stashed changes
 				307719131C3D740600469969 /* idea.txt in Resources */,
 				3077191C1C3D7A7800469969 /* message.png in Resources */,
+				A35E84761C4594E200828E48 /* ShareIt-10.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
