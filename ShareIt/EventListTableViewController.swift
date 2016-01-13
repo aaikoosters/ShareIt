@@ -72,7 +72,7 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventSearchCell")!  as! EventSearchViewCell
-        let event = eventLoader.events[indexPath.row]
+        let event = self.eventLoader.events[indexPath.row]
         
         cell.eventName.text = event.eventName
         cell.eventDisplay.image = UIImage(named: "logo200")

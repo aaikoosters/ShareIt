@@ -15,6 +15,8 @@ class Message : PFObject, PFSubclassing
     @NSManaged var user: String
     @NSManaged var position: PFGeoPoint
     
+    var userObject = ""
+    
     @NSManaged var imageFile: PFFile
     
     override class func initialize()

@@ -36,6 +36,12 @@ class ContentLoaderPost
                             }
                         }
                     }
+                    
+                    for post in self.posts
+                    {
+                        self.loadUserForPost(post)
+                    }
+                    
                     completion(returnMessages: self.posts)
                 }
                 else
@@ -45,4 +51,49 @@ class ContentLoaderPost
                 }
         }
     }
+    
+    func loadUserForPost(message : Message)
+    {
+        let query1 = User.query()
+        query1?.whereKey(User.ObjectId(), equalTo: message.user)
+        
+        do {
+            let users = try query1?.findObjects()
+            
+            if let objects = users
+            {
+                message.userObject = objects[0]["username"] as! String
+            }
+
+        } catch
+        {
+            print(error)
+        }
+
+        
+//        let query = User.query()
+//        //        query?.getObjectWithId(<#T##objectId: String##String#>)
+//        
+//        do
+//        {
+//            print(message.user)
+//            let user = try query?.getObjectWithId(message.user)
+//            if let realUser = user as? User
+//            {
+//                message.userObject = realUser
+//            }
+//            
+//            
+//            
+//        } catch
+//        {
+//            print(error)
+//        }
+
+        
+    }
+    
+    
+    
+    
 }

@@ -30,6 +30,7 @@ class PostViewController: UITableViewController {
         postLoader.loadAllPosts({
             posts in
             dispatch_async(dispatch_get_main_queue(),{
+                
                 self.tableView.reloadData()
             })
         })
@@ -40,10 +41,11 @@ class PostViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell  = tableView.dequeueReusableCellWithIdentifier("PostCellView", forIndexPath: indexPath) as! PostViewCell
-        let post = postLoader.posts[indexPath.row]
+        let post = self.postLoader.posts[indexPath.row]
         
         cell.postMesage.text = post.content
         cell.postDisplay.image = UIImage(named: "logo200")
+        cell.userName.text = post.userObject
         
         return cell
     }

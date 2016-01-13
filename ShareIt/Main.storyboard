@@ -818,7 +818,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" placeholder="search evens" showsCancelButton="YES" id="JYj-fL-Po0">
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" placeholder="search events" showsCancelButton="YES" id="JYj-fL-Po0">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1256,6 +1256,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="91.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaa-8n-Xt7">
+                                            <rect key="frame" x="76" y="8" width="483" height="29"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2P-dB-N1C">
                                             <rect key="frame" x="8" y="8" width="60" height="60"/>
                                             <constraints>
@@ -1263,23 +1269,33 @@
                                                 <constraint firstAttribute="width" constant="60" id="fmG-mg-lZC"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaa-8n-Xt7">
-                                            <rect key="frame" x="76" y="27" width="53.5" height="29"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2d-G7-Qi7">
+                                            <rect key="frame" x="76" y="47" width="43.5" height="23.5"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="yaa-8n-Xt7" secondAttribute="trailing" id="622-yP-4w4"/>
                                         <constraint firstItem="yaa-8n-Xt7" firstAttribute="top" secondItem="73l-nJ-6yU" secondAttribute="topMargin" constant="19" id="74x-4G-AsD"/>
+                                        <constraint firstItem="G2d-G7-Qi7" firstAttribute="top" secondItem="yaa-8n-Xt7" secondAttribute="bottom" constant="10" id="CjG-dD-5mV"/>
+                                        <constraint firstItem="G2d-G7-Qi7" firstAttribute="leading" secondItem="c2P-dB-N1C" secondAttribute="trailing" constant="8" id="IJU-dw-zdb"/>
                                         <constraint firstItem="yaa-8n-Xt7" firstAttribute="leading" secondItem="73l-nJ-6yU" secondAttribute="leadingMargin" constant="68" id="QOh-NT-0xX"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="c2P-dB-N1C" secondAttribute="leading" id="pkY-62-X04"/>
+                                        <constraint firstAttribute="topMargin" secondItem="yaa-8n-Xt7" secondAttribute="top" id="vXL-MZ-eb1"/>
                                         <constraint firstAttribute="topMargin" secondItem="c2P-dB-N1C" secondAttribute="top" id="vtl-6Z-iSJ"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="74x-4G-AsD"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="postDisplay" destination="c2P-dB-N1C" id="faV-lt-awI"/>
                                     <outlet property="postMesage" destination="yaa-8n-Xt7" id="VnY-Zz-PPP"/>
+                                    <outlet property="userName" destination="G2d-G7-Qi7" id="DqW-9b-Bfp"/>
                                     <segue destination="25z-NI-fXp" kind="showDetail" trigger="accessoryAction" id="4qV-I8-HRD"/>
                                 </connections>
                             </tableViewCell>
