@@ -23,14 +23,26 @@ class EventMakeViewController: UIViewController {
     @IBAction func saveEvent(sender: AnyObject) {
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-mm-dd"
-//        let date = dateFormatter.dateFromString(startDate.text!)
+        dateFormatter.dateFormat = "yyy-mm-dd"
+        let startdate = dateFormatter.dateFromString(startDate.text!)!
+        let enddate = dateFormatter.dateFromString(endDate.text!)!
         
-        event.startDate = dateFormatter.dateFromString(startDate.text!)!
-        event.endDate = dateFormatter.dateFromString(endDate.text!)!
+        event.startDate = startdate
+        event.endDate = enddate
+        event.eventName = nameEvent.text!
 //        event.position
         event.content = content.text!
+        
+
         event.saveInBackground()
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HomeTab") as UIViewController
+            
+            viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            self.presentViewController(viewController, animated: true, completion: nil)
+        })
+
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

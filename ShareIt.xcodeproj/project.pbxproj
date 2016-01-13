@@ -32,6 +32,7 @@
 		30F2DF8A1C4411F00051F7D6 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2DF891C4411F00051F7D6 /* Annotation.swift */; };
 		30F2DF8C1C4415180051F7D6 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2DF8B1C4415180051F7D6 /* ContentLoader.swift */; };
 		3FCDED051C3D6212004252C0 /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDED041C3D6212004252C0 /* FriendList.swift */; };
+		AB189E841C4654BE00C63230 /* ContentLoaderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB189E831C4654BE00C63230 /* ContentLoaderEvent.swift */; };
 		AB593BDD1C3BDCD700650C80 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */; };
 		AB593BED1C3D943100650C80 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BEC1C3D943100650C80 /* EventDetailViewController.swift */; };
 		AB593BEF1C3D943C00650C80 /* EventMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB593BEE1C3D943C00650C80 /* EventMakeViewController.swift */; };
@@ -103,6 +104,7 @@
 		30F2DF891C4411F00051F7D6 /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		30F2DF8B1C4415180051F7D6 /* ContentLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
 		3FCDED041C3D6212004252C0 /* FriendList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
+		AB189E831C4654BE00C63230 /* ContentLoaderEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentLoaderEvent.swift; sourceTree = "<group>"; };
 		AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AB593BEC1C3D943100650C80 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		AB593BEE1C3D943C00650C80 /* EventMakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMakeViewController.swift; sourceTree = "<group>"; };
@@ -213,9 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */,
-				AB593BEC1C3D943100650C80 /* EventDetailViewController.swift */,
-				AB593BEE1C3D943C00650C80 /* EventMakeViewController.swift */,
-				AB593BF01C3D944F00650C80 /* EventListTableViewController.swift */,
 				ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */,
 				AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */,
 				ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */,
@@ -224,6 +223,7 @@
 				307719101C3D468300469969 /* MapViewViewController.swift */,
 				3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */,
 				30238F011C4581C7009D026D /* PostViewController.swift */,
+				AB189E851C46564C00C63230 /* EventViewControllers */,
 				30238EFE1C4577A9009D026D /* FriendsViewControllers */,
 			);
 			name = ViewControllers;
@@ -238,6 +238,7 @@
 				30F2DF841C4408F10051F7D6 /* Event.swift */,
 				30F2DF7E1C43FE1C0051F7D6 /* UserHandler.swift */,
 				30F2DF8B1C4415180051F7D6 /* ContentLoader.swift */,
+				AB189E831C4654BE00C63230 /* ContentLoaderEvent.swift */,
 				3024C7431C45983A0087F424 /* ContentLoaderUser.swift */,
 			);
 			name = ParseBackEnd;
@@ -251,6 +252,16 @@
 				30F2DF891C4411F00051F7D6 /* Annotation.swift */,
 			);
 			name = MapClasses;
+			sourceTree = "<group>";
+		};
+		AB189E851C46564C00C63230 /* EventViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB593BEC1C3D943100650C80 /* EventDetailViewController.swift */,
+				AB593BEE1C3D943C00650C80 /* EventMakeViewController.swift */,
+				AB593BF01C3D944F00650C80 /* EventListTableViewController.swift */,
+			);
+			name = EventViewControllers;
 			sourceTree = "<group>";
 		};
 		ABEBE4B91C1A00C500E320F2 = {
@@ -468,6 +479,7 @@
 				ABEBE50F1C1B0E3100E320F2 /* LoginViewController.swift in Sources */,
 				300875511C45414000278850 /* CoreLocation.swift in Sources */,
 				AB593BED1C3D943100650C80 /* EventDetailViewController.swift in Sources */,
+				AB189E841C4654BE00C63230 /* ContentLoaderEvent.swift in Sources */,
 				3024C7441C45983A0087F424 /* ContentLoaderUser.swift in Sources */,
 				3077190D1C3D3E2400469969 /* FriendListViewController.swift in Sources */,
 				30238F021C4581C7009D026D /* PostViewController.swift in Sources */,
