@@ -808,13 +808,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZ1-9X-Zdn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5257" y="3248"/>
+            <point key="canvasLocation" x="5883" y="3198"/>
         </scene>
         <!--EvenementenLijst-->
         <scene sceneID="QCG-EN-oVp">
             <objects>
                 <tableViewController title="EvenementenLijst" id="bK2-U5-h7y" customClass="EventListTableViewController" customModule="ShareIt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" id="ss8-iw-ajO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" id="ss8-iw-ajO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -825,11 +825,11 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="EventSearchCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EventSearchCell" rowHeight="108" id="6Ij-gm-dVG" customClass="EventSearchViewCell" customModule="ShareIt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="600" height="108"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="EventSearchCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EventSearchCell" rowHeight="88" id="6Ij-gm-dVG" customClass="EventSearchViewCell" customModule="ShareIt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="600" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Ij-gm-dVG" id="HH4-FI-Ufx">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="107.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="87.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0T8-4V-6Db">
@@ -1240,36 +1240,46 @@
             </objects>
             <point key="canvasLocation" x="1256" y="417"/>
         </scene>
-        <!--BerichtenLijst-->
+        <!--PostList-->
         <scene sceneID="Sv2-F2-4RM">
             <objects>
-                <tableViewController title="BerichtenLijst" id="oZ6-Z1-cdp" customClass="PostViewController" customModule="ShareIt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DnO-rc-vZJ">
+                <tableViewController title="PostList" id="oZ6-Z1-cdp" customClass="PostViewController" customModule="ShareIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="28" sectionFooterHeight="28" id="DnO-rc-vZJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="KQa-PV-Zbg" imageView="uIO-WH-RcN" style="IBUITableViewCellStyleDefault" id="arB-jf-fDY">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PostCellView" rowHeight="92" id="arB-jf-fDY" customClass="PostViewCell" customModule="ShareIt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="arB-jf-fDY" id="73l-nJ-6yU">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="91.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KQa-PV-Zbg">
-                                            <rect key="frame" x="74" y="0.0" width="491" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2P-dB-N1C">
+                                            <rect key="frame" x="8" y="8" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="A8C-Mh-fvU"/>
+                                                <constraint firstAttribute="width" constant="60" id="fmG-mg-lZC"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaa-8n-Xt7">
+                                            <rect key="frame" x="76" y="27" width="53.5" height="29"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="user" id="uIO-WH-RcN">
-                                            <rect key="frame" x="15" y="0.0" width="44" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="yaa-8n-Xt7" firstAttribute="top" secondItem="73l-nJ-6yU" secondAttribute="topMargin" constant="19" id="74x-4G-AsD"/>
+                                        <constraint firstItem="yaa-8n-Xt7" firstAttribute="leading" secondItem="73l-nJ-6yU" secondAttribute="leadingMargin" constant="68" id="QOh-NT-0xX"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="c2P-dB-N1C" secondAttribute="leading" id="pkY-62-X04"/>
+                                        <constraint firstAttribute="topMargin" secondItem="c2P-dB-N1C" secondAttribute="top" id="vtl-6Z-iSJ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="postDisplay" destination="c2P-dB-N1C" id="faV-lt-awI"/>
+                                    <outlet property="postMesage" destination="yaa-8n-Xt7" id="VnY-Zz-PPP"/>
                                     <segue destination="25z-NI-fXp" kind="showDetail" trigger="accessoryAction" id="4qV-I8-HRD"/>
                                 </connections>
                             </tableViewCell>

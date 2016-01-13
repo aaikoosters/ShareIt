@@ -20,3 +20,5 @@ mogelijk later als er tijd over is fb implementatie goo.gl/VuX49W
 vrienden toevoegen met bevesting (could have)
 --
 uislider distance range events/messages
+--
+check if cell is still in use
