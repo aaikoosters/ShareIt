@@ -14,7 +14,7 @@ struct Evenemten {
     let beschrijving: String
 }
 
-class EventListTableViewController: UITableViewController {
+class EventListTableViewController: UITableViewController, UISearchBarDelegate {
     
     var evenemt = [
         Evenemten(title: "Event 1", date: "10-01-2016", beschrijving: "beschrijving bij event 1"),
@@ -23,8 +23,34 @@ class EventListTableViewController: UITableViewController {
         
     ]
     
+    var searchText = "a"
+    var eventList = Event()
+    var eventLoader = ContentLoaderEvent()
+    
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.delegate = self
+        }
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchText = searchBar.text!
+        eventLoader.searchEvent(searchText) { (returnMessages) -> Void in
+            self.tableView.reloadData() }
+    }
+    
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        eventLoader.loadAllEvents({
+            users in
+            dispatch_async(dispatch_get_main_queue(),{
+                self.tableView.reloadData()
+            })
+        })
         
         //navigation bar color
         self.navigationController?.navigationBar.barTintColor = UIAssets.logoColor.redColor
@@ -59,19 +85,18 @@ class EventListTableViewController: UITableViewController {
 //        return 0
 //    }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(evenemt.count, " <----- evenemtnen")
-        return evenemt.count
-        //              return 0
-    }
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        print(evenemt.count, " <----- evenemtnen")
+//        return evenemt.count
+//        //              return 0
+//    }
 
 //
-    override func tableView(tableView: UITableView,
-        cellForRowAtIndexPath indexPath: NSIndexPath)
-        -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell {
             let cell = tableView.dequeueReusableCellWithIdentifier("CELL")!
-            cell.textLabel?.text = evenemt[indexPath.row].title
-            cell.detailTextLabel?.text = evenemt[indexPath.row].date
+            let event = eventLoader.events[indexPath.row]
+            cell.textLabel?.text = event.eventName
+//            cell.detailTextLabel?.text = evenemt[indexPath.row].date
             return cell
     }
 

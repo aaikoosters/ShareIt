@@ -36,4 +36,9 @@ class Event : PFObject, PFSubclassing
         return "Event"
     }
     
+    static func nameEvent() -> String
+    {
+        return "eventName"
+    }
+    
 }
