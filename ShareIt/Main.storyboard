@@ -1524,7 +1524,7 @@
         <scene sceneID="4P6-RA-JZ5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7S6-88-4TY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Message" id="oj9-bP-zZM"/>
+                    <tabBarItem key="tabBarItem" title="Message" image="settings.png" id="oj9-bP-zZM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jX9-yh-Wbx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1562,6 +1562,7 @@
     <resources>
         <image name="logo200.png" width="200" height="200"/>
         <image name="settings" width="30" height="30"/>
+        <image name="settings.png" width="30" height="30"/>
         <image name="user" width="126" height="126"/>
     </resources>
 </document>

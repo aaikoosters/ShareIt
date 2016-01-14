@@ -15,8 +15,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     var loader = ContentLoader()
     
     let coreLocation = CoreLocation()
-    
-    var didCheckPos = false
 
     
     override func viewDidLoad()
@@ -27,15 +25,10 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //navigation bar color
-        self.navigationController?.navigationBar.barTintColor = UIAssets.logoColor.redColor
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.setNavigationAssetsStyle(self.navigationController)
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
-        //title font color and size
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         loader.loadAllMessages({
             messages in
@@ -45,17 +38,9 @@ class HomeViewController: UIViewController, MKMapViewDelegate
 
         })
         
-        coreLocation.loadCurrentLocation({
-            location in
-            
-            dispatch_async(dispatch_get_main_queue(),
-                {
-                    let region = MKCoordinateRegionMakeWithDistance(
-                        location.coordinate, 2000, 2000)
-                    self.mapView?.setRegion(region, animated: true)
-            })
-        })
     }
+    
+
     
     override func viewDidAppear(animated: Bool)
     {
@@ -85,25 +70,20 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             
             self.presentViewController(alertController, animated: true, completion: nil)
         }
-    }
-    
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
-    {
-        dispatch_async(dispatch_get_main_queue(),{
+        
+        coreLocation.loadCurrentLocation({
+            location in
             
-//            let region = MKCoordinateRegionMakeWithDistance(
-//                self.coreLocation.currentLocation.coordinate, 2000, 2000)
-//            self.mapView.setRegion(region, animated: true)
-            if (self.didCheckPos == false)
-            {
-                self.mapView?.setCenterCoordinate(self.coreLocation.currentLocation.coordinate, animated: true)
-                self.didCheckPos = true
-            }
-            
-
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    let region = MKCoordinateRegionMakeWithDistance(
+                        location.coordinate, 2000, 2000)
+                    self.mapView?.setRegion(region, animated: true)
+            })
         })
 
     }
+    
     
     
 

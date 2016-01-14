@@ -40,14 +40,7 @@ class PostMakeViewController: UIViewController, MKMapViewDelegate, UITextFieldDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //navigation bar color
-        self.navigationController?.navigationBar.barTintColor = UIAssets.logoColor.redColor
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
-        //title font color and size
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
-        
+        self.setNavigationAssetsStyle(self.navigationController)
         
         //text area border
         contentField.layer.borderColor = UIAssets.logoColor.greyColor.CGColor
