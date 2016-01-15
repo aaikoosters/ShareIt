@@ -16,6 +16,7 @@ class FriendListViewController: UITableViewController
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.setNavigationAssetsStyle(self.navigationController)
         friendLoader.loadAllFriends({
             users in
             dispatch_async(dispatch_get_main_queue(),{

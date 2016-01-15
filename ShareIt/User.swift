@@ -15,16 +15,18 @@ class User  : PFUser
     @NSManaged var surname: String?
     @NSManaged var phoneNumber: String?
     
+
     
     static func Username() -> String
     {
         return "username"
     }
     
-    static func ObjectID() -> String
+    static func ObjectId() -> String
     {
         return "objectId"
     }
+
     
     override class func initialize()
     {
