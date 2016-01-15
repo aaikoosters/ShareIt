@@ -12,23 +12,23 @@ import Parse
 class ContentLoaderFriend
 {
     var friends = [User]()
-    var currentUser = User.getCurrentUser()
+    var currentUser = User.getCurrentUserId()
     
     func loadAllFriends(completion: (returnMessages: [User]) -> Void)
     {
-        currentUser = User.getCurrentUser()
+        currentUser = User.getCurrentUserId()
         
         let predicate = NSPredicate(format: "UserID == '5wCCNR9Ei8' OR FriendID == '5wCCNR9Ei8'")
         
         let subquery = PFQuery(className: "Friend", predicate: predicate)
         
         let isFriend = User.query()
-        isFriend!.whereKey(User.ObjectID(), matchesKey: Friend.friendId(), inQuery: subquery)
-        isFriend!.whereKey(User.ObjectID(), notEqualTo: "5wCCNR9Ei8")
+        isFriend!.whereKey(User.ObjectId(), matchesKey: Friend.friendId(), inQuery: subquery)
+        isFriend!.whereKey(User.ObjectId(), notEqualTo: "5wCCNR9Ei8")
         
         let hasFriend = User.query()
-        hasFriend!.whereKey(User.ObjectID(), matchesKey: Friend.userId(), inQuery: subquery)
-        hasFriend!.whereKey(User.ObjectID(), notEqualTo: "5wCCNR9Ei8")
+        hasFriend!.whereKey(User.ObjectId(), matchesKey: Friend.userId(), inQuery: subquery)
+        hasFriend!.whereKey(User.ObjectId(), notEqualTo: "5wCCNR9Ei8")
         
         let query = PFQuery.orQueryWithSubqueries([hasFriend!, isFriend!])
         
@@ -64,11 +64,11 @@ class ContentLoaderFriend
     func searchUser(searchText : String ,completion: (returnMessages: [User]) -> Void)
     {
         let subquery = Friend.query()
-        subquery?.whereKey(Friend.userId(), containsString: currentUser?.objectId)
+        subquery?.whereKey(Friend.userId(), containsString: currentUser)
         
         let query = User.query()
         query?.whereKey(User.Username(), containsString: searchText)
-        query?.whereKey(User.ObjectID(), matchesKey: Friend.friendId(), inQuery: subquery!)
+        query?.whereKey(User.ObjectId(), matchesKey: Friend.friendId(), inQuery: subquery!)
         
         
         self.friends.removeAll()
