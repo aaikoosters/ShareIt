@@ -18,17 +18,17 @@ class ContentLoaderFriend
     {
         currentUser = User.getCurrentUserId()
         
-        let predicate = NSPredicate(format: "UserID == '5wCCNR9Ei8' OR FriendID == '5wCCNR9Ei8'")
+        let predicate = NSPredicate(format: "UserID == %@ OR FriendID == %@", currentUser, currentUser)
         
         let subquery = PFQuery(className: "Friend", predicate: predicate)
         
         let isFriend = User.query()
         isFriend!.whereKey(User.ObjectId(), matchesKey: Friend.friendId(), inQuery: subquery)
-        isFriend!.whereKey(User.ObjectId(), notEqualTo: "5wCCNR9Ei8")
+        isFriend!.whereKey(User.ObjectId(), notEqualTo: currentUser)
         
         let hasFriend = User.query()
         hasFriend!.whereKey(User.ObjectId(), matchesKey: Friend.userId(), inQuery: subquery)
-        hasFriend!.whereKey(User.ObjectId(), notEqualTo: "5wCCNR9Ei8")
+        hasFriend!.whereKey(User.ObjectId(), notEqualTo: currentUser)
         
         let query = PFQuery.orQueryWithSubqueries([hasFriend!, isFriend!])
         
