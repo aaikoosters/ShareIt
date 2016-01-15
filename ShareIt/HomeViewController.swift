@@ -16,26 +16,35 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     let coreLocation = CoreLocation()
     
-    var didCheckPos = false
+    let locateButton = UIButton()
+    
+    var radiusCircle = MKCircle()
 
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+
+
+        locateButton.setImage( UIImage(named:"close"), forState: .Normal)
+        locateButton.frame.size = CGSize(width: 20.0, height: 20.0)
+//        locateButton.center = CGPoint(x: self.view.frame.size.width - (locateButton.frame.size.width/2) - 20, y: self.navigationController!.navigationBar.frame.size.height -  self.navigationController!.navigationBar.frame.size.height - (locateButton.frame.size.height/2))
+        
+        locateButton.center = mapView.center
+        
+        self.view.addSubview(locateButton)
+        
+        locateButton.addTarget(self, action: "locatePressed:", forControlEvents: .TouchUpInside)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //navigation bar color
-        self.navigationController?.navigationBar.barTintColor = UIAssets.logoColor.redColor
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.setNavigationAssetsStyle(self.navigationController)
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
-        //title font color and size
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         loader.loadAllMessages({
             messages in
@@ -45,17 +54,9 @@ class HomeViewController: UIViewController, MKMapViewDelegate
 
         })
         
-        coreLocation.loadCurrentLocation({
-            location in
-            
-            dispatch_async(dispatch_get_main_queue(),
-                {
-                    let region = MKCoordinateRegionMakeWithDistance(
-                        location.coordinate, 2000, 2000)
-                    self.mapView?.setRegion(region, animated: true)
-            })
-        })
     }
+    
+
     
     override func viewDidAppear(animated: Bool)
     {
@@ -85,25 +86,24 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             
             self.presentViewController(alertController, animated: true, completion: nil)
         }
-    }
-    
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
-    {
-        dispatch_async(dispatch_get_main_queue(),{
+        
+        coreLocation.loadCurrentLocation({
+            location in
             
-//            let region = MKCoordinateRegionMakeWithDistance(
-//                self.coreLocation.currentLocation.coordinate, 2000, 2000)
-//            self.mapView.setRegion(region, animated: true)
-            if (self.didCheckPos == false)
-            {
-                self.mapView?.setCenterCoordinate(self.coreLocation.currentLocation.coordinate, animated: true)
-                self.didCheckPos = true
-            }
-            
-
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    let region = MKCoordinateRegionMakeWithDistance(
+                        location.coordinate, 4000, 4000)
+                    self.mapView?.setRegion(region, animated: true)
+                    
+                    self.mapView?.removeOverlay(self.radiusCircle)
+                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(1000))
+                    self.mapView?.addOverlay(self.radiusCircle)
+            })
         })
 
     }
+    
     
     
 
@@ -127,6 +127,45 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         mapView.addAnnotations(anotations)
         //mapView.showAnnotations(anotations, animated: true)
     }
+    
+    
+    func locatePressed(sender:UIButton!)
+    {
+        coreLocation.loadCurrentLocation({
+            location in
+            
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    let region = MKCoordinateRegionMakeWithDistance(
+                        location.coordinate, 4000, 4000)
+                    self.mapView?.setRegion(region, animated: true)
+                    
+                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(1000))
+                    
+            })
+        })
+
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer
+    {
+        
+        let circleRenderer = MKCircleRenderer(overlay: overlay)
+        circleRenderer.fillColor = UIAssets.logoColor.redColor.colorWithAlphaComponent(0.1)
+        circleRenderer.strokeColor = UIAssets.logoColor.redColor
+        circleRenderer.lineWidth = 1
+        return circleRenderer
+    }
+    
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
+    {
+        self.mapView?.removeOverlay(self.radiusCircle)
+        self.radiusCircle = MKCircle(centerCoordinate: userLocation.coordinate ,radius:CLLocationDistance(1000))
+        self.mapView?.addOverlay(self.radiusCircle)
+ 
+    }
+
 
     
 }

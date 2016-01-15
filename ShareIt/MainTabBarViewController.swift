@@ -27,6 +27,19 @@ class MainTabBarViewController: UITabBarController
             UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIAssets.logoColor.redColor], forState:.Selected)
             UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
         }
+        
+
+
+        
+        let border = CALayer()
+        let width = CGFloat(2.0)
+        border.borderColor = UIAssets.logoColor.redColor.CGColor
+        border.frame = CGRect(x: 0, y: 0 , width:  self.tabBar.frame.size.width , height: width )
+        
+        border.borderWidth = width
+        self.tabBar.layer.addSublayer(border)
+        self.tabBar.layer.masksToBounds = true
+
 
         
         

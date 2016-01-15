@@ -15,6 +15,8 @@ class Message : PFObject, PFSubclassing
     @NSManaged var user: String
     @NSManaged var position: PFGeoPoint
     
+    var userObject = ""
+    
     @NSManaged var imageFile: PFFile
     
     override class func initialize()
@@ -32,6 +34,11 @@ class Message : PFObject, PFSubclassing
     static func parseClassName() -> String
     {
         return "Message"
+    }
+    
+    func setPosition(latitude : Double, longitudeInput : Double )
+    {
+        self.position = PFGeoPoint(latitude: latitude, longitude: longitudeInput)
     }
     
 

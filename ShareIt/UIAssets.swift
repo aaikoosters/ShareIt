@@ -15,4 +15,33 @@ class UIAssets
         static var redColor =  UIColor(red: 251.0/255.0, green: 78.0/255.0, blue: 77.0/255.0, alpha: 1.0)
         static var greyColor =  UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 1.0)
     }
+    
 }
+
+extension UIViewController
+{
+    func setNavigationAssetsStyle( navigationController : UINavigationController!)
+    {
+        self.navigationController!.navigationBar.barTintColor = UIAssets.logoColor.redColor
+        self.navigationController!.navigationBar.translucent = false
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        
+        //        let border = CALayer()
+        //        let width = CGFloat(2.0)
+        //        border.borderColor = UIColor.blackColor().CGColor
+        //        border.frame = CGRect(x: 0, y: self.navigationController!.navigationBar.frame.size.height - width, width:  self.navigationController!.navigationBar.frame.size.width, height: self.navigationController!.navigationBar.frame.size.height )
+        //
+        //        border.borderWidth = width
+        //        self.navigationController!.navigationBar.layer.addSublayer(border)
+        //        self.navigationController!.navigationBar.layer.masksToBounds = true
+        
+        //title font color and size
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+    }
+
+    
+}
+

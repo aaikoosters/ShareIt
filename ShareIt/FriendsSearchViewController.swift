@@ -27,6 +27,7 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
         searchText = searchBar.text!
         userLoader.searchUser(searchText) { (returnMessages) -> Void in
             
+            
             self.tableView.reloadData()
         }
 
@@ -61,6 +62,7 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
         let user = userLoader.users[indexPath.row]
         
         cell.userName.text = user.username
+        
         cell.userDisplay.image = UIImage(named: "logo200")
         
         return cell
