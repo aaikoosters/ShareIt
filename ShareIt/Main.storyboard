@@ -717,81 +717,6 @@
             </objects>
             <point key="canvasLocation" x="4432" y="3240"/>
         </scene>
-        <!--MapView-->
-        <scene sceneID="FhC-QU-1vO">
-            <objects>
-                <viewController storyboardIdentifier="MapView" title="MapView" id="bKz-8m-5SX" customClass="MapViewViewController" customModule="ShareIt" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZDj-6b-hOj"/>
-                        <viewControllerLayoutGuide type="bottom" id="OTo-fg-56G"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fX2-gh-G2O">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rqo-iT-63e">
-                                <rect key="frame" x="20" y="72" width="560" height="210"/>
-                            </mapView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ud7-9L-eEK">
-                                <rect key="frame" x="20" y="290" width="560" height="20"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="0wM-RT-cPh"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="3WY-yk-rHf"/>
-                                    <constraint firstAttribute="width" constant="100" id="5NU-Vd-NpS"/>
-                                    <constraint firstAttribute="height" constant="20" id="bbw-o1-PuE"/>
-                                    <constraint firstAttribute="width" constant="100" id="ma3-x7-Yuh"/>
-                                    <constraint firstAttribute="height" constant="50" id="vEQ-W6-LnN"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="yPZ-OW-ifB"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="0wM-RT-cPh"/>
-                                        <exclude reference="3WY-yk-rHf"/>
-                                        <exclude reference="5NU-Vd-NpS"/>
-                                        <exclude reference="ma3-x7-Yuh"/>
-                                        <exclude reference="vEQ-W6-LnN"/>
-                                        <exclude reference="yPZ-OW-ifB"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="Ud7-9L-eEK" secondAttribute="leading" id="5fn-T0-WC0"/>
-                            <constraint firstItem="rqo-iT-63e" firstAttribute="centerX" secondItem="fX2-gh-G2O" secondAttribute="centerX" id="Mef-mK-rt7"/>
-                            <constraint firstItem="Ud7-9L-eEK" firstAttribute="top" secondItem="rqo-iT-63e" secondAttribute="bottom" constant="8" symbolic="YES" id="Rkg-R7-cco"/>
-                            <constraint firstItem="Ud7-9L-eEK" firstAttribute="centerX" secondItem="fX2-gh-G2O" secondAttribute="centerX" id="SKS-Hx-fB2"/>
-                            <constraint firstItem="Ud7-9L-eEK" firstAttribute="centerY" secondItem="fX2-gh-G2O" secondAttribute="centerY" id="YyL-AX-r7d"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ud7-9L-eEK" secondAttribute="trailing" id="beE-Ye-bbc"/>
-                            <constraint firstItem="rqo-iT-63e" firstAttribute="top" secondItem="ZDj-6b-hOj" secondAttribute="bottom" constant="8" symbolic="YES" id="ckU-Ml-YFz"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="rqo-iT-63e" secondAttribute="leading" id="hfg-dk-iwg"/>
-                            <constraint firstItem="OTo-fg-56G" firstAttribute="top" secondItem="rqo-iT-63e" secondAttribute="bottom" constant="274" id="ifY-He-KqQ"/>
-                            <constraint firstItem="rqo-iT-63e" firstAttribute="centerX" secondItem="fX2-gh-G2O" secondAttribute="centerX" id="kW9-T4-aVa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rqo-iT-63e" secondAttribute="trailing" id="m1c-Xc-Xwy"/>
-                            <constraint firstItem="rqo-iT-63e" firstAttribute="leading" secondItem="fX2-gh-G2O" secondAttribute="leadingMargin" constant="160" id="sl7-fw-uYe"/>
-                            <constraint firstItem="rqo-iT-63e" firstAttribute="top" secondItem="ZDj-6b-hOj" secondAttribute="bottom" constant="8" id="vGc-Aj-AqZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rqo-iT-63e" secondAttribute="trailing" constant="160" id="zJ1-qv-aK0"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="kW9-T4-aVa"/>
-                                <exclude reference="sl7-fw-uYe"/>
-                                <exclude reference="vGc-Aj-AqZ"/>
-                                <exclude reference="zJ1-qv-aK0"/>
-                                <exclude reference="ifY-He-KqQ"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" id="l0Z-JV-c1d"/>
-                    <connections>
-                        <outlet property="mapView" destination="rqo-iT-63e" id="Z4T-Is-fv6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7mQ-yu-CiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2854" y="3003"/>
-        </scene>
         <!--BerichtZien-->
         <scene sceneID="rTu-gx-3sd">
             <objects>
@@ -1145,13 +1070,14 @@
                             <constraint firstItem="Wp8-FV-pBf" firstAttribute="centerX" secondItem="5Bp-IY-s5b" secondAttribute="centerX" id="Z9u-f5-wf6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="iKP-PT-6h1"/>
                     <connections>
                         <outlet property="userName" destination="5QT-3V-tF3" id="BJo-S3-uwG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hep-ev-nPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6238" y="-107"/>
+            <point key="canvasLocation" x="2910" y="2690"/>
         </scene>
         <!--Home-->
         <scene sceneID="ufC-wZ-h7g">
@@ -1208,11 +1134,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="cXV-KL-HoV">
-                        <barButtonItem key="rightBarButtonItem" image="settings" id="J6y-3j-MdC">
-                            <connections>
-                                <segue destination="Zlf-OM-lBQ" kind="show" id="z1R-fC-G9D"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="settings" id="J6y-3j-MdC"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="bOm-sE-aaF" id="Cho-eq-Xvl"/>
@@ -1457,8 +1379,8 @@
                         <segue destination="kOj-yz-KKT" kind="relationship" relationship="viewControllers" id="6w6-sd-9QB"/>
                         <segue destination="vGh-rq-TSX" kind="relationship" relationship="viewControllers" id="GMr-AI-P7S"/>
                         <segue destination="7S6-88-4TY" kind="relationship" relationship="viewControllers" id="Jcn-md-R8a"/>
-                        <segue destination="ASe-pd-YF5" kind="relationship" relationship="viewControllers" id="fCb-Fv-y9M"/>
                         <segue destination="LDs-QV-XTD" kind="relationship" relationship="viewControllers" id="Fmd-7j-EmE"/>
+                        <segue destination="ASe-pd-YF5" kind="relationship" relationship="viewControllers" id="fCb-Fv-y9M"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtS-iy-94Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1541,11 +1463,11 @@
             </objects>
             <point key="canvasLocation" x="5923" y="1579"/>
         </scene>
-        <!--MapView-->
+        <!--Settings-->
         <scene sceneID="zCT-C0-Ohf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ASe-pd-YF5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MapView" id="VSp-oS-DzL"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="VSp-oS-DzL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q0d-ve-Z8b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1553,7 +1475,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="bKz-8m-5SX" kind="relationship" relationship="rootViewController" id="cav-bA-phh"/>
+                        <segue destination="Zlf-OM-lBQ" kind="relationship" relationship="rootViewController" id="3OP-36-2LH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgQ-8H-PpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
