@@ -126,6 +126,7 @@ class ContentLoaderUser
         }
     }
     
+    
     func loadAllNonFriends(completion: (returnMessages: [User]) -> Void)
     {
         currentUser = User.getCurrentUserId()
@@ -175,6 +176,7 @@ class ContentLoaderUser
                 }
         }
     }
+    
     
     func searchAllNonFriends(searchText: String, completion: (returnMessages: [User]) -> Void)
     {
