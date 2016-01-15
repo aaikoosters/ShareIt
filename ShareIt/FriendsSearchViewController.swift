@@ -25,7 +25,7 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
     {
         searchBar.resignFirstResponder()
         searchText = searchBar.text!
-        userLoader.searchUser(searchText) { (returnMessages) -> Void in
+        userLoader.searchAllNonFriends(searchText) { (returnMessages) -> Void in
             
             
             self.tableView.reloadData()
@@ -36,6 +36,13 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.text?.removeAll()
+        
+        userLoader.loadAllNonFriends({
+            users in
+            dispatch_async(dispatch_get_main_queue(),{
+                self.tableView.reloadData()
+            })
+        })
     }
     
 
@@ -45,15 +52,12 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        userLoader.loadAllUsers({
+        userLoader.loadAllNonFriends({
             users in
             dispatch_async(dispatch_get_main_queue(),{
                 self.tableView.reloadData()
             })
         })
-        
-        
-        
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
