@@ -15,11 +15,27 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     var loader = ContentLoader()
     
     let coreLocation = CoreLocation()
+    
+    let locateButton = UIButton()
+    
+    var radiusCircle = MKCircle()
 
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+
+
+        locateButton.setImage( UIImage(named:"close"), forState: .Normal)
+        locateButton.frame.size = CGSize(width: 20.0, height: 20.0)
+//        locateButton.center = CGPoint(x: self.view.frame.size.width - (locateButton.frame.size.width/2) - 20, y: self.navigationController!.navigationBar.frame.size.height -  self.navigationController!.navigationBar.frame.size.height - (locateButton.frame.size.height/2))
+        
+        locateButton.center = mapView.center
+        
+        self.view.addSubview(locateButton)
+        
+        locateButton.addTarget(self, action: "locatePressed:", forControlEvents: .TouchUpInside)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -77,8 +93,12 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             dispatch_async(dispatch_get_main_queue(),
                 {
                     let region = MKCoordinateRegionMakeWithDistance(
-                        location.coordinate, 2000, 2000)
+                        location.coordinate, 4000, 4000)
                     self.mapView?.setRegion(region, animated: true)
+                    
+                    self.mapView?.removeOverlay(self.radiusCircle)
+                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(1000))
+                    self.mapView?.addOverlay(self.radiusCircle)
             })
         })
 
@@ -107,6 +127,45 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         mapView.addAnnotations(anotations)
         //mapView.showAnnotations(anotations, animated: true)
     }
+    
+    
+    func locatePressed(sender:UIButton!)
+    {
+        coreLocation.loadCurrentLocation({
+            location in
+            
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    let region = MKCoordinateRegionMakeWithDistance(
+                        location.coordinate, 4000, 4000)
+                    self.mapView?.setRegion(region, animated: true)
+                    
+                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(1000))
+                    
+            })
+        })
+
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer
+    {
+        
+        let circleRenderer = MKCircleRenderer(overlay: overlay)
+        circleRenderer.fillColor = UIAssets.logoColor.redColor.colorWithAlphaComponent(0.1)
+        circleRenderer.strokeColor = UIAssets.logoColor.redColor
+        circleRenderer.lineWidth = 1
+        return circleRenderer
+    }
+    
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
+    {
+        self.mapView?.removeOverlay(self.radiusCircle)
+        self.radiusCircle = MKCircle(centerCoordinate: userLocation.coordinate ,radius:CLLocationDistance(1000))
+        self.mapView?.addOverlay(self.radiusCircle)
+ 
+    }
+
 
     
 }

@@ -1364,8 +1364,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="250" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ikg-xr-mdx">
-                                <rect key="frame" x="0.0" y="312" width="600" height="231"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="250" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ikg-xr-mdx">
+                                <rect key="frame" x="0.0" y="312" width="600" height="244"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="CnQ-rC-aR1"/>
                                 </constraints>
@@ -1390,6 +1390,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="6uA-fm-LBU" secondAttribute="trailing" id="BfF-0f-Psw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="S3L-xg-RvT" secondAttribute="trailing" id="Hu5-Gm-lTE"/>
                             <constraint firstItem="Ikg-xr-mdx" firstAttribute="leading" secondItem="1Cc-9j-lmc" secondAttribute="leading" id="Lhz-og-gGK"/>
+                            <constraint firstItem="txe-0V-uLg" firstAttribute="top" secondItem="Ikg-xr-mdx" secondAttribute="bottom" id="MIy-OU-QVS"/>
                             <constraint firstItem="Ikg-xr-mdx" firstAttribute="leading" secondItem="S3L-xg-RvT" secondAttribute="trailing" constant="-580" id="MsK-sA-9ig"/>
                             <constraint firstItem="eCl-3b-w1m" firstAttribute="top" secondItem="tWs-IN-UMU" secondAttribute="bottom" constant="36" id="Svh-aG-29y"/>
                             <constraint firstItem="Ikg-xr-mdx" firstAttribute="centerX" secondItem="1Cc-9j-lmc" secondAttribute="centerX" id="UtO-3z-JvF"/>
@@ -1421,6 +1422,7 @@
                                 <exclude reference="plG-4U-ouX"/>
                                 <exclude reference="t7u-Yj-FkM"/>
                                 <exclude reference="w76-VI-mLT"/>
+                                <exclude reference="W6m-6z-SLn"/>
                                 <exclude reference="gqe-QE-o1j"/>
                             </mask>
                         </variation>
