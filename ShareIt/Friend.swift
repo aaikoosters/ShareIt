@@ -1,32 +1,30 @@
 //
-//  User.swift
+//  Friend.swift
 //  ShareIt
 //
-//  Created by Daniello on 11/01/16.
+//  Created by Student on 06/01/16.
 //  Copyright © 2016 Aaik Oosters. All rights reserved.
 //
 
 import Foundation
 import Parse
 
-class User  : PFUser
+class Friend : PFObject, PFSubclassing
 {
-    @NSManaged var name: String?
-    @NSManaged var surname: String?
-    @NSManaged var phoneNumber: String?
+    var friends = [User]()
     
-
+    @NSManaged var UserID: String
+    @NSManaged var FriendID: String
     
-    static func Username() -> String
+    static func userId() -> String
     {
-        return "username"
+        return "UserID"
     }
     
-    static func ObjectId() -> String
+    static func friendId() ->String
     {
-        return "objectId"
+        return "FriendID"
     }
-
     
     override class func initialize()
     {
@@ -40,8 +38,8 @@ class User  : PFUser
         }
     }
     
-    class func getCurrentUserId() -> String
+    static func parseClassName() -> String
     {
-        return (PFUser.currentUser()?.objectId!)!
+        return "Friend"
     }
 }
