@@ -31,16 +31,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        //border color and roundness
-        viewContainer.layer.borderWidth = 2.0
-        
-        let red = UIColor(red: 252.0/255.0, green: 86.0/255.0, blue: 68.0/255.0, alpha: 1.0)
-        viewContainer.layer.borderColor = red.CGColor
-        
-        viewContainer.layer.cornerRadius = 15
-        viewContainer.layer.masksToBounds = true
-        
+       
     }
     
     @IBAction func signUpAction(sender: AnyObject) {
@@ -51,19 +42,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let finalEmail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
         if email?.characters.count < 1 {
-            let alert = UIAlertView(title: "Invalid", message: "Email is too short", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Error", message: "Submitted Emailadress is too short", delegate: self, cancelButtonTitle: "OK")
             alert.show()
         }
         else if username?.characters.count < 3 {
-            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Error", message: "Username must be at least 3 characters long", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
         } else if password?.characters.count < 8 {
-            let alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Error", message: "Password must be at least 8 characters long", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
         } else if email?.characters.count < 8 {
-            let alert = UIAlertView(title: "Invalid", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Error", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
         } else {
