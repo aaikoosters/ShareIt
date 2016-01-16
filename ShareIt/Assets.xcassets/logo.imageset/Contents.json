@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ShareIt_settings1.png",
+      "filename" : "ShareIt_Splash.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ShareIt_settings3.png",
       "scale" : "2x"
     },
     {
