@@ -17,10 +17,14 @@ class FriendListViewController: UITableViewController
         super.viewWillAppear(animated)
         
         self.setNavigationAssetsStyle(self.navigationController)
+        
+        
         userLoader.loadAllFriends({
             users in
-            dispatch_async(dispatch_get_main_queue(),{
-                self.tableView.reloadData()
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    self.tableView.reloadData()
+                    
             })
         })
         
@@ -36,9 +40,13 @@ class FriendListViewController: UITableViewController
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendListViewCell", forIndexPath: indexPath) as! FriendListViewCell
-        let friend = userLoader.users[indexPath.row]
-        cell.userName.text = friend.username
-        cell.userDisplay.image = UIImage(named: "logo200")
+        
+        if self.userLoader.users.count > 0
+        {
+            let friend = userLoader.users[indexPath.row]
+            cell.userName.text = friend.username
+            cell.userDisplay.image = UIImage(named: "logo200")
+        }
         return cell
     }
     

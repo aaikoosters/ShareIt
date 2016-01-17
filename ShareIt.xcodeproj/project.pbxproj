@@ -24,6 +24,12 @@
 		307719221C3D7FD100469969 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 307719201C3D7FD100469969 /* settings@2x.png */; };
 		30919D101C467AA3005CFAB7 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30919D0F1C467AA3005CFAB7 /* PostViewCell.swift */; };
 		30919D161C46B26E005CFAB7 /* PostMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30919D151C46B26E005CFAB7 /* PostMakeViewController.swift */; };
+		309837871C4BAF4C008A6ACB /* HomeSettingViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309837861C4BAF4C008A6ACB /* HomeSettingViewcontroller.swift */; };
+		3098378D1C4BB1B6008A6ACB /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 309837881C4BB1B6008A6ACB /* location.png */; };
+		3098378E1C4BB1B6008A6ACB /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309837891C4BB1B6008A6ACB /* location@2x.png */; };
+		3098378F1C4BB1B6008A6ACB /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 3098378A1C4BB1B6008A6ACB /* add.png */; };
+		309837901C4BB1B6008A6ACB /* confirm.png in Resources */ = {isa = PBXBuildFile; fileRef = 3098378B1C4BB1B6008A6ACB /* confirm.png */; };
+		309837911C4BB1B6008A6ACB /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 3098378C1C4BB1B6008A6ACB /* delete.png */; };
 		30DDEEC71C3AF1EE003BB707 /* logo200.png in Resources */ = {isa = PBXBuildFile; fileRef = 30DDEEC61C3AF1EE003BB707 /* logo200.png */; };
 		30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */; };
 		30F2DF7C1C43F4B40051F7D6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2DF7B1C43F4B40051F7D6 /* Message.swift */; };
@@ -135,6 +141,12 @@
 		307719201C3D7FD100469969 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		30919D0F1C467AA3005CFAB7 /* PostViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
 		30919D151C46B26E005CFAB7 /* PostMakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMakeViewController.swift; sourceTree = "<group>"; };
+		309837861C4BAF4C008A6ACB /* HomeSettingViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSettingViewcontroller.swift; sourceTree = "<group>"; };
+		309837881C4BB1B6008A6ACB /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		309837891C4BB1B6008A6ACB /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
+		3098378A1C4BB1B6008A6ACB /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		3098378B1C4BB1B6008A6ACB /* confirm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirm.png; sourceTree = "<group>"; };
+		3098378C1C4BB1B6008A6ACB /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		30DDEEC61C3AF1EE003BB707 /* logo200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo200.png; sourceTree = "<group>"; };
 		30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLogoViewController.swift; sourceTree = "<group>"; };
 		30F2DF7B1C43F4B40051F7D6 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -274,6 +286,25 @@
 			name = PostViewControllers;
 			sourceTree = "<group>";
 		};
+		309837841C4BAEC9008A6ACB /* LoginRegisterControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */,
+				ABEBE5141C1B0E7B00E320F2 /* ResetPasswordViewController.swift */,
+				ABEBE5121C1B0E6900E320F2 /* SignUpViewController.swift */,
+			);
+			name = LoginRegisterControllers;
+			sourceTree = "<group>";
+		};
+		309837851C4BAF24008A6ACB /* HomeMapView */ = {
+			isa = PBXGroup;
+			children = (
+				ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */,
+				309837861C4BAF4C008A6ACB /* HomeSettingViewcontroller.swift */,
+			);
+			name = HomeMapView;
+			sourceTree = "<group>";
+		};
 		30DDEEC41C3AF00A003BB707 /* OtherAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +320,11 @@
 		30DDEEC51C3AF1E0003BB707 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				309837881C4BB1B6008A6ACB /* location.png */,
+				309837891C4BB1B6008A6ACB /* location@2x.png */,
+				3098378A1C4BB1B6008A6ACB /* add.png */,
+				3098378B1C4BB1B6008A6ACB /* confirm.png */,
+				3098378C1C4BB1B6008A6ACB /* delete.png */,
 				30DDEEC61C3AF1EE003BB707 /* logo200.png */,
 				3077191A1C3D7A7800469969 /* message.png */,
 				30238F031C458425009D026D /* messageRed.png */,
@@ -337,13 +373,11 @@
 			isa = PBXGroup;
 			children = (
 				30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */,
-				ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */,
 				AB593BDC1C3BDCD700650C80 /* SettingsViewController.swift */,
-				ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */,
-				ABEBE5121C1B0E6900E320F2 /* SignUpViewController.swift */,
-				ABEBE5141C1B0E7B00E320F2 /* ResetPasswordViewController.swift */,
+				309837841C4BAEC9008A6ACB /* LoginRegisterControllers */,
 				307719101C3D468300469969 /* MapViewViewController.swift */,
 				3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */,
+				309837851C4BAF24008A6ACB /* HomeMapView */,
 				30919D0E1C4679D7005CFAB7 /* PostViewControllers */,
 				AB189E851C46564C00C63230 /* EventViewControllers */,
 				30238EFE1C4577A9009D026D /* FriendsViewControllers */,
@@ -355,13 +389,13 @@
 			isa = PBXGroup;
 			children = (
 				3FB348201C496E6F003EA33E /* ParseExtension.swift */,
-				3FB3481E1C496E62003EA33E /* ContentLoaderPost.swift */,
 				3F6EAB211C47058C00331250 /* Friend.swift */,
 				30F2DF821C43FED00051F7D6 /* User.swift */,
 				30F2DF7B1C43F4B40051F7D6 /* Message.swift */,
 				30F2DF841C4408F10051F7D6 /* Event.swift */,
 				30F2DF7E1C43FE1C0051F7D6 /* UserHandler.swift */,
 				30F2DF8B1C4415180051F7D6 /* ContentLoader.swift */,
+				3FB3481E1C496E62003EA33E /* ContentLoaderPost.swift */,
 				AB189E831C4654BE00C63230 /* ContentLoaderEvent.swift */,
 				3024C7431C45983A0087F424 /* ContentLoaderUser.swift */,
 			);
@@ -528,7 +562,7 @@
 				TargetAttributes = {
 					ABEBE4C11C1A00C500E320F2 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = W6CDYGZRPJ;
+						DevelopmentTeam = CQQXXRYWW3;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -573,6 +607,7 @@
 				30238F061C458425009D026D /* messageRed@2x.png in Resources */,
 				A39BF2EE1C4A67680055F72B /* ShareIt_settings1.png in Resources */,
 				A39BF2DE1C4A67680055F72B /* ShareIt_event3.png in Resources */,
+				3098378E1C4BB1B6008A6ACB /* location@2x.png in Resources */,
 				A39BF2E11C4A67680055F72B /* ShareIt_friends2.png in Resources */,
 				A39BF2E61C4A67680055F72B /* ShareIt_map3.png in Resources */,
 				A39BF2F01C4A67680055F72B /* ShareIt_settings3.png in Resources */,
@@ -580,6 +615,7 @@
 				A39BF2DB1C4A67680055F72B /* ShareIt_180px.png in Resources */,
 				A39BF2D61C4A67680055F72B /* ShareIt_80px.png in Resources */,
 				A39BF2EB1C4A67680055F72B /* ShareIt_post2.png in Resources */,
+				309837911C4BB1B6008A6ACB /* delete.png in Resources */,
 				A39BF2D31C4A67680055F72B /* ShareIt_40px.png in Resources */,
 				A39BF2E81C4A67680055F72B /* ShareIt_new 1.png in Resources */,
 				307719221C3D7FD100469969 /* settings@2x.png in Resources */,
@@ -587,11 +623,13 @@
 				A39BF2E51C4A67680055F72B /* ShareIt_map2.png in Resources */,
 				A39BF2E91C4A67680055F72B /* ShareIt_new2.png in Resources */,
 				A39BF2F11C4A67680055F72B /* ShareIt_settings4.png in Resources */,
+				3098378F1C4BB1B6008A6ACB /* add.png in Resources */,
 				A39BF2D91C4A67680055F72B /* ShareIt_152px.png in Resources */,
 				ABEBE50D1C1AC5E900E320F2 /* Main.storyboard in Resources */,
 				A39BF2E41C4A67680055F72B /* ShareIt_map1.png in Resources */,
 				A39BF2DD1C4A67680055F72B /* ShareIt_event2.png in Resources */,
 				A39BF2D41C4A67680055F72B /* ShareIt_58px.png in Resources */,
+				3098378D1C4BB1B6008A6ACB /* location.png in Resources */,
 				A39BF2D51C4A67680055F72B /* ShareIt_76px.png in Resources */,
 				A39BF2F21C4A67680055F72B /* ShareIt_Splash.png in Resources */,
 				A39BF2DC1C4A67680055F72B /* ShareIt_event1.png in Resources */,
@@ -611,6 +649,7 @@
 				A39BF2D21C4A67680055F72B /* ShareIt_29px.png in Resources */,
 				307719131C3D740600469969 /* idea.txt in Resources */,
 				A39BF2E21C4A67680055F72B /* ShareIt_friends3.png in Resources */,
+				309837901C4BB1B6008A6ACB /* confirm.png in Resources */,
 				A39BF2D71C4A67680055F72B /* ShareIt_87px.png in Resources */,
 				A39BF2DF1C4A67680055F72B /* ShareIt_event4.png in Resources */,
 				3077191C1C3D7A7800469969 /* message.png in Resources */,
@@ -644,6 +683,7 @@
 				AB593BED1C3D943100650C80 /* EventDetailViewController.swift in Sources */,
 				AB189E841C4654BE00C63230 /* ContentLoaderEvent.swift in Sources */,
 				3024C7441C45983A0087F424 /* ContentLoaderUser.swift in Sources */,
+				309837871C4BAF4C008A6ACB /* HomeSettingViewcontroller.swift in Sources */,
 				3077190D1C3D3E2400469969 /* FriendListViewController.swift in Sources */,
 				30238F021C4581C7009D026D /* PostViewController.swift in Sources */,
 				30238F001C4577F9009D026D /* FriendsSearchViewController.swift in Sources */,

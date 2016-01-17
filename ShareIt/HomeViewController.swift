@@ -6,12 +6,13 @@
 //  Copyright © 2015 Aaik Oosters. All rights reserved.
 //
 
+
 import UIKit
 import MapKit
 
 class HomeViewController: UIViewController, MKMapViewDelegate
 {
-
+    
     var loader = ContentLoader()
     
     let coreLocation = CoreLocation()
@@ -19,23 +20,14 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     let locateButton = UIButton()
     
     var radiusCircle = MKCircle()
-
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-
-
-        locateButton.setImage( UIImage(named:"close"), forState: .Normal)
-        locateButton.frame.size = CGSize(width: 20.0, height: 20.0)
-//        locateButton.center = CGPoint(x: self.view.frame.size.width - (locateButton.frame.size.width/2) - 20, y: self.navigationController!.navigationBar.frame.size.height -  self.navigationController!.navigationBar.frame.size.height - (locateButton.frame.size.height/2))
         
-        locateButton.center = mapView.center
         
-        self.view.addSubview(locateButton)
-        
-        locateButton.addTarget(self, action: "locatePressed:", forControlEvents: .TouchUpInside)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -45,18 +37,38 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
+        locateButton.setImage( UIImage(named:"location"), forState: .Normal)
+        locateButton.frame.size = CGSize(width: 40.0, height: 40.0)
+        
+        //        locateButton.center = CGPoint(x: self.view.frame.size.width - (locateButton.frame.size.width/2) - 20, y: self.navigationController!.navigationBar.frame.size.height -  self.navigationController!.navigationBar.frame.size.height - (locateButton.frame.size.height/2))
+        
+        locateButton.center = self.view .convertPoint(self.view.center, fromView: self.view)
+        
+        //        let xConstraint = NSLayoutConstraint(item: locateButton, attribute: .CenterX, relatedBy: .Equal, toItem: self.mapView, attribute: .CenterX, multiplier: 1, constant: 0)
+        //
+        //        let yConstraint = NSLayoutConstraint(item: locateButton, attribute: .CenterY, relatedBy: .Equal, toItem: self.mapView, attribute: .CenterY, multiplier: 1, constant: 0)
+        //
+        //        self.locateButton.addConstraint(xConstraint)
+        //        self.locateButton.addConstraint(yConstraint)
+        
+        
+        self.view.addSubview(locateButton)
+        
+        locateButton.addTarget(self, action: "locatePressed:", forControlEvents: .TouchUpInside)
+        
+        
         
         loader.loadAllMessages({
             messages in
             dispatch_async(dispatch_get_main_queue(),{
-                    self.addPointsToMap(messages)
+                self.addPointsToMap(messages)
             })
-
+            
         })
         
     }
     
-
+    
     
     override func viewDidAppear(animated: Bool)
     {
@@ -101,14 +113,14 @@ class HomeViewController: UIViewController, MKMapViewDelegate
                     self.mapView?.addOverlay(self.radiusCircle)
             })
         })
-
+        
     }
     
     
     
-
+    
     override func viewWillDisappear(animated: Bool) {
-       // self.navigationController?.setNavigationBarHidden(false, animated: true)
+        // self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewWillDisappear(animated)
     }
     
@@ -121,7 +133,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             
         }
     }
-
+    
     func addPointsToMap( anotations : [Message])
     {
         mapView.addAnnotations(anotations)
@@ -144,14 +156,14 @@ class HomeViewController: UIViewController, MKMapViewDelegate
                     
             })
         })
-
+        
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer
     {
         
         let circleRenderer = MKCircleRenderer(overlay: overlay)
-        circleRenderer.fillColor = UIAssets.logoColor.redColor.colorWithAlphaComponent(0.1)
+        circleRenderer.fillColor = UIAssets.logoColor.redColor.colorWithAlphaComponent(0.07)
         circleRenderer.strokeColor = UIAssets.logoColor.redColor
         circleRenderer.lineWidth = 1
         return circleRenderer
@@ -160,12 +172,13 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
     {
-        self.mapView?.removeOverlay(self.radiusCircle)
+        self.mapView?.removeOverlays((self.mapView?.overlays)!)
         self.radiusCircle = MKCircle(centerCoordinate: userLocation.coordinate ,radius:CLLocationDistance(1000))
         self.mapView?.addOverlay(self.radiusCircle)
- 
+        
     }
-
-
+    
+    
     
 }
+

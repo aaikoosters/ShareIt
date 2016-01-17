@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zOF-2z-0oi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zOF-2z-0oi">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -179,6 +179,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Wep-iK-VNW"/>
                                 <exclude reference="8zr-xP-KIi"/>
                                 <exclude reference="fEH-CA-AfH"/>
                             </mask>
@@ -470,7 +471,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CSW-n2-2Qp" id="YD7-K9-yJ7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c4a-1k-cao">
@@ -537,7 +538,7 @@
                                 <rect key="frame" x="0.0" y="136" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xrW-WE-0lM" id="CFO-gD-r1U">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Emy-nc-mhC">
@@ -627,7 +628,7 @@
                                 <rect key="frame" x="0.0" y="136" width="600" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Ij-gm-dVG" id="HH4-FI-Ufx">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="87"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="87.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0T8-4V-6Db">
@@ -1046,7 +1047,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="arB-jf-fDY" id="73l-nJ-6yU">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="91"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="91.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaa-8n-Xt7">
@@ -1168,6 +1169,9 @@
                                     </mask>
                                 </variation>
                             </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gei-85-gsb">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1185,6 +1189,7 @@
                             <constraint firstItem="Ikg-xr-mdx" firstAttribute="leading" secondItem="1Cc-9j-lmc" secondAttribute="leading" id="Lhz-og-gGK"/>
                             <constraint firstItem="txe-0V-uLg" firstAttribute="top" secondItem="Ikg-xr-mdx" secondAttribute="bottom" id="MIy-OU-QVS"/>
                             <constraint firstItem="Ikg-xr-mdx" firstAttribute="leading" secondItem="S3L-xg-RvT" secondAttribute="trailing" constant="-580" id="MsK-sA-9ig"/>
+                            <constraint firstItem="gei-85-gsb" firstAttribute="centerX" secondItem="1Cc-9j-lmc" secondAttribute="centerX" id="Q4G-eh-ZeC"/>
                             <constraint firstItem="eCl-3b-w1m" firstAttribute="top" secondItem="tWs-IN-UMU" secondAttribute="bottom" constant="36" id="Svh-aG-29y"/>
                             <constraint firstItem="Ikg-xr-mdx" firstAttribute="centerX" secondItem="1Cc-9j-lmc" secondAttribute="centerX" id="UtO-3z-JvF"/>
                             <constraint firstItem="txe-0V-uLg" firstAttribute="top" secondItem="Ikg-xr-mdx" secondAttribute="bottom" constant="8" symbolic="YES" id="W6m-6z-SLn"/>
@@ -1199,6 +1204,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="eCl-3b-w1m" secondAttribute="leading" id="s59-xr-ytp"/>
                             <constraint firstItem="Ikg-xr-mdx" firstAttribute="leading" secondItem="1Cc-9j-lmc" secondAttribute="leadingMargin" constant="-20" id="t7u-Yj-FkM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ikg-xr-mdx" secondAttribute="trailing" constant="-20" id="w76-VI-mLT"/>
+                            <constraint firstItem="gei-85-gsb" firstAttribute="centerY" secondItem="1Cc-9j-lmc" secondAttribute="centerY" id="wEU-ZG-ZMR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1226,6 +1232,7 @@
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="gei-85-gsb" id="vMx-TJ-9Yf"/>
                         <outlet property="contentField" destination="6uA-fm-LBU" id="JZf-bu-qw8"/>
                         <outlet property="mapView" destination="Ikg-xr-mdx" id="U3B-7k-Hyn"/>
                         <outlet property="postButton" destination="S3L-xg-RvT" id="ZLx-vh-hFL"/>
