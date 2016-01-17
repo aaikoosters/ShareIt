@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Parse
 
 class PostDetailViewController : UIViewController
 {
@@ -23,6 +24,7 @@ class PostDetailViewController : UIViewController
     }
     @IBOutlet weak var messagetext: UILabel!
     
+    var user: PFUser!
     
     var receivedMessage: Message!
     
@@ -31,8 +33,22 @@ class PostDetailViewController : UIViewController
         super.viewWillAppear(animated)
         
         userDisplay.image = UIImage(named: "logo200")
-        userName.text = receivedMessage.user
         messagetext.text = receivedMessage.content
+        
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+            {
+                do
+                {
+                    self.user = try PFQuery.getUserObjectWithId(self.receivedMessage.user)
+                }
+                catch
+                {
+                    print("Error finding user")
+                }
+                
+                self.userName.text = self.user.username
+            })
         
         let location = CLLocation(latitude: receivedMessage.position.latitude, longitude: receivedMessage.position.longitude)
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
@@ -48,5 +64,8 @@ class PostDetailViewController : UIViewController
         pin.title = receivedMessage.title
         messageLocation.addAnnotation(pin)
     }
+    
+
+
     
 }
