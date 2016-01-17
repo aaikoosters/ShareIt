@@ -55,6 +55,7 @@ class CoreLocation : NSObject, CLLocationManagerDelegate
     
     func loadCurrentLocation(completion: (returnLocation: CLLocation ) -> Void)
     {
+        
         completion(returnLocation: self.currentLocation)
     }
 
