@@ -13,5 +13,6 @@ class UserDefaultsKeys
     struct UserDefaultsKey
     {
         static let mapType = "mapKey"
+        static var rangeRegion = "regionKey"
     }
 }

@@ -17,7 +17,7 @@ class HomeSettingViewcontroller: UITableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.segment .addTarget(self, action: "segmetSwitched:", forControlEvents: UIControlEvents.ValueChanged)
+        self.segment .addTarget(self, action: "segmentSwitched:", forControlEvents: UIControlEvents.ValueChanged)
         
         let defaults = NSUserDefaults.standardUserDefaults()
         if let selected = defaults.valueForKey(UserDefaultsKeys.UserDefaultsKey.mapType) as? Bool
@@ -39,7 +39,7 @@ class HomeSettingViewcontroller: UITableViewController
 
     }
     
-    func segmetSwitched(sender:UISegmentedControl)
+    func segmentSwitched(sender:UISegmentedControl)
     {
         switch segment.selectedSegmentIndex
         {

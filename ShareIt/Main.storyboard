@@ -1042,6 +1042,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.98431372549999996" green="0.30588235289999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Map Type" id="Rzd-S6-9KT">
                                 <cells>
@@ -1061,7 +1062,7 @@
                                                     </constraints>
                                                     <segments>
                                                         <segment title="Map"/>
-                                                        <segment title="Sattelite"/>
+                                                        <segment title="Satellite"/>
                                                     </segments>
                                                     <color key="tintColor" red="0.98431372549999996" green="0.30588235289999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <variation key="default">
@@ -1082,7 +1083,7 @@
                             <tableViewSection headerTitle="Range posts" id="Eio-Sc-Ell">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="RHV-tr-DO0">
-                                        <rect key="frame" x="0.0" y="264" width="600" height="100"/>
+                                        <rect key="frame" x="0.0" y="263.5" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RHV-tr-DO0" id="iJj-46-WOH">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
