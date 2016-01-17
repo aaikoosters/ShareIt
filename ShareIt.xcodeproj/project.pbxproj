@@ -34,6 +34,7 @@
 		30F2DF881C440B220051F7D6 /* AnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2DF871C440B220051F7D6 /* AnnotationPin.swift */; };
 		30F2DF8A1C4411F00051F7D6 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2DF891C4411F00051F7D6 /* Annotation.swift */; };
 		30F2DF8C1C4415180051F7D6 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2DF8B1C4415180051F7D6 /* ContentLoader.swift */; };
+		3F29FED51C49B29600277651 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F29FED41C49B29600277651 /* PostDetailViewController.swift */; };
 		3F6EAB221C47058C00331250 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EAB211C47058C00331250 /* Friend.swift */; };
 		3F6EAB261C47195900331250 /* FriendListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6EAB251C47195900331250 /* FriendListViewCell.swift */; };
 		3FB3481F1C496E62003EA33E /* ContentLoaderPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB3481E1C496E62003EA33E /* ContentLoaderPost.swift */; };
@@ -112,6 +113,7 @@
 		30F2DF871C440B220051F7D6 /* AnnotationPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationPin.swift; sourceTree = "<group>"; };
 		30F2DF891C4411F00051F7D6 /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		30F2DF8B1C4415180051F7D6 /* ContentLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
+		3F29FED41C49B29600277651 /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		3F6EAB211C47058C00331250 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		3F6EAB251C47195900331250 /* FriendListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewCell.swift; sourceTree = "<group>"; };
 		3FB3481E1C496E62003EA33E /* ContentLoaderPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentLoaderPost.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				30238F011C4581C7009D026D /* PostViewController.swift */,
 				30919D0F1C467AA3005CFAB7 /* PostViewCell.swift */,
 				30919D151C46B26E005CFAB7 /* PostMakeViewController.swift */,
+				3F29FED41C49B29600277651 /* PostDetailViewController.swift */,
 			);
 			name = PostViewControllers;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				30919D161C46B26E005CFAB7 /* PostMakeViewController.swift in Sources */,
 				ABEBE5151C1B0E7B00E320F2 /* ResetPasswordViewController.swift in Sources */,
 				ABEBE4C61C1A00C500E320F2 /* AppDelegate.swift in Sources */,
+				3F29FED51C49B29600277651 /* PostDetailViewController.swift in Sources */,
 				3024C7461C45AAB40087F424 /* FriendSearchViewCell.swift in Sources */,
 				30F2DF811C43FE6F0051F7D6 /* UIAssets.swift in Sources */,
 				3FB3481F1C496E62003EA33E /* ContentLoaderPost.swift in Sources */,

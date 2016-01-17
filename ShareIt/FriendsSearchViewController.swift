@@ -27,7 +27,6 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
         searchText = searchBar.text!
         userLoader.searchAllNonFriends(searchText) { (returnMessages) -> Void in
             
-            
             self.tableView.reloadData()
         }
 

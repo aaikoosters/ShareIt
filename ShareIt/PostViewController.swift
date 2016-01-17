@@ -15,6 +15,8 @@ class PostViewController: UITableViewController {
     
     var postLoader = ContentLoaderPost()
     
+    var selectedMessage: Message!
+    
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
@@ -53,7 +55,14 @@ class PostViewController: UITableViewController {
         return postLoader.posts.count
     }
     
-    
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        selectedMessage = self.postLoader.posts[self.tableView.indexPathForSelectedRow!.row]
+        
+        let postDetail = segue.destinationViewController as! PostDetailViewController
+        
+        postDetail.receivedMessage = selectedMessage
+    }
 
 }
