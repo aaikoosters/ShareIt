@@ -21,6 +21,41 @@ class EventDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    var titel: String = "" {
+        didSet {
+//            updateUI()
+            print("dit is de titel ", titel )
+        }
+    }
+    var beginDatum: String = "" {
+        didSet {
+//            updateUI()
+        }
+    }
+    var eindDatum: String = "" {
+        didSet {
+//            updateUI()
+        }
+    }
+    var locatie: String = "" {
+        didSet {
+//            updateUI()
+        }
+    }
+    
+    var detail: String = "" {
+        didSet {
+//            updateUI()
+        }
+    }
+    
+    var image: String = "" {
+        didSet {
+            
+        }
+    }
+    
+    
 
     /*
     // MARK: - Navigation
