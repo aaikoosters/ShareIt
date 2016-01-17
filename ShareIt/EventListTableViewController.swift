@@ -76,38 +76,5 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
         return eventLoader.events.count
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let indexPath = self.tableView.indexPathForSelectedRow!
-//        self.titleOefening = self.oef[indexPath.row].title
-//        self.oefUitleg = self.oef[indexPath.row].spierUit
-//        self.spierGroep = self.oef[indexPath.row].spierGroep
-//        self.link = self.oef[indexPath.row].youtubeLink
-        
-        print("in de swqu")
-        
-        let currentCell = self.tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
-        
-        let aaik = (currentCell.textLabel!.text)!
-        print("selectedIndex bitttaas, ", aaik)
-        
-        var destination = segue.destinationViewController
-        if let navCon = destination as? UINavigationController {
-            destination = navCon.visibleViewController!
-        }
-        if let odv = destination as? EventDetailViewController {
-            if let identifier = segue.identifier {
-                switch identifier {
-                case "eventDetail":
-//                    odv.uitlegOefening = oefUitleg
-//                    odv.titelOefening = titleOefening
-//                    odv.spierGroep = spierGroep
-//                    odv.YoutubeURL = link
-                    odv.titel = "Aaikie"
-                default: break
-                }
-            }
-        }
-    }
-    
 
 }
