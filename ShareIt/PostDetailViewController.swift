@@ -47,7 +47,10 @@ class PostDetailViewController : UIViewController
                     print("Error finding user")
                 }
                 
-                self.userName.text = self.user.username
+                dispatch_async(dispatch_get_main_queue(),
+                    {
+                        self.userName.text = self.user.username
+                    })                
             })
         
         let location = CLLocation(latitude: receivedMessage.position.latitude, longitude: receivedMessage.position.longitude)
