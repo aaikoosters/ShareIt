@@ -83,6 +83,7 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
         return eventLoader.events.count
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let indexPath = self.tableView.indexPathForSelectedRow!
@@ -117,6 +118,8 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+=======
+>>>>>>> parent of 95a74c0... Merge remote-tracking branch 'origin/master'
 =======
 >>>>>>> parent of 95a74c0... Merge remote-tracking branch 'origin/master'
 
