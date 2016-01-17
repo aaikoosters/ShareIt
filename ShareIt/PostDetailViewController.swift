@@ -7,14 +7,20 @@
 //
 
 import UIKit
-import CoreLocation
+import MapKit
 
 class PostDetailViewController : UIViewController
 {
     
     @IBOutlet weak var userDisplay: UIImageView!
     @IBOutlet weak var userName: UILabel!
-    
+    @IBOutlet weak var messageLocation: MKMapView!
+    {
+        didSet{
+                messageLocation.mapType = .Standard
+                messageLocation.showsUserLocation = true
+              }
+    }
     @IBOutlet weak var messagetext: UILabel!
     
     
@@ -27,8 +33,20 @@ class PostDetailViewController : UIViewController
         userDisplay.image = UIImage(named: "logo200")
         userName.text = receivedMessage.user
         messagetext.text = receivedMessage.content
-
+        
+        let location = CLLocation(latitude: receivedMessage.position.latitude, longitude: receivedMessage.position.longitude)
+        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
+        messageLocation.setRegion(region, animated: true)
     }
     
+    override func viewDidLoad() {
+        self.title = receivedMessage.title
+        
+        let pin = MKPointAnnotation()
+        pin.coordinate.longitude = receivedMessage.position.longitude
+        pin.coordinate.latitude = receivedMessage.position.latitude
+        pin.title = receivedMessage.title
+        messageLocation.addAnnotation(pin)
+    }
     
 }

@@ -92,11 +92,15 @@ class PostViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        selectedMessage = self.postLoader.posts[self.tableView.indexPathForSelectedRow!.row]
+        if segue.identifier == "showPostDetail"
+        {
+            selectedMessage = self.postLoader.posts[self.tableView.indexPathForSelectedRow!.row]
+            
+            let postDetail = segue.destinationViewController as! PostDetailViewController
+            
+            postDetail.receivedMessage = selectedMessage
+        }
         
-        let postDetail = segue.destinationViewController as! PostDetailViewController
-        
-        postDetail.receivedMessage = selectedMessage
     }
 
 }
