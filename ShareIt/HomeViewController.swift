@@ -26,37 +26,54 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     {
         super.viewDidLoad()
         
-        
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
         self.setNavigationAssetsStyle(self.navigationController)
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         locateButton.setImage( UIImage(named:"location"), forState: .Normal)
-        locateButton.frame.size = CGSize(width: 40.0, height: 40.0)
+        locateButton.frame.size = CGSize(width: 4.0, height: 4.0)
         
-        //        locateButton.center = CGPoint(x: self.view.frame.size.width - (locateButton.frame.size.width/2) - 20, y: self.navigationController!.navigationBar.frame.size.height -  self.navigationController!.navigationBar.frame.size.height - (locateButton.frame.size.height/2))
+        locateButton.translatesAutoresizingMaskIntoConstraints = false
         
-        locateButton.center = self.view .convertPoint(self.view.center, fromView: self.view)
+        self.mapView.addSubview(locateButton)
         
-        //        let xConstraint = NSLayoutConstraint(item: locateButton, attribute: .CenterX, relatedBy: .Equal, toItem: self.mapView, attribute: .CenterX, multiplier: 1, constant: 0)
-        //
-        //        let yConstraint = NSLayoutConstraint(item: locateButton, attribute: .CenterY, relatedBy: .Equal, toItem: self.mapView, attribute: .CenterY, multiplier: 1, constant: 0)
-        //
-        //        self.locateButton.addConstraint(xConstraint)
-        //        self.locateButton.addConstraint(yConstraint)
+        //layout constraint button
+        
+        let xConstraint = NSLayoutConstraint(item: locateButton, attribute: NSLayoutAttribute.Right, relatedBy: .Equal, toItem: self.mapView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -10)
+        
+        let yConstraint = NSLayoutConstraint(item: locateButton, attribute:  NSLayoutAttribute.Bottom, relatedBy: .Equal, toItem: self.mapView, attribute:  NSLayoutAttribute.Bottom, multiplier: 1, constant: -10)
+        
+        let sizeX = NSLayoutConstraint(item: locateButton, attribute:  NSLayoutAttribute.Width, relatedBy: .Equal, toItem: locateButton, attribute:  NSLayoutAttribute.Width, multiplier: 1, constant: 2)
+        
+        let sizeY = NSLayoutConstraint(item: locateButton, attribute:  NSLayoutAttribute.Height, relatedBy: .Equal, toItem: locateButton, attribute:  NSLayoutAttribute.Height, multiplier: 1, constant: 2)
+        
+        self.locateButton.addConstraint(sizeX)
+        self.locateButton.addConstraint(sizeY)
         
         
-        self.view.addSubview(locateButton)
+        self.mapView.addConstraint(xConstraint)
+        self.mapView.addConstraint(yConstraint)
         
         locateButton.addTarget(self, action: "locatePressed:", forControlEvents: .TouchUpInside)
+  
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let selected = defaults.valueForKey(UserDefaultsKeys.UserDefaultsKey.mapType) as? Bool
+        {
+            if selected
+            {
+                mapView.mapType = .Standard
+            }
+            else
+            {
+                mapView.mapType = .Satellite
+            }
+        }
+
         
         loader.loadAllMessages({
             messages in
@@ -128,7 +145,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     @IBOutlet weak var mapView : MKMapView!{
         didSet {
             mapView.delegate = self
-            mapView.mapType = .Standard
             mapView.showsUserLocation = true
             
         }
@@ -177,6 +193,20 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         self.mapView?.addOverlay(self.radiusCircle)
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "HomeMapSettingsTransition"
+        {
+            if let settingsView = segue.destinationViewController as? HomeSettingViewcontroller
+            {
+
+            }
+        }
+
+
+    }
+
     
     
     

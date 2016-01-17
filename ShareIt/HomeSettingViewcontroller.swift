@@ -9,19 +9,65 @@
 
 import UIKit
 
-class HomeSettingViewcontroller: UIViewController
+class HomeSettingViewcontroller: UITableViewController
 {
+    
+    @IBOutlet weak  var segment : UISegmentedControl!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.segment .addTarget(self, action: "segmetSwitched:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let selected = defaults.valueForKey(UserDefaultsKeys.UserDefaultsKey.mapType) as? Bool
+        {
+            if selected
+            {
+                self.segment.selectedSegmentIndex = 0
+            }
+            else
+            {
+                self.segment.selectedSegmentIndex = 1
+            }
+        }
+
+
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
+    }
+    
+    func segmetSwitched(sender:UISegmentedControl)
+    {
+        switch segment.selectedSegmentIndex
+        {
+        case 0:
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setBool(true, forKey:  UserDefaultsKeys.UserDefaultsKey.mapType)
+            defaults.synchronize()
+            
+        case 1:
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setBool(false, forKey: UserDefaultsKeys.UserDefaultsKey.mapType)
+        default:
+            break; 
+        }
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "Home"
+        {
+            if let homeView = segue.destinationViewController as? HomeViewController
+            {
+                
+            }
+        }
         
-        let locateButton = UIButton()
-        locateButton.setImage( UIImage(named:"location"), forState: .Normal)
-        locateButton.frame.size = CGSize(width: 40.0, height: 40.0)
-        
-        
-        locateButton.center = self.view .convertPoint(self.view.center, fromView: self.view)
-        
-        self.view.addSubview(locateButton)
         
     }
+
 }
