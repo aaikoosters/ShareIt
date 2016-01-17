@@ -6,6 +6,7 @@
 //  Copyright © 2016 Aaik Oosters. All rights reserved.
 //
 
+
 import Foundation
 import Parse
 
@@ -13,6 +14,7 @@ class Message : PFObject, PFSubclassing
 {
     @NSManaged var content: String
     @NSManaged var user: String
+    @NSManaged var postTitle: String
     @NSManaged var position: PFGeoPoint
     
     var userObject = ""
@@ -26,8 +28,8 @@ class Message : PFObject, PFSubclassing
             static var onceToken : dispatch_once_t = 0;
         }
         dispatch_once(&Static.onceToken)
-        {
-            self.registerSubclass()
+            {
+                self.registerSubclass()
         }
     }
     
@@ -41,14 +43,14 @@ class Message : PFObject, PFSubclassing
         self.position = PFGeoPoint(latitude: latitude, longitude: longitudeInput)
     }
     
-
-//        func iconView() -> UIImageView
-//        {
-//            let view = PFImageView(imageView: PlaceholderImage)
-//            view.file = imageFile
-//            view.loadInBackground()
-//            return view
-//        }
+    
+    //        func iconView() -> UIImageView
+    //        {
+    //            let view = PFImageView(imageView: PlaceholderImage)
+    //            view.file = imageFile
+    //            view.loadInBackground()
+    //            return view
+    //        }
 }
 
 

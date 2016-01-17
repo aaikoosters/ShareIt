@@ -6,12 +6,15 @@
 //  Copyright © 2016 Aaik Oosters. All rights reserved.
 //
 
+
 import UIKit
 
 class PostViewController: UITableViewController {
     
     
     var searchText = "a"
+    
+    
     
     var postLoader = ContentLoaderPost()
     
@@ -22,19 +25,50 @@ class PostViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         self.setNavigationAssetsStyle(self.navigationController)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.postLoader.posts.removeAll()
         self.tableView.reloadData()
         
+        self.setRefreshControl()
+        startRefresh()
+    }
+    
+    
+    func startRefresh()
+    {
+        if self.refreshControl != nil
+        {
+            self.refreshControl?.beginRefreshing()
+            self.refresh(self.refreshControl!)
+        }
+        
+    }
+    
+    
+    func refresh(sender:AnyObject)
+    {
+        self.postLoader.posts.removeAll()
+        self.tableView.reloadData()
+        
+        let check = postLoader
+        
         postLoader.loadAllPosts({
             posts in
-            dispatch_async(dispatch_get_main_queue(),{
-                
-                self.tableView.reloadData()
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    if check === self.postLoader
+                    {
+                        self.refreshControl?.endRefreshing()
+                        self.tableView.reloadData()
+                    }
+                    
+                    
             })
         })
-
-        
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell

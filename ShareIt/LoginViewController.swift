@@ -28,15 +28,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        //border color and roundness
-        viewContainer.layer.borderWidth = 2.0
-        
 
-        viewContainer.layer.borderColor = UIAssets.logoColor.redColor.CGColor
-        
-        viewContainer.layer.cornerRadius = 15
-        viewContainer.layer.masksToBounds = true
         
     }
     
@@ -52,10 +44,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let password = self.password.text
         
         if username?.characters.count < 3 {
-            let alert = UIAlertView(title: "Fout.. ", message: "Gebruikersnaam is te kort", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Error", message: "Submitted username too short", delegate: self, cancelButtonTitle: "OK")
             alert.show()
         } else if password?.characters.count < 8 {
-            let alert = UIAlertView(title: "Fout.. ", message: "Wachtwoord is te kort", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Error", message: "Submitted password too short", delegate: self, cancelButtonTitle: "OK")
             alert.show()
         } else {
         let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
@@ -69,7 +61,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             spinner.stopAnimating()
             
             if ((user) != nil) {
-                let alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
+                let alert = UIAlertView(title: "Success", message: "Succesfully logged in", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in

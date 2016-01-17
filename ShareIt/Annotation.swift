@@ -6,24 +6,25 @@
 //  Copyright © 2016 Aaik Oosters. All rights reserved.
 //
 
+
 import Foundation
 import MapKit
 
 extension Message : MKAnnotation
 {
     var coordinate : CLLocationCoordinate2D
-    {
-        return CLLocationCoordinate2D(latitude: position.latitude , longitude: position.longitude)
+        {
+            return CLLocationCoordinate2D(latitude: position.latitude , longitude: position.longitude)
     }
     
     var title : String?
-    {
-        return content
+        {
+            return postTitle
     }
     
     var subtitle : String?
-    {
-        return "test"
+        {
+            return content
     }
 }
 
@@ -31,16 +32,16 @@ extension Message : MKAnnotation
 extension Event : MKAnnotation
 {
     var coordinate : CLLocationCoordinate2D
-    {
-        return CLLocationCoordinate2D(latitude: position.latitude , longitude: position.longitude)
+        {
+            return CLLocationCoordinate2D(latitude: position.latitude , longitude: position.longitude)
     }
     var title : String?
-    {
-        return content
+        {
+            return content
     }
     
     var subtitle : String?
-    {
-        return "test"
+        {
+            return "test"
     }
 }
