@@ -15,14 +15,7 @@ import UIKit
 //}
 
 class EventListTableViewController: UITableViewController, UISearchBarDelegate {
-    
-//    var evenemt = [
-//        Evenemten(title: "Event 1", date: "10-01-2016", beschrijving: "beschrijving bij event 1"),
-//        Evenemten(title: "Event 2", date: "10-01-2016", beschrijving: "beschrijving bij event 1"),
-//        Evenemten(title: "Event 3", date: "10-01-2016", beschrijving: "beschrijving bij event 1")
-//        
-//    ]
-    
+        
     var searchText = "a"
     var eventList = Event()
     var eventLoader = ContentLoaderEvent()
@@ -82,7 +75,6 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
     {
         return eventLoader.events.count
     }
-<<<<<<< HEAD
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let indexPath = self.tableView.indexPathForSelectedRow!
@@ -117,7 +109,5 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-=======
->>>>>>> parent of 95a74c0... Merge remote-tracking branch 'origin/master'
 
 }
