@@ -11,10 +11,7 @@ import UIKit
 
 class PostViewController: UITableViewController {
     
-    
     var searchText = "a"
-    
-    
     
     var postLoader = ContentLoaderPost()
     
