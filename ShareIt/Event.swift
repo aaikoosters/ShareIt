@@ -14,9 +14,8 @@ class Event : PFObject, PFSubclassing
     @NSManaged var eventName: String
     @NSManaged var content: String
     @NSManaged var position: PFGeoPoint
-    @NSManaged var startDate: String
-    @NSManaged var endDate: String
-    @NSManaged var viewAble: String
+    @NSManaged var startDate: NSDate
+    @NSManaged var endDate: NSDate
     
     @NSManaged var imageFile: PFFile
     
