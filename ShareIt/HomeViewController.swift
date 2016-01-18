@@ -59,6 +59,9 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         
         locateButton.addTarget(self, action: "locatePressed:", forControlEvents: .TouchUpInside)
         
+        
+        loadLocation()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -82,8 +85,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             self.rangePosts = currentRange
         }
         
-        
-        
         loader.loadAllMessages({
             messages in
             dispatch_async(dispatch_get_main_queue(),{
@@ -92,8 +93,42 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             
         })
         
+    
     }
     
+    
+    func loadLocation()
+    {
+        coreLocation.loadCurrentLocation({
+            location in
+            
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    let region = MKCoordinateRegionMakeWithDistance(
+                        location.coordinate, 4000, 4000)
+                    self.mapView?.setRegion(region, animated: true)
+                    
+                    self.mapView?.removeOverlays((self.mapView?.overlays)!)
+                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(self.rangePosts))
+                    self.mapView?.addOverlay(self.radiusCircle)
+            })
+        })
+    }
+    
+    func reloadRange()
+    {
+        coreLocation.loadCurrentLocation({
+            location in
+            
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    self.mapView?.removeOverlays((self.mapView?.overlays)!)
+                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(self.rangePosts))
+                    self.mapView?.addOverlay(self.radiusCircle)
+            })
+        })
+
+    }
     
     
     override func viewDidAppear(animated: Bool)
@@ -124,21 +159,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             
             self.presentViewController(alertController, animated: true, completion: nil)
         }
-        
-        coreLocation.loadCurrentLocation({
-            location in
-            
-            dispatch_async(dispatch_get_main_queue(),
-                {
-                    let region = MKCoordinateRegionMakeWithDistance(
-                        location.coordinate, 4000, 4000)
-                    self.mapView?.setRegion(region, animated: true)
-                    
-                    self.mapView?.removeOverlays((self.mapView?.overlays)!)
-                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(self.rangePosts))
-                    self.mapView?.addOverlay(self.radiusCircle)
-            })
-        })
+        reloadRange()
         
     }
     
@@ -168,22 +189,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     func locatePressed(sender:UIButton!)
     {
-        coreLocation.loadCurrentLocation({
-            location in
-            
-            dispatch_async(dispatch_get_main_queue(),
-                {
-                    let region = MKCoordinateRegionMakeWithDistance(
-                        location.coordinate, 4000, 4000)
-                    self.mapView?.setRegion(region, animated: true)
-                    
-                    self.mapView?.removeOverlays((self.mapView?.overlays)!)
-                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(self.rangePosts))
-                    self.mapView?.addOverlay(self.radiusCircle)
-                    
-            })
-        })
-        
+        loadLocation()
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer
@@ -196,6 +202,73 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         return circleRenderer
     }
     
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        if !(annotation is Message)
+        {
+            return nil
+        }
+        
+        var view = mapView.dequeueReusableAnnotationViewWithIdentifier("pointPostMarker")
+        
+        if view == nil
+        {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pointPostMarker")
+            
+            
+            view!.canShowCallout = true
+        }
+        else
+        {
+            view?.annotation = annotation
+        }
+        
+        if let mapAnnotation = annotation as? Message
+        {
+            let viewUI = UIImageView(frame: CGRectMake(0, 0, 40, 40))
+            viewUI.image = UIImage(named: "logo200")
+            view?.leftCalloutAccessoryView = viewUI
+            
+        }
+        
+        return view
+    }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView)
+    {
+        if view.gestureRecognizers == nil
+        {
+            let annotationTap = UITapGestureRecognizer(target: self, action: "annotationPressed:")
+            view.addGestureRecognizer(annotationTap)
+        }
+        else if view.gestureRecognizers?.count == 0
+        {
+            let annotationTap = UITapGestureRecognizer(target: self, action: "annotationPressed:")
+            view.addGestureRecognizer(annotationTap)
+        }
+    }
+    
+    func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView)
+    {
+        if view.gestureRecognizers != nil
+        {
+            view.gestureRecognizers?.removeAll()
+        }
+    }
+    
+    func annotationPressed(sender:UITapGestureRecognizer!)
+    {
+        if let annotationView = sender.view as? MKAnnotationView
+        {
+            if let customMessage = annotationView.annotation as? Message
+            {
+                let postDetail = self.storyboard?.instantiateViewControllerWithIdentifier("BerichtZien") as! PostDetailViewController
+                postDetail.receivedMessage = customMessage
+                self.navigationController?.pushViewController(postDetail, animated: true)
+            }
+        }
+    }
+
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
     {

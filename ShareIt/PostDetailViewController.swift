@@ -25,8 +25,20 @@ class PostDetailViewController : UIViewController
     }
     @IBOutlet weak var messagetext: UILabel!
     
+    
     var receivedMessage: Message!
     var receivedUsername: String!
+    
+    
+
+    
+    convenience init(messageInit: Message)
+    {
+        self.init()
+        self.receivedMessage = messageInit
+    }
+
+
     
     override func viewWillAppear(animated: Bool)
     {

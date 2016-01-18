@@ -177,6 +177,11 @@ class ContentLoaderUser
         }
     }
     
+    func addFriend(mainUser : String , friendUser : String , completion: (returnMessages: [User]) -> Void)
+    {
+        
+    }
+    
     
     func searchAllNonFriends(searchText: String, completion: (returnMessages: [User]) -> Void)
     {

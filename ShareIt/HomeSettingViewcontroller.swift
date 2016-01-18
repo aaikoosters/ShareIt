@@ -70,16 +70,39 @@ class HomeSettingViewcontroller: UITableViewController
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if segue.identifier == "Home"
+        if segue.identifier == "settingsToMap"
         {
             if let homeView = segue.destinationViewController as? HomeViewController
             {
-                
+                homeView.loadLocation()
             }
         }
-        
-        
     }
+    
+    override func willMoveToParentViewController(parent: UIViewController?)
+    {
+        super.willMoveToParentViewController(parent)
+        if parent == nil
+        {
+            print(self.parentViewController?.classForCoder)
+            if let nav = self.parentViewController as? UINavigationController
+            {
+                print( nav.presentedViewController?.classForCoder)
+                if let mainView = nav.presentedViewController as? HomeViewController
+                {
+                    mainView.loadLocation()
+                }
+
+            }
+            print("This VC is 'will' be popped. i.e. the back button was pressed.")
+        }
+    }
+    
+    
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController,
+        animated: Bool) { if viewController === self {
+            // do here what you want
+            } }
     
     func sliderValueChanged(sender: UISlider)
     {
