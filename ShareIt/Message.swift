@@ -33,6 +33,11 @@ class Message : PFObject, PFSubclassing
         }
     }
     
+    static func User() -> String
+    {
+        return "user"
+    }
+    
     static func parseClassName() -> String
     {
         return "Message"

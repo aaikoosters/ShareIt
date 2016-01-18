@@ -27,8 +27,8 @@ class CoreLocation : NSObject, CLLocationManagerDelegate
 
             dispatch_async(dispatch_get_main_queue(), {
                 
-                manager.desiredAccuracy = 67.97
-                manager.distanceFilter = 10.4
+                manager.desiredAccuracy = kCLLocationAccuracyBest
+                manager.distanceFilter = 50.4
                 manager.startUpdatingLocation()
             })
 

@@ -12,7 +12,7 @@ import MapKit
 class HomeViewController: UIViewController, MKMapViewDelegate
 {
     
-    var loader = ContentLoader()
+    var loader = ContentLoaderPost()
     
     let coreLocation = CoreLocation()
     
@@ -84,15 +84,17 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         {
             self.rangePosts = currentRange
         }
+ 
+        reloadPins()
         
-        loader.loadAllMessages({
-            messages in
-            dispatch_async(dispatch_get_main_queue(),{
-                self.addPointsToMap(messages)
-            })
-            
-        })
-        
+//        loader.loadAllPosts({
+//            messages in
+//            dispatch_async(dispatch_get_main_queue(),{
+//                self.addPointsToMap(messages)
+//            })
+//            
+//        })
+
     
     }
     
@@ -114,6 +116,19 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             })
         })
     }
+    
+    func reloadPins()
+    {
+        loader.loadAllPostsinRangeFriends(coreLocation.currentLocation.coordinate.latitude , userlongitude: coreLocation.currentLocation.coordinate.longitude, range: rangePosts) { (returnMessages) -> Void in
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    self.addPointsToMap(returnMessages)
+            })
+            
+        }
+ 
+    }
+    
     
     func reloadRange()
     {
@@ -182,6 +197,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     func addPointsToMap( anotations : [Message])
     {
+        mapView.removeAnnotations(mapView.annotations)
         mapView.addAnnotations(anotations)
         //mapView.showAnnotations(anotations, animated: true)
     }
@@ -190,6 +206,12 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     func locatePressed(sender:UIButton!)
     {
         loadLocation()
+        reloadPins()
+        
+        self.mapView?.removeOverlays((self.mapView?.overlays)!)
+        self.radiusCircle = MKCircle(centerCoordinate: coreLocation.currentLocation.coordinate ,radius:CLLocationDistance(self.rangePosts))
+        self.mapView?.addOverlay(self.radiusCircle)
+
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer
@@ -228,6 +250,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             let viewUI = UIImageView(frame: CGRectMake(0, 0, 40, 40))
             viewUI.image = UIImage(named: "logo200")
             view?.leftCalloutAccessoryView = viewUI
+
             
         }
         
@@ -269,12 +292,52 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         }
     }
 
+    func mapView(mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView])
+    {
+        var delayTime = 0
+        for view in views
+        {
+            let mkView = view
+            if view.annotation is MKUserLocation {
+                continue;
+            }
+            
+            // annotation in view check
+            let point:MKMapPoint  =  MKMapPointForCoordinate(mkView.annotation!.coordinate);
+            if (!MKMapRectContainsPoint(self.mapView.visibleMapRect, point))
+            {
+                continue;
+            }
+            
+            let endFrame:CGRect = mkView.frame;
+            
+            // Move annotation out of view
+            mkView.frame = CGRectMake(mkView.frame.origin.x, mkView.frame.origin.y - self.view.frame.size.height, mkView.frame.size.width, mkView.frame.size.height);
+            
+            // Animate drop
+            let delay = 0.03 * Double(delayTime)
+            UIView.animateWithDuration(0.5, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations:{() in
+                mkView.frame = endFrame
+                // Animate squash
+                }, completion:{(Bool) in
+                    UIView.animateWithDuration(0.05, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations:{() in
+                        mkView.transform = CGAffineTransformMakeScale(1.0, 0.6)
+                        
+                        }, completion: {(Bool) in
+                            UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations:{() in
+                                mkView.transform = CGAffineTransformIdentity
+                                }, completion: nil)
+                    })
+                    
+            })
+            
+            delayTime++
+        }
+    }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
     {
-        self.mapView?.removeOverlays((self.mapView?.overlays)!)
-        self.radiusCircle = MKCircle(centerCoordinate: userLocation.coordinate ,radius:CLLocationDistance(self.rangePosts))
-        self.mapView?.addOverlay(self.radiusCircle)
+        
         
     }
     
