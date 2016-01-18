@@ -11,7 +11,10 @@ import UIKit
 
 class PostViewController: UITableViewController {
     
+    
     var searchText = "a"
+    
+    
     
     var postLoader = ContentLoaderPost()
     
@@ -26,9 +29,6 @@ class PostViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.estimatedRowHeight = self.tableView.rowHeight
-        self.tableView.rowHeight = UITableViewAutomaticDimension
         
         self.postLoader.posts.removeAll()
         self.tableView.reloadData()
@@ -76,10 +76,9 @@ class PostViewController: UITableViewController {
         let cell  = tableView.dequeueReusableCellWithIdentifier("PostCellView", forIndexPath: indexPath) as! PostViewCell
         let post = self.postLoader.posts[indexPath.row]
         
-        cell.postMesage.text = post.postTitle
+        cell.postMesage.text = post.content
         cell.postDisplay.image = UIImage(named: "logo200")
         cell.userName.text = post.userObject
-        cell.postBody.text = post.content
         
         return cell
     }

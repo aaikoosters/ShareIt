@@ -15,7 +15,14 @@ import UIKit
 //}
 
 class EventListTableViewController: UITableViewController, UISearchBarDelegate {
-        
+    
+//    var evenemt = [
+//        Evenemten(title: "Event 1", date: "10-01-2016", beschrijving: "beschrijving bij event 1"),
+//        Evenemten(title: "Event 2", date: "10-01-2016", beschrijving: "beschrijving bij event 1"),
+//        Evenemten(title: "Event 3", date: "10-01-2016", beschrijving: "beschrijving bij event 1")
+//        
+//    ]
+    
     var searchText = "a"
     var eventList = Event()
     var eventLoader = ContentLoaderEvent()
@@ -90,8 +97,6 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
             default: break
             }
         }
-        
     }
-    
 
 }
