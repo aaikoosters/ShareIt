@@ -30,6 +30,7 @@
 		3098378F1C4BB1B6008A6ACB /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 3098378A1C4BB1B6008A6ACB /* add.png */; };
 		309837901C4BB1B6008A6ACB /* confirm.png in Resources */ = {isa = PBXBuildFile; fileRef = 3098378B1C4BB1B6008A6ACB /* confirm.png */; };
 		309837911C4BB1B6008A6ACB /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 3098378C1C4BB1B6008A6ACB /* delete.png */; };
+		309837941C4C5564008A6ACB /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309837931C4C5564008A6ACB /* UserDefaultsKeys.swift */; };
 		30DDEEC71C3AF1EE003BB707 /* logo200.png in Resources */ = {isa = PBXBuildFile; fileRef = 30DDEEC61C3AF1EE003BB707 /* logo200.png */; };
 		30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */; };
 		30F2DF7C1C43F4B40051F7D6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2DF7B1C43F4B40051F7D6 /* Message.swift */; };
@@ -148,6 +149,7 @@
 		3098378A1C4BB1B6008A6ACB /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		3098378B1C4BB1B6008A6ACB /* confirm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirm.png; sourceTree = "<group>"; };
 		3098378C1C4BB1B6008A6ACB /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		309837931C4C5564008A6ACB /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		30DDEEC61C3AF1EE003BB707 /* logo200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo200.png; sourceTree = "<group>"; };
 		30DDEEC81C3B00A1003BB707 /* MainLogoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLogoViewController.swift; sourceTree = "<group>"; };
 		30F2DF7B1C43F4B40051F7D6 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 			children = (
 				ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */,
 				ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */,
+				309837931C4C5564008A6ACB /* UserDefaultsKeys.swift */,
 				30F2DF801C43FE6F0051F7D6 /* UIAssets.swift */,
 				30F2DF861C440AEA0051F7D6 /* MapClasses */,
 				30F2DF7D1C43F4C60051F7D6 /* ParseBackEnd */,
@@ -565,7 +568,7 @@
 				TargetAttributes = {
 					ABEBE4C11C1A00C500E320F2 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = W6CDYGZRPJ;
+						DevelopmentTeam = CQQXXRYWW3;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -692,6 +695,7 @@
 				30238F001C4577F9009D026D /* FriendsSearchViewController.swift in Sources */,
 				30DDEEC91C3B00A1003BB707 /* MainLogoViewController.swift in Sources */,
 				3F6EAB261C47195900331250 /* FriendListViewCell.swift in Sources */,
+				309837941C4C5564008A6ACB /* UserDefaultsKeys.swift in Sources */,
 				30F2DF8C1C4415180051F7D6 /* ContentLoader.swift in Sources */,
 				30F2DF7F1C43FE1C0051F7D6 /* UserHandler.swift in Sources */,
 				ABEBE5131C1B0E6900E320F2 /* SignUpViewController.swift in Sources */,
