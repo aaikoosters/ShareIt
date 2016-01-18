@@ -1224,7 +1224,7 @@
                     <navigationItem key="navigationItem" id="cXV-KL-HoV">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="edit" id="qL3-cz-miZ">
                             <connections>
-                                <segue destination="wOV-5w-p6G" kind="show" id="Cbm-M5-COO"/>
+                                <segue destination="wOV-5w-p6G" kind="show" identifier="settingsToMap" id="Cbm-M5-COO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

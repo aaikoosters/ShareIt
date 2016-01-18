@@ -36,6 +36,8 @@ class CoreLocation : NSObject, CLLocationManagerDelegate
         }
     }
     
+    
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation] )
     {
         for location in locations
@@ -55,6 +57,12 @@ class CoreLocation : NSObject, CLLocationManagerDelegate
     
     func loadCurrentLocation(completion: (returnLocation: CLLocation ) -> Void)
     {
+        
+//        while currentLocation.coordinate.longitude == 0 && currentLocation.coordinate.latitude == 0
+//        {
+//            
+//        }
+
         completion(returnLocation: self.currentLocation)
     }
 
