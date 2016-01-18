@@ -99,6 +99,9 @@ class PostViewController: UITableViewController {
             let postDetail = segue.destinationViewController as! PostDetailViewController
             
             postDetail.receivedMessage = selectedMessage
+            
+            let selectedCell = self.tableView.cellForRowAtIndexPath(self.tableView.indexPathForSelectedRow!)! as! PostViewCell
+            postDetail.receivedUsername = selectedCell.userName.text
         }
         
     }
