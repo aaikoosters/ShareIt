@@ -119,7 +119,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     func reloadPins()
     {
-        loader.loadAllPostsinRange(coreLocation.currentLocation.coordinate.latitude , userlongitude: coreLocation.currentLocation.coordinate.longitude, range: rangePosts) { (returnMessages) -> Void in
+        loader.loadAllPostsinRangeFriends(coreLocation.currentLocation.coordinate.latitude , userlongitude: coreLocation.currentLocation.coordinate.longitude, range: rangePosts) { (returnMessages) -> Void in
             dispatch_async(dispatch_get_main_queue(),
                 {
                     self.addPointsToMap(returnMessages)
