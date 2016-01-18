@@ -6,15 +6,11 @@
 //  Copyright © 2016 Aaik Oosters. All rights reserved.
 //
 
-
 import UIKit
 
 class PostViewController: UITableViewController {
     
-    
     var searchText = "a"
-    
-    
     
     var postLoader = ContentLoaderPost()
     
@@ -29,6 +25,9 @@ class PostViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.estimatedRowHeight = self.tableView.rowHeight
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         
         self.postLoader.posts.removeAll()
         self.tableView.reloadData()
@@ -76,9 +75,10 @@ class PostViewController: UITableViewController {
         let cell  = tableView.dequeueReusableCellWithIdentifier("PostCellView", forIndexPath: indexPath) as! PostViewCell
         let post = self.postLoader.posts[indexPath.row]
         
-        cell.postMesage.text = post.content
+        cell.postMesage.text = post.postTitle
         cell.postDisplay.image = UIImage(named: "logo200")
         cell.userName.text = post.userObject
+        cell.postBody.text = post.content
         
         return cell
     }
@@ -89,7 +89,7 @@ class PostViewController: UITableViewController {
         return postLoader.posts.count
     }
     
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if segue.identifier == "showPostDetail"
@@ -99,11 +99,8 @@ class PostViewController: UITableViewController {
             let postDetail = segue.destinationViewController as! PostDetailViewController
             
             postDetail.receivedMessage = selectedMessage
-            
-            let selectedCell = self.tableView.cellForRowAtIndexPath(self.tableView.indexPathForSelectedRow!)! as! PostViewCell
-            postDetail.receivedUsername = selectedCell.userName.text
         }
         
     }
-
+    
 }
