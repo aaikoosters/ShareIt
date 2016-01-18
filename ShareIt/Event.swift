@@ -14,11 +14,13 @@ class Event : PFObject, PFSubclassing
     @NSManaged var eventName: String
     @NSManaged var content: String
     @NSManaged var position: PFGeoPoint
+
     @NSManaged var startDate: String
     @NSManaged var endDate: String
     @NSManaged var viewAble: String
+    @NSManaged var user: String
     
-    @NSManaged var imageFile: PFFile
+    //@NSManaged var imageFile: PFFile
     
     override class func initialize()
     {

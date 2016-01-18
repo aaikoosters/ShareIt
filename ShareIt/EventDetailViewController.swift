@@ -7,64 +7,63 @@
 //
 
 import UIKit
+import MapKit
+import Parse
 
 class EventDetailViewController: UIViewController {
 
+    var user: PFUser!
+    var receivedEvent: Event!
+    
+    @IBOutlet weak var userDisplay: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var startDate: UILabel!
+    @IBOutlet weak var endDate: UILabel!
+    @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var eventLocation: MKMapView!
+        {
+        didSet{
+            eventLocation.mapType = .Standard
+            eventLocation.showsUserLocation = true
+            eventLocation.scrollEnabled = false
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    var titel: String = "" {
-        didSet {
-//            updateUI()
-            print("dit is de titel ", titel )
-        }
+    override func viewWillAppear(animated: Bool) {
+        userDisplay.image = UIImage(named: "logo200")
+        self.title = receivedEvent.title!
+        startDate.text = receivedEvent.startDate
+        endDate.text = receivedEvent.endDate
+        content.text = receivedEvent.content
+        
+        let location = CLLocation(latitude: receivedEvent.position.latitude, longitude: receivedEvent.position.longitude)
+        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
+        eventLocation.setRegion(region, animated: true)
+        
+        //Use this to get the username of the creator of the event
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+        {
+            do
+            {
+                self.user = try PFQuery.getUserObjectWithId(self.receivedEvent.user)
+            }
+            catch
+            {
+                print("Error finding user")
+            }
+        
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    if self.user != nil
+                    {
+                        self.userName.text = self.user.username
+                    }
+                })
+        })
     }
-    var beginDatum: String = "" {
-        didSet {
-//            updateUI()
-        }
-    }
-    var eindDatum: String = "" {
-        didSet {
-//            updateUI()
-        }
-    }
-    var locatie: String = "" {
-        didSet {
-//            updateUI()
-        }
-    }
-    
-    var detail: String = "" {
-        didSet {
-//            updateUI()
-        }
-    }
-    
-    var image: String = "" {
-        didSet {
-            
-        }
-    }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

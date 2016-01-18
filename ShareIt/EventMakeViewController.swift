@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class EventMakeViewController: UIViewController, UITextFieldDelegate {
+class EventMakeViewController: UIViewController {
 
     @IBOutlet weak var content: UITextView!
     @IBOutlet weak var nameEvent: UITextField!
@@ -18,80 +18,41 @@ class EventMakeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var endDate: UITextField!
     @IBOutlet weak var startDate: UITextField!
     
-    var zichtbaar = "Private"
     let event = Event()
     
-    @IBOutlet weak var segmendPicker: UISegmentedControl!
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    @IBAction func segmendChanged(sender: UISegmentedControl) {
-
-        switch segmendPicker.selectedSegmentIndex
-        {
-        case 0:
-            zichtbaar = "Private"
-        case 1:
-            zichtbaar = "Public"
-        default:
-            break; 
-        }
-        
-    }
-    
-    @IBAction func pickerStart(sender: AnyObject) {
-        datePickerStart(sender as! UIDatePicker)
-    }
-    
-    @IBAction func pickerEnd(sender: AnyObject) {
-        datePickerEInd(sender as! UIDatePicker)
-    }
     @IBAction func saveEvent(sender: AnyObject) {
-              
-        event.startDate = startDate.text!
-        event.endDate = endDate.text!
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyy-mm-dd"
+        let startdate = dateFormatter.dateFromString(startDate.text!)!
+        let enddate = dateFormatter.dateFromString(endDate.text!)!
+        
+        //event.startDate = startdate
+        //event.endDate = enddate
         event.eventName = nameEvent.text!
-        event.viewAble = zichtbaar
+
+        //event.viewAble = zichtbaar
+        event.user = User.getCurrentUserId()
+
 //        event.position
-//        event.content = content.text!
+        event.content = content.text!
         
-        print("zichttbaar", event.viewAble)
+
         event.saveInBackground()
-        self.navigationController?.popViewControllerAnimated(true)
-        
-    }
-    
-    func datePickerStart(datePicker:UIDatePicker) {
-        let dati = datePicker.date
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let strDate = dateFormatter.stringFromDate(dati)
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HomeTab") as UIViewController
+            
+            viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            self.presentViewController(viewController, animated: true, completion: nil)
+        })
 
-        startDate.text = strDate
-
-    }
-    
-    func datePickerEInd(datePicker: UIDatePicker) {
-        let dati = datePicker.date
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let strDate = dateFormatter.stringFromDate(dati)
-        
-        endDate.text = strDate
         
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.nameEvent.delegate = self
-        
-//        // Do any additional setup after loading the view.
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
