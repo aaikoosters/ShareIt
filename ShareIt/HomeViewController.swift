@@ -49,6 +49,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         
         let sizeY = NSLayoutConstraint(item: locateButton, attribute:  NSLayoutAttribute.Height, relatedBy: .Equal, toItem: locateButton, attribute:  NSLayoutAttribute.Height, multiplier: 1, constant: 2)
         
+        
+        
         self.locateButton.addConstraint(sizeX)
         self.locateButton.addConstraint(sizeY)
         

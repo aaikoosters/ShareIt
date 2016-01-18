@@ -1259,15 +1259,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="205.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaa-8n-Xt7">
-                                            <rect key="frame" x="76" y="36" width="53.5" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="oNm-Hp-W56"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2P-dB-N1C">
                                             <rect key="frame" x="8" y="8" width="60" height="60"/>
                                             <constraints>
@@ -1285,9 +1276,18 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Nl-C2-CxG">
-                                            <rect key="frame" x="8" y="84.5" width="551" height="102.5"/>
+                                            <rect key="frame" x="8" y="84" width="551" height="102.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaa-8n-Xt7">
+                                            <rect key="frame" x="76" y="36" width="53.5" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="oNm-Hp-W56"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1317,8 +1317,6 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="3ZG-YE-rzJ"/>
-                                            <exclude reference="6EK-yJ-3Wl"/>
                                             <exclude reference="CjG-dD-5mV"/>
                                             <exclude reference="622-yP-4w4"/>
                                             <exclude reference="74x-4G-AsD"/>
@@ -1328,6 +1326,8 @@
                                             <exclude reference="YXc-lb-sZw"/>
                                             <exclude reference="gtp-4p-Hip"/>
                                             <exclude reference="vXL-MZ-eb1"/>
+                                            <exclude reference="3ZG-YE-rzJ"/>
+                                            <exclude reference="6EK-yJ-3Wl"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
