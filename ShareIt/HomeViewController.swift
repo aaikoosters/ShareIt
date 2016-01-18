@@ -206,6 +206,12 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     func locatePressed(sender:UIButton!)
     {
         loadLocation()
+        reloadPins()
+        
+        self.mapView?.removeOverlays((self.mapView?.overlays)!)
+        self.radiusCircle = MKCircle(centerCoordinate: coreLocation.currentLocation.coordinate ,radius:CLLocationDistance(self.rangePosts))
+        self.mapView?.addOverlay(self.radiusCircle)
+
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer
@@ -331,11 +337,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
     {
-        self.mapView?.removeOverlays((self.mapView?.overlays)!)
-        self.radiusCircle = MKCircle(centerCoordinate: userLocation.coordinate ,radius:CLLocationDistance(self.rangePosts))
-        self.mapView?.addOverlay(self.radiusCircle)
         
-        reloadPins()
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
