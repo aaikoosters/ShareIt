@@ -55,6 +55,7 @@ class EventMakeViewController: UIViewController, UITextFieldDelegate {
         event.endDate = endDate.text!
         event.eventName = nameEvent.text!
         event.viewAble = zichtbaar
+        event.user = User.getCurrentUserId()
 //        event.position
 //        event.content = content.text!
         

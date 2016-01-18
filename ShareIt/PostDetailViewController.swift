@@ -20,13 +20,13 @@ class PostDetailViewController : UIViewController
         didSet{
                 messageLocation.mapType = .Standard
                 messageLocation.showsUserLocation = true
+                messageLocation.scrollEnabled = false
               }
     }
     @IBOutlet weak var messagetext: UILabel!
     
-    var user: PFUser!
-    
     var receivedMessage: Message!
+    var receivedUsername: String!
     
     override func viewWillAppear(animated: Bool)
     {
@@ -34,24 +34,7 @@ class PostDetailViewController : UIViewController
         
         userDisplay.image = UIImage(named: "logo200")
         messagetext.text = receivedMessage.content
-        
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
-            {
-                do
-                {
-                    self.user = try PFQuery.getUserObjectWithId(self.receivedMessage.user)
-                }
-                catch
-                {
-                    print("Error finding user")
-                }
-                
-                dispatch_async(dispatch_get_main_queue(),
-                    {
-                        self.userName.text = self.user.username
-                    })                
-            })
+        userName.text = receivedUsername
         
         let location = CLLocation(latitude: receivedMessage.position.latitude, longitude: receivedMessage.position.longitude)
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
