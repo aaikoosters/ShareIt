@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     var radiusCircle = MKCircle()
     
+    var rangePosts = Int()
+    
     
     override func viewDidLoad()
     {
@@ -70,9 +72,15 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             }
             else
             {
-                mapView.mapType = .Satellite
+                mapView.mapType = .Hybrid
             }
         }
+        
+        if let currentRange = defaults.valueForKey(UserDefaultsKeys.UserDefaultsKey.rangeRegion) as? Int
+        {
+            self.rangePosts = currentRange
+        }
+
 
         
         loader.loadAllMessages({
@@ -125,8 +133,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate
                         location.coordinate, 4000, 4000)
                     self.mapView?.setRegion(region, animated: true)
                     
-                    self.mapView?.removeOverlay(self.radiusCircle)
-                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(1000))
+                    self.mapView?.removeOverlays((self.mapView?.overlays)!)
+                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(self.rangePosts))
                     self.mapView?.addOverlay(self.radiusCircle)
             })
         })
@@ -168,7 +176,9 @@ class HomeViewController: UIViewController, MKMapViewDelegate
                         location.coordinate, 4000, 4000)
                     self.mapView?.setRegion(region, animated: true)
                     
-                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(1000))
+                    self.mapView?.removeOverlays((self.mapView?.overlays)!)
+                    self.radiusCircle = MKCircle(centerCoordinate: location.coordinate ,radius:CLLocationDistance(self.rangePosts))
+                     self.mapView?.addOverlay(self.radiusCircle)
                     
             })
         })
@@ -189,7 +199,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
     {
         self.mapView?.removeOverlays((self.mapView?.overlays)!)
-        self.radiusCircle = MKCircle(centerCoordinate: userLocation.coordinate ,radius:CLLocationDistance(1000))
+        self.radiusCircle = MKCircle(centerCoordinate: userLocation.coordinate ,radius:CLLocationDistance(self.rangePosts))
         self.mapView?.addOverlay(self.radiusCircle)
         
     }

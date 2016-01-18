@@ -1099,7 +1099,7 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="TsE-92-Yvu"/>
                                                     </constraints>
                                                 </view>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="S19-iM-tY4">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="200" maxValue="5000" translatesAutoresizingMaskIntoConstraints="NO" id="S19-iM-tY4">
                                                     <rect key="frame" x="198" y="35" width="204" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="Qim-kw-FI1"/>
@@ -1148,6 +1148,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="segment" destination="2yB-B7-Cee" id="1m4-YN-O39"/>
+                        <outlet property="sliderRange" destination="S19-iM-tY4" id="Fph-Mb-BmC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iSC-G7-qlj" userLabel="First Responder" sceneMemberID="firstResponder"/>

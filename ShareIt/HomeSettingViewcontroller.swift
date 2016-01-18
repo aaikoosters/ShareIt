@@ -13,11 +13,16 @@ class HomeSettingViewcontroller: UITableViewController
 {
     
     @IBOutlet weak  var segment : UISegmentedControl!
+    @IBOutlet weak  var sliderRange : UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.segment .addTarget(self, action: "segmentSwitched:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        self.sliderRange .addTarget(self, action: "sliderValueChanged:", forControlEvents: .ValueChanged)
+        
+        
         
         let defaults = NSUserDefaults.standardUserDefaults()
         if let selected = defaults.valueForKey(UserDefaultsKeys.UserDefaultsKey.mapType) as? Bool
@@ -30,6 +35,11 @@ class HomeSettingViewcontroller: UITableViewController
             {
                 self.segment.selectedSegmentIndex = 1
             }
+        }
+        
+        if let currentRange = defaults.valueForKey(UserDefaultsKeys.UserDefaultsKey.rangeRegion) as? Int
+        {
+           self.sliderRange.value = Float(currentRange)
         }
 
 
@@ -68,6 +78,14 @@ class HomeSettingViewcontroller: UITableViewController
         }
         
         
+    }
+    
+    func sliderValueChanged(sender: UISlider)
+    {
+        let currentValue = Int(sender.value)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(currentValue, forKey:  UserDefaultsKeys.UserDefaultsKey.rangeRegion)
+        defaults.synchronize()
     }
 
 }
