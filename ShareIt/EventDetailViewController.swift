@@ -32,11 +32,17 @@ class EventDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let pin = MKPointAnnotation()
+        pin.coordinate.longitude = receivedEvent.position.longitude
+        pin.coordinate.latitude = receivedEvent.position.latitude
+        pin.title = receivedEvent.title
+        eventLocation.addAnnotation(pin)
     }
     
     override func viewWillAppear(animated: Bool) {
         userDisplay.image = UIImage(named: "logo200")
-        self.title = receivedEvent.title!
+        self.title = receivedEvent.eventName
         startDate.text = receivedEvent.startDate
         endDate.text = receivedEvent.endDate
         content.text = receivedEvent.content
