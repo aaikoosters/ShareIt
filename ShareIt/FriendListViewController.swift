@@ -19,16 +19,7 @@ class FriendListViewController: UITableViewController
         super.viewWillAppear(animated)
         
         self.setNavigationAssetsStyle(self.navigationController)
-        
-        
-        userLoader.loadAllFriends({
-            users in
-            dispatch_async(dispatch_get_main_queue(),
-                {
-                    self.tableView.reloadData()
-                    
-            })
-        })
+
         
         //navigation bar color
         self.navigationController?.navigationBar.barTintColor = UIAssets.logoColor.redColor
@@ -37,6 +28,13 @@ class FriendListViewController: UITableViewController
         
         //title font color and size
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.setRefreshControl()
+        startRefresh()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell
@@ -85,4 +83,32 @@ class FriendListViewController: UITableViewController
         }
         
     }
+    
+    func startRefresh()
+    {
+        if self.refreshControl != nil
+        {
+            self.refreshControl?.beginRefreshing()
+            self.refresh(self.refreshControl!)
+        }
+        
+    }
+    
+    
+    func refresh(sender:AnyObject)
+    {
+        self.userLoader.users.removeAll()
+        self.tableView.reloadData()
+        
+        userLoader.loadAllFriends({
+            users in
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    self.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
+                    
+            })
+        })
+    }
+
 }
