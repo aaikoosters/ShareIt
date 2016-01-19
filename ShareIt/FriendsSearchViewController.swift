@@ -12,6 +12,7 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
 {
 
     var searchText = "a"
+    var selectedUser = User()
     
     @IBOutlet weak var searchBar : UISearchBar!
         {
@@ -62,12 +63,27 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell  = tableView.dequeueReusableCellWithIdentifier("FriendsSearchCell", forIndexPath: indexPath) as! FriendSearchViewCell
-        let user = userLoader.users[indexPath.row]
-        
-        cell.userName.text = user.username
-        
-        cell.userDisplay.image = UIImage(named: "logo200")
-        
+        if self.userLoader.users.count > 0
+        {
+            let friend = userLoader.users[indexPath.row]
+            cell.userName.text = friend.username
+            
+            friend.profilePicture?.getDataInBackgroundWithBlock
+                {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    if error == nil {
+                        if let imageData = imageData {
+                            
+                            dispatch_async(dispatch_get_main_queue(),
+                                {
+                                    cell.userDisplay.image = UIImage(data:imageData)
+                            })
+                        }
+                    }
+            }
+            
+            
+        }
         return cell
     }
     
@@ -75,5 +91,19 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return userLoader.users.count
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "showUserDetail"
+        {
+            selectedUser = self.userLoader.users[self.tableView.indexPathForSelectedRow!.row]
+            
+            let friendDetail = segue.destinationViewController as! FriendDetailViewController
+            
+            friendDetail.receivedUser = selectedUser
+            
+        }
+        
     }
 }

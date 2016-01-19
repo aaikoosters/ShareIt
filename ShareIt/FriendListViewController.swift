@@ -12,6 +12,8 @@ class FriendListViewController: UITableViewController
 {
     var friendList = [Friend]()
     var userLoader = ContentLoaderUser()
+    var selectedUser = User()
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,7 +47,22 @@ class FriendListViewController: UITableViewController
         {
             let friend = userLoader.users[indexPath.row]
             cell.userName.text = friend.username
-            cell.userDisplay.image = UIImage(named: "logo200")
+            
+                friend.profilePicture?.getDataInBackgroundWithBlock
+                {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    if error == nil {
+                        if let imageData = imageData {
+         
+                            dispatch_async(dispatch_get_main_queue(),
+                                {
+                                    cell.userDisplay.image = UIImage(data:imageData)
+                            })
+                        }
+                    }
+                }
+    
+            
         }
         return cell
     }
@@ -53,5 +70,19 @@ class FriendListViewController: UITableViewController
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return userLoader.users.count
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "showUserDetail"
+        {
+            selectedUser = self.userLoader.users[self.tableView.indexPathForSelectedRow!.row]
+            
+            let friendDetail = segue.destinationViewController as! FriendDetailViewController
+            
+            friendDetail.receivedUser = selectedUser
+            
+        }
+        
     }
 }
