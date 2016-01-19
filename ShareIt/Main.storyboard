@@ -1212,6 +1212,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="iKP-PT-6h1"/>
                     <connections>
+                        <outlet property="userDisplay" destination="7BM-lZ-L4k" id="tmK-PP-Vw8"/>
                         <outlet property="userName" destination="5QT-3V-tF3" id="BJo-S3-uwG"/>
                     </connections>
                 </viewController>
@@ -1805,6 +1806,6 @@
         <image name="user" width="126" height="126"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rGv-si-idg"/>
+        <segue reference="OJu-jd-Khs"/>
     </inferredMetricsTieBreakers>
 </document>

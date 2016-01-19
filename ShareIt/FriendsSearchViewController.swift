@@ -68,19 +68,9 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
             let friend = userLoader.users[indexPath.row]
             cell.userName.text = friend.username
             
-            friend.profilePicture?.getDataInBackgroundWithBlock
-                {
-                    (imageData: NSData?, error: NSError?) -> Void in
-                    if error == nil {
-                        if let imageData = imageData {
-                            
-                            dispatch_async(dispatch_get_main_queue(),
-                                {
-                                    cell.userDisplay.image = UIImage(data:imageData)
-                            })
-                        }
-                    }
-            }
+            userLoader.loadPhotoForUser(friend.profilePicture!, completion: { (image) -> Void in
+                cell.userDisplay.image = UIImage(data:image!)
+            })
             
             
         }

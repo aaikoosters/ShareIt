@@ -34,19 +34,9 @@ class FriendDetailViewController: UIViewController
     
     override func viewDidLoad() {
         
-        receivedUser.profilePicture?.getDataInBackgroundWithBlock
-            {
-                (imageData: NSData?, error: NSError?) -> Void in
-                if error == nil {
-                    if let imageData = imageData {
-                        
-                        dispatch_async(dispatch_get_main_queue(),
-                            {
-                                self.userDisplay.image = UIImage(data:imageData)
-                        })
-                    }
-                }
-        }
+        userLoader.loadPhotoForUser(receivedUser.profilePicture!, completion: { (image) -> Void in
+            self.userDisplay.image = UIImage(data:image!)
+        })
     }
     
     
