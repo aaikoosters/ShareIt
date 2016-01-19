@@ -253,6 +253,24 @@ class ContentLoaderUser
         })
     }
     
+    func loadPhotoForUser (photoFile: PFFile, completion: (image: NSData?) ->Void)
+    {
+        photoFile.getDataInBackgroundWithBlock
+            {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        
+                        dispatch_async(dispatch_get_main_queue(),
+                            {
+                                completion(image: imageData)
+                        })
+                    }
+                }
+        }
+    
+    }
+    
     
 }
 

@@ -13,7 +13,13 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var userName: UILabel!
     
+    @IBOutlet weak var userDisplay: UIImageView!
+    
+    var userLoader = ContentLoaderUser()
+    
     @IBAction func logoutButton(sender: AnyObject) {
+        
+        
         
         // Send a request to log out a user
         User.logOut()
@@ -31,10 +37,16 @@ class SettingsViewController: UIViewController {
         // Show the current visitor's username
         if let pUserName = PFUser.currentUser()?["username"] as? String {
             self.userName.text = pUserName
+            
+
+            userLoader.loadPhotoForUser(PFUser.currentUser()!["profilePicture"] as! PFFile, completion: { (image) -> Void in
+                self.userDisplay.image = UIImage(data:image!)
+            })
+
         }
 
         // Do any additional setup after loading the view.
-    }
+           }
     
     
 
