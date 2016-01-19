@@ -14,6 +14,7 @@ class User  : PFUser
     @NSManaged var name: String?
     @NSManaged var surname: String?
     @NSManaged var phoneNumber: String?
+    @NSManaged var profilePicture: PFFile?
     
     
     static func Username() -> String

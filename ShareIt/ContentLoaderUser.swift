@@ -234,6 +234,43 @@ class ContentLoaderUser
         }
     }
     
+    func findUserById(userId: String, completion: (returnUser: String?) ->Void)
+    {
+        var user: String?
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+            {
+                do
+                {
+                    user = try PFQuery.getUserObjectWithId(userId)["username"] as? String
+                }
+                catch
+                {
+                    print("Error finding user")
+                }
+                
+                completion(returnUser: user)
+        })
+    }
+    
+    func loadPhotoForUser (photoFile: PFFile, completion: (image: NSData?) ->Void)
+    {
+        photoFile.getDataInBackgroundWithBlock
+            {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        
+                        dispatch_async(dispatch_get_main_queue(),
+                            {
+                                completion(image: imageData)
+                        })
+                    }
+                }
+        }
+    
+    }
+    
     
 }
 

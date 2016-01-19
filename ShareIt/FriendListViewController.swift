@@ -12,21 +12,14 @@ class FriendListViewController: UITableViewController
 {
     var friendList = [Friend]()
     var userLoader = ContentLoaderUser()
+    var selectedUser = User()
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         self.setNavigationAssetsStyle(self.navigationController)
-        
-        
-        userLoader.loadAllFriends({
-            users in
-            dispatch_async(dispatch_get_main_queue(),
-                {
-                    self.tableView.reloadData()
-                    
-            })
-        })
+
         
         //navigation bar color
         self.navigationController?.navigationBar.barTintColor = UIAssets.logoColor.redColor
@@ -37,6 +30,13 @@ class FriendListViewController: UITableViewController
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.setRefreshControl()
+        startRefresh()
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendListViewCell", forIndexPath: indexPath) as! FriendListViewCell
@@ -45,8 +45,17 @@ class FriendListViewController: UITableViewController
         {
             let friend = userLoader.users[indexPath.row]
             cell.userName.text = friend.username
-            cell.userDisplay.image = UIImage(named: "logo200")
+            
+                
+                                userLoader.loadPhotoForUser(friend.profilePicture!, completion: { (image) -> Void in
+                                    cell.userDisplay.image = UIImage(data:image!)
+                                })
+            
+                            
         }
+    
+        
+        
         return cell
     }
     
@@ -54,4 +63,46 @@ class FriendListViewController: UITableViewController
     {
         return userLoader.users.count
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "showUserDetail"
+        {
+            selectedUser = self.userLoader.users[self.tableView.indexPathForSelectedRow!.row]
+            
+            let friendDetail = segue.destinationViewController as! FriendDetailViewController
+            
+            friendDetail.receivedUser = selectedUser
+            
+        }
+        
+    }
+    
+    func startRefresh()
+    {
+        if self.refreshControl != nil
+        {
+            self.refreshControl?.beginRefreshing()
+            self.refresh(self.refreshControl!)
+        }
+        
+    }
+    
+    
+    func refresh(sender:AnyObject)
+    {
+        self.userLoader.users.removeAll()
+        self.tableView.reloadData()
+        
+        userLoader.loadAllFriends({
+            users in
+            dispatch_async(dispatch_get_main_queue(),
+                {
+                    self.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
+                    
+            })
+        })
+    }
+
 }
