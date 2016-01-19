@@ -74,11 +74,6 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
             users in
             dispatch_async(dispatch_get_main_queue(),
                 {
-
-                    while 1 == 1
-                    {
-                        
-                    }
                 self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
             })
