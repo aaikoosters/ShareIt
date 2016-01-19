@@ -15,6 +15,7 @@ class Friend : PFObject, PFSubclassing
     
     @NSManaged var UserID: String
     @NSManaged var FriendID: String
+    @NSManaged var accepted: Bool
     
     static func userId() -> String
     {

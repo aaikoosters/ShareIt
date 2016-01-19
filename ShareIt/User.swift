@@ -16,11 +16,11 @@ class User  : PFUser
     @NSManaged var phoneNumber: String?
     @NSManaged var profilePicture: PFFile?
     
-
     
     static func Username() -> String
     {
         return "username"
+        
     }
     
     static func ObjectId() -> String

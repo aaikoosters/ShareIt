@@ -8,12 +8,11 @@
 
 import UIKit
 import MapKit
-import Parse
 
 class EventDetailViewController: UIViewController {
 
-    var user: PFUser!
     var receivedEvent: Event!
+    var userLoader = ContentLoaderUser()
     
     @IBOutlet weak var userDisplay: UIImageView!
     @IBOutlet weak var userName: UILabel!
@@ -32,11 +31,17 @@ class EventDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let pin = MKPointAnnotation()
+        pin.coordinate.longitude = receivedEvent.position.longitude
+        pin.coordinate.latitude = receivedEvent.position.latitude
+        pin.title = receivedEvent.title
+        eventLocation.addAnnotation(pin)
     }
     
     override func viewWillAppear(animated: Bool) {
         userDisplay.image = UIImage(named: "logo200")
-        self.title = receivedEvent.title!
+        self.title = receivedEvent.eventName
         startDate.text = receivedEvent.startDate
         endDate.text = receivedEvent.endDate
         content.text = receivedEvent.content
@@ -45,25 +50,11 @@ class EventDetailViewController: UIViewController {
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
         eventLocation.setRegion(region, animated: true)
         
-        //Use this to get the username of the creator of the event
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
-        {
-            do
-            {
-                self.user = try PFQuery.getUserObjectWithId(self.receivedEvent.user)
-            }
-            catch
-            {
-                print("Error finding user")
-            }
-        
-            dispatch_async(dispatch_get_main_queue(),
-                {
-                    if self.user != nil
-                    {
-                        self.userName.text = self.user.username
-                    }
-                })
-        })
+        userLoader.findUserById(receivedEvent.user) { (returnUser) -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.userName.text = returnUser
+            })
+            
+        }
     }
 }

@@ -27,14 +27,16 @@ class CoreLocation : NSObject, CLLocationManagerDelegate
 
             dispatch_async(dispatch_get_main_queue(), {
                 
-                manager.desiredAccuracy = 67.97
-                manager.distanceFilter = 10.4
+                manager.desiredAccuracy = kCLLocationAccuracyBest
+                manager.distanceFilter = 50.4
                 manager.startUpdatingLocation()
             })
 
 
         }
     }
+    
+    
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation] )
     {
@@ -55,6 +57,13 @@ class CoreLocation : NSObject, CLLocationManagerDelegate
     
     func loadCurrentLocation(completion: (returnLocation: CLLocation ) -> Void)
     {
+        
+//        while currentLocation.coordinate.longitude == 0 && currentLocation.coordinate.latitude == 0
+//        {
+//            
+//        }
+        
+
         completion(returnLocation: self.currentLocation)
     }
 

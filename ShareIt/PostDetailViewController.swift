@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import Parse
 
 class PostDetailViewController : UIViewController
 {
@@ -25,8 +24,17 @@ class PostDetailViewController : UIViewController
     }
     @IBOutlet weak var messagetext: UILabel!
     
+    
     var receivedMessage: Message!
     var receivedUsername: String!
+    var userLoader = ContentLoaderUser()
+    
+    convenience init(messageInit: Message)
+    {
+        self.init()
+        self.receivedMessage = messageInit
+    }
+
     
     override func viewWillAppear(animated: Bool)
     {
@@ -39,6 +47,13 @@ class PostDetailViewController : UIViewController
         let location = CLLocation(latitude: receivedMessage.position.latitude, longitude: receivedMessage.position.longitude)
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
         messageLocation.setRegion(region, animated: true)
+        
+        userLoader.findUserById(receivedMessage.user) { (returnUser) -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.userName.text = returnUser
+            })
+            
+        }
     }
     
     override func viewDidLoad() {

@@ -47,20 +47,48 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        self.setRefreshControl()
+        startRefresh()
+    }
+    
+    func startRefresh()
+    {
+        if self.refreshControl != nil
+        {
+            self.refreshControl?.beginRefreshing()
+            self.refresh(self.refreshControl!)
+        }
+    }
+    
+    func refresh(sender:AnyObject)
+    {
+        self.eventLoader.events.removeAll()
+        self.tableView.reloadData()
+        
+        
+        eventLoader.loadAllEvents({
+            users in
+            dispatch_async(dispatch_get_main_queue(),
+                {
+
+                    while 1 == 1
+                    {
+                        
+                    }
+                self.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+            })
+        })
+
+    }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.eventLoader.events.removeAll()
-        self.tableView.reloadData()
-        
-        eventLoader.loadAllEvents({
-            users in
-            dispatch_async(dispatch_get_main_queue(),{
-                self.tableView.reloadData()
-            })
-        })
         
         self.setNavigationAssetsStyle(self.navigationController)
         
@@ -69,10 +97,14 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventSearchCell")!  as! EventSearchViewCell
-        let event = self.eventLoader.events[indexPath.row]
         
-        cell.eventName.text = event.eventName
-        cell.eventDisplay.image = UIImage(named: "logo200")
+        if self.eventLoader.events.count > 0
+        {
+            let event = self.eventLoader.events[indexPath.row]
+            
+            cell.eventName.text = event.eventName
+            cell.eventDisplay.image = UIImage(named: "logo200")
+        }
         
         return cell
         
