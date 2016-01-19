@@ -22,7 +22,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     var rangePosts = Int()
     
-    
+    var didLoadLoacation = false
     
     override func viewDidLoad()
     {
@@ -60,8 +60,10 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         
         locateButton.addTarget(self, action: "locatePressed:", forControlEvents: .TouchUpInside)
         
-        
+    
         loadLocation()
+        
+        didLoadLoacation = false
         
     }
     
@@ -231,13 +233,11 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
     {
-        struct Static
-        {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken)
+        if !didLoadLoacation
         {
             self.loadLocation()
+            didLoadLoacation = true
+            
         }
     }
     
