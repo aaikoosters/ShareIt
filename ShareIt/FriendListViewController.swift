@@ -47,9 +47,9 @@ class FriendListViewController: UITableViewController
             cell.userName.text = friend.username
             
                 
-                                userLoader.loadPhotoForUser(friend.profilePicture!, completion: { (image) -> Void in
-                                    cell.userDisplay.image = UIImage(data:image!)
-                                })
+            userLoader.loadPhotoForUser(friend.profilePicture!, completion: { (image) -> Void in
+                cell.userDisplay.image = UIImage(data:image!)
+            })
             
                             
         }

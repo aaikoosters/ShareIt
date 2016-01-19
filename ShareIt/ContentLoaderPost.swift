@@ -67,8 +67,13 @@ class ContentLoaderPost
             doubleRange = doubleRange / 1000.0
             query?.whereKey("position", nearGeoPoint: PFGeoPoint(latitude: userLatitude, longitude: userlongitude), withinKilometers: doubleRange)
             
+            let queryMyPosts = Message.query()
+
 //            let currentUser = User.getCurrentUserId()
-//            query?.whereKey(Message.User(), equalTo: currentUser)
+//            queryMyPosts?.whereKey(Message.User(), equalTo: currentUser)
+//            
+//            let myPostAndLocation = PFQuery.orQueryWithSubqueries([query!,queryMyPosts!])
+//
             
             query?.findObjectsInBackgroundWithBlock
                 {

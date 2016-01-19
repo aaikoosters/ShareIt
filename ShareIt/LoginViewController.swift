@@ -20,6 +20,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var viewContainer : UIView!
     
+    var isLoggingIn = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.username.delegate = self
@@ -76,37 +78,48 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
             
         // Send a request to login
-        User.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
-            
-            // Stop the spinner
-            spinner.stopAnimating()
-            
-            if ((user) != nil) {
-                let alert = UIAlertView(title: "Success", message: "Succesfully logged in", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
-                alert.tag = 10
-                
-                
-            } else {
-//                
-//                switch (error)
-//                {
-//                case   :
-//                    statement(s);
-//                    break; /* optional */
-//                case constant-expression  :
-//                    statement(s);
-//                    break; /* optional */
-//                    
-//                    /* you can have any number of case statements */
-//                default : /* Optional */
-//                    statement(s);
-//                }
-                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
+            if (!self.isLoggingIn)
+            {
+                User.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
+                    
+                    // Stop the spinner
+                    spinner.stopAnimating()
+                    
+                    if ((user) != nil)
+                    {
+                        if (!self.isLoggingIn)
+                        {
+                            self.isLoggingIn = true
+                            let alert = UIAlertView(title: "Success", message: "Succesfully logged in", delegate: self, cancelButtonTitle: "OK")
+                            alert.show()
+                            alert.tag = 10
+                            
+                        }
+                        
+                        
+                    } else {
+                        //
+                        //                switch (error)
+                        //                {
+                        //                case   :
+                        //                    statement(s);
+                        //                    break; /* optional */
+                        //                case constant-expression  :
+                        //                    statement(s);
+                        //                    break; /* optional */
+                        //
+                        //                    /* you can have any number of case statements */
+                        //                default : /* Optional */
+                        //                    statement(s);
+                        //                }
+                        let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
+                        alert.show()
+                    }
+                })
             }
-        })
-        }
+                
+            }
+
         
     }
 }
