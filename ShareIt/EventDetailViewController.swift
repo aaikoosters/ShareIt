@@ -8,12 +8,11 @@
 
 import UIKit
 import MapKit
-import Parse
 
 class EventDetailViewController: UIViewController {
 
-    var user: PFUser!
     var receivedEvent: Event!
+    var userLoader = ContentLoaderUser()
     
     @IBOutlet weak var userDisplay: UIImageView!
     @IBOutlet weak var userName: UILabel!
@@ -51,25 +50,11 @@ class EventDetailViewController: UIViewController {
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
         eventLocation.setRegion(region, animated: true)
         
-        //Use this to get the username of the creator of the event
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
-        {
-            do
-            {
-                self.user = try PFQuery.getUserObjectWithId(self.receivedEvent.user)
-            }
-            catch
-            {
-                print("Error finding user")
-            }
-        
-            dispatch_async(dispatch_get_main_queue(),
-                {
-                    if self.user != nil
-                    {
-                        self.userName.text = self.user.username
-                    }
-                })
-        })
+        userLoader.findUserById(receivedEvent.user) { (returnUser) -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.userName.text = returnUser
+            })
+            
+        }
     }
 }

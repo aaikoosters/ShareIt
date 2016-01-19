@@ -234,6 +234,25 @@ class ContentLoaderUser
         }
     }
     
+    func findUserById(userId: String, completion: (returnUser: String?) ->Void)
+    {
+        var user: String?
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+            {
+                do
+                {
+                    user = try PFQuery.getUserObjectWithId(userId)["username"] as? String
+                }
+                catch
+                {
+                    print("Error finding user")
+                }
+                
+                completion(returnUser: user)
+        })
+    }
+    
     
 }
 
