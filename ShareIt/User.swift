@@ -15,11 +15,11 @@ class User  : PFUser
     @NSManaged var surname: String?
     @NSManaged var phoneNumber: String?
     
-
     
     static func Username() -> String
     {
         return "username"
+        
     }
     
     static func ObjectId() -> String

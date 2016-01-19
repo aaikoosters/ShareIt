@@ -73,13 +73,17 @@ class PostViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell  = tableView.dequeueReusableCellWithIdentifier("PostCellView", forIndexPath: indexPath) as! PostViewCell
-        let post = self.postLoader.posts[indexPath.row]
         
-        cell.postMesage.text = post.postTitle
-        cell.postDisplay.image = UIImage(named: "logo200")
-        cell.userName.text = post.userObject
-        cell.postBody.text = post.content
-        
+        if self.postLoader.posts.count > 0
+        {
+            let post = self.postLoader.posts[indexPath.row]
+            
+            cell.postMesage.text = post.postTitle
+            cell.postDisplay.image = UIImage(named: "logo200")
+            cell.userName.text = post.userObject
+            cell.postBody.text = post.content
+
+        }
         return cell
     }
     

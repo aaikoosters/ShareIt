@@ -62,6 +62,7 @@ class CoreLocation : NSObject, CLLocationManagerDelegate
 //        {
 //            
 //        }
+        
 
         completion(returnLocation: self.currentLocation)
     }

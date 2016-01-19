@@ -23,6 +23,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     var rangePosts = Int()
     
     
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -63,6 +64,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         loadLocation()
         
     }
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -146,6 +149,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     }
     
     
+    
+    
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
@@ -222,6 +227,18 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         circleRenderer.strokeColor = UIAssets.logoColor.redColor
         circleRenderer.lineWidth = 1
         return circleRenderer
+    }
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
+    {
+        struct Static
+        {
+            static var onceToken : dispatch_once_t = 0;
+        }
+        dispatch_once(&Static.onceToken)
+        {
+            self.loadLocation()
+        }
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
@@ -333,12 +350,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             
             delayTime++
         }
-    }
-    
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
-    {
-        
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
