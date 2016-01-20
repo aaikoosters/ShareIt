@@ -13,6 +13,7 @@ class PostViewController: UITableViewController {
     var searchText = "a"
     
     var postLoader = ContentLoaderPost()
+    var userLoader = ContentLoaderUser()
     
     let coreLocation = CoreLocation()
     
@@ -81,10 +82,18 @@ class PostViewController: UITableViewController {
             
             cell.postMesage.text = post.postTitle
             
-//            userLoader.loadPhotoForUser(friend.profilePicture!, completion: { (image) -> Void in
-//                cell.postDisplay.image = UIImage(data:image!)
-//            })
             cell.postDisplay.image = UIImage(named: "logo200")
+            
+            userLoader.findWholeUserById(post.user)
+                { (returnUser) -> Void in
+                if returnUser != nil
+                {
+                    self.userLoader.loadPhotoForUser(returnUser!.profilePicture!, completion: { (image) -> Void in
+                        cell.postDisplay.image  = UIImage(data:image!)
+                    })
+                }
+            }
+
             cell.userName.text = post.userObject
             cell.postBody.text = post.content
 
