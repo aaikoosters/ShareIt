@@ -18,6 +18,7 @@ class FriendDetailViewController: UIViewController
     var friendList = [Friend?]()
     var userLoader = ContentLoaderUser()
     var receivedUser: User!
+    var actionPerformed = false
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -74,6 +75,11 @@ class FriendDetailViewController: UIViewController
     
     func addFriend(sender:UIButton!)
     {
+        if actionPerformed
+        {
+            return
+        }
+        self.actionPerformed = true
         userLoader.addFriendForUser(receivedUser) { (succeded) -> Void in
             if succeded
             {
@@ -85,6 +91,7 @@ class FriendDetailViewController: UIViewController
             {
                 let alert = UIAlertView(title: "Friend", message:"Could not send friend request", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
+                self.actionPerformed = false
             }
             
         }
@@ -93,6 +100,12 @@ class FriendDetailViewController: UIViewController
     
     func deleteFriend(sender:UIButton!)
     {
+        if actionPerformed
+        {
+            return
+        }
+        self.actionPerformed = true
+
         if let friend = self.friendList[0]
         {
             userLoader.deleteFriend(friend) { (succeded) -> Void in
@@ -118,6 +131,7 @@ class FriendDetailViewController: UIViewController
                 {
                     let alert = UIAlertView(title: "Friend", message:"Could not delete friend", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
+                    self.actionPerformed = false
                 }
             }
         }
@@ -126,6 +140,12 @@ class FriendDetailViewController: UIViewController
     
     func confirmFriend(sender:UIButton!)
     {
+        if actionPerformed
+        {
+            return
+        }
+        self.actionPerformed = true
+
         if let friend = self.friendList[0]
         {
             userLoader.confirmFriend(friend) { (succeded) -> Void in
@@ -139,6 +159,7 @@ class FriendDetailViewController: UIViewController
                 {
                     let alert = UIAlertView(title: "Friend", message:"Could not add friend", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
+                    self.actionPerformed = false
                 }
             }
         }
