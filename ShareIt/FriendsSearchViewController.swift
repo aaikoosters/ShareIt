@@ -91,6 +91,7 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
             let friend = userLoader.users[indexPath.row]
             cell.userName.text = friend.username
             
+            cell.userDisplay.image = UIImage(named: "logo200")
             userLoader.loadPhotoForUser(friend.profilePicture!, completion: { (image) -> Void in
                 cell.userDisplay.image = UIImage(data:image!)
             })

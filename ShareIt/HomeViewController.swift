@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
 {
     
     var loader = ContentLoaderPost()
+    var userLoader = ContentLoaderUser()
     
     let coreLocation = CoreLocation()
     
@@ -62,6 +63,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         
     
         loadLocation()
+        reloadPins()
         
         didLoadLoacation = false
         
@@ -89,18 +91,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         {
             self.rangePosts = currentRange
         }
- 
-        reloadPins()
-        
-//        loader.loadAllPosts({
-//            messages in
-//            dispatch_async(dispatch_get_main_queue(),{
-//                self.addPointsToMap(messages)
-//            })
-//            
-//        })
-
-    
     }
     
     
@@ -266,6 +256,16 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         {
             let viewUI = UIImageView(frame: CGRectMake(0, 0, 40, 40))
             viewUI.image = UIImage(named: "logo200")
+            
+            userLoader.findWholeUserById(mapAnnotation.user) { (returnUser) -> Void in
+                if returnUser != nil
+                {
+                    self.userLoader.loadPhotoForUser(returnUser!.profilePicture!, completion: { (image) -> Void in
+                        viewUI.image = UIImage(data:image!)
+                    })
+                }
+            }
+            
             view?.leftCalloutAccessoryView = viewUI
 
             

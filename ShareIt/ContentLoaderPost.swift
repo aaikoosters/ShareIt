@@ -56,66 +56,105 @@ class ContentLoaderPost
         }
     }
     
+    func loadAllMyPosts(completion: (returnMessages: [Message]) -> Void)
+    {
+        let queryMyPosts = Message.query()
+        
+        let currentUser = User.getCurrentUserId()
+        queryMyPosts?.whereKey(Message.User(), equalTo: currentUser)
+        
+        queryMyPosts?.findObjectsInBackgroundWithBlock
+            {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if error == nil
+                {
+                    if let objects = objects
+                    {
+                        for object in objects
+                        {
+                            if let message = object as? Message
+                            {
+                                if  !self.posts.contains(message)
+                                {
+                                    self.posts.append(message)
+                                }
+                                
+                            }
+                        }
+                    }
+                    
+                    self.loadUserForPost({ (returnMessages) -> Void in
+                        
+                        dispatch_async(dispatch_get_main_queue(),{
+                            
+                            completion(returnMessages: self.posts)
+                        })
+                        
+                    })
+                }
+                else
+                {
+                    // Log details of the failure
+                    print("Error: \(error!) \(error!.userInfo)")
+                }
+        }
+
+    }
+    
+    
+    
     func loadAllPostsinRangeFriends(userLatitude: Double, userlongitude: Double, range : Int ,completion: (returnMessages: [Message]) -> Void)
     {
         
         loadAllPostFriends { (returnMessages) -> Void in
             
-            let query = Message.query()
-            
-            var doubleRange = Double(range)
-            doubleRange = doubleRange / 1000.0
-            query?.whereKey("position", nearGeoPoint: PFGeoPoint(latitude: userLatitude, longitude: userlongitude), withinKilometers: doubleRange)
-            
-            let queryMyPosts = Message.query()
-
-//            let currentUser = User.getCurrentUserId()
-//            queryMyPosts?.whereKey(Message.User(), equalTo: currentUser)
-//            
-//            let myPostAndLocation = PFQuery.orQueryWithSubqueries([query!,queryMyPosts!])
-//
-            
-            query?.findObjectsInBackgroundWithBlock
-                {
-                    (objects: [PFObject]?, error: NSError?) -> Void in
-                    
-                    if error == nil
+            self.loadAllMyPosts({ (returnMessages) -> Void in
+                
+                let query = Message.query()
+                
+                var doubleRange = Double(range)
+                doubleRange = doubleRange / 1000.0
+                query?.whereKey("position", nearGeoPoint: PFGeoPoint(latitude: userLatitude, longitude: userlongitude), withinKilometers: doubleRange)
+                
+                query?.findObjectsInBackgroundWithBlock
                     {
-                        if let objects = objects
+                        (objects: [PFObject]?, error: NSError?) -> Void in
+                        
+                        if error == nil
                         {
-                            for object in objects
+                            if let objects = objects
                             {
-                                if let message = object as? Message
+                                for object in objects
                                 {
-                                    if  !self.posts.contains(message)
+                                    if let message = object as? Message
                                     {
-                                        self.posts.append(message)
+                                        if  !self.posts.contains(message)
+                                        {
+                                            self.posts.append(message)
+                                        }
+                                        
                                     }
-                                    
                                 }
                             }
-                        }
-                        
-                        self.loadUserForPost({ (returnMessages) -> Void in
                             
-                            dispatch_async(dispatch_get_main_queue(),{
+                            self.loadUserForPost({ (returnMessages) -> Void in
                                 
-                                completion(returnMessages: self.posts)
+                                dispatch_async(dispatch_get_main_queue(),{
+                                    
+                                    completion(returnMessages: self.posts)
+                                })
+                                
                             })
-                            
-                        })
-                    }
-                    else
-                    {
-                        // Log details of the failure
-                        print("Error: \(error!) \(error!.userInfo)")
-                    }
-            }
-
-
+                        }
+                        else
+                        {
+                            // Log details of the failure
+                            print("Error: \(error!) \(error!.userInfo)")
+                        }
+                }
+            })
         }
-
-        
     }
     
      func loadAllPostFriends(completionReturn: (returnMessages: [Message]) -> Void)

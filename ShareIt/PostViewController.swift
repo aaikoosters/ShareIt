@@ -14,6 +14,8 @@ class PostViewController: UITableViewController {
     
     var postLoader = ContentLoaderPost()
     
+    let coreLocation = CoreLocation()
+    
     var selectedMessage: Message!
     
     override func viewWillAppear(animated: Bool)
@@ -55,19 +57,18 @@ class PostViewController: UITableViewController {
         
         let check = postLoader
         
-        postLoader.loadAllPosts({
-            posts in
-            dispatch_async(dispatch_get_main_queue(),
+        if let currentRange =  NSUserDefaults.standardUserDefaults().valueForKey(UserDefaultsKeys.UserDefaultsKey.rangeRegion) as? Int
+        {
+            postLoader.loadAllPostsinRangeFriends(coreLocation.currentLocation.coordinate.latitude, userlongitude: coreLocation.currentLocation.coordinate.longitude, range: currentRange, completion: { (returnMessages) -> Void in
+                if check === self.postLoader
                 {
-                    if check === self.postLoader
-                    {
-                        self.refreshControl?.endRefreshing()
-                        self.tableView.reloadData()
-                    }
-                    
-                    
+                    self.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
+                }
+
             })
-        })
+
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell

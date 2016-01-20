@@ -206,6 +206,7 @@ class FriendDetailViewController: UIViewController
     
     override func viewDidLoad() {
         
+        self.userDisplay.image = UIImage(named: "logo200")
         userLoader.loadPhotoForUser(receivedUser.profilePicture!, completion: { (image) -> Void in
             self.userDisplay.image = UIImage(data:image!)
         })
