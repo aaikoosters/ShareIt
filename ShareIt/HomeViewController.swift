@@ -227,7 +227,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         }
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView!
     {
         if !(annotation is Message)
         {
@@ -262,8 +262,27 @@ class HomeViewController: UIViewController, MKMapViewDelegate
                 }
             }
             
+            
             view?.leftCalloutAccessoryView = viewUI
             view?.annotation = mapAnnotation
+            if let pinView =  view as? MKPinAnnotationView
+            {
+                if #available(iOS 9.0, *) {
+                    //pinView.pinTintColor = UIAssets.logoColor.redColor
+                    
+                    pinView.pinTintColor = UIColor(red:
+                        CGFloat(arc4random_uniform(255))/255.0,
+                        green:
+                        CGFloat(arc4random_uniform(255))/255.0,
+                        blue:
+                        CGFloat(arc4random_uniform(255))/255.0, alpha: 1.0)
+     
+
+                } else {
+                    pinView.pinColor = MKPinAnnotationColor.Red
+                }
+            }
+            
             
         }
         

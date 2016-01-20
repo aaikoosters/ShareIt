@@ -76,6 +76,7 @@ class HomeSettingViewcontroller: UITableViewController
             {
                 if let home = controller as? HomeViewController
                 {
+                    home.loadLocation()
                     home.reloadPins()
                 }
             }
