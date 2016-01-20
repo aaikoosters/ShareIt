@@ -102,6 +102,17 @@ class FriendDetailViewController: UIViewController
                     let alert = UIAlertView(title: "Friend", message:"Friend was deleted", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
                      self.navigationController?.popViewControllerAnimated(true)
+                    
+                    if let viewcontrollers = self.navigationController?.viewControllers
+                    {
+                        for controller in viewcontrollers
+                        {
+                            if let friendListController = controller as? FriendListViewController
+                            {
+                                friendListController.startRefresh()
+                            }
+                        }
+                    }
                 }
                 else
                 {
