@@ -85,6 +85,10 @@ class FriendDetailViewController: UIViewController
             {
                 let alert = UIAlertView(title: "Friend", message:"Friend request sent", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
+                alert.tag = 20
+                
+
+
                
             }
             else
@@ -114,18 +118,7 @@ class FriendDetailViewController: UIViewController
                 {
                     let alert = UIAlertView(title: "Friend", message:"Friend was deleted", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
-                     self.navigationController?.popViewControllerAnimated(true)
-                    
-                    if let viewcontrollers = self.navigationController?.viewControllers
-                    {
-                        for controller in viewcontrollers
-                        {
-                            if let friendListController = controller as? FriendListViewController
-                            {
-                                friendListController.startRefresh()
-                            }
-                        }
-                    }
+                    alert.tag = 10
                 }
                 else
                 {
@@ -153,7 +146,9 @@ class FriendDetailViewController: UIViewController
                 if succeded
                 {
                     let alert = UIAlertView(title: "Friend", message:"Friend was added", delegate: self, cancelButtonTitle: "OK")
+                    alert.tag = 10
                     alert.show()
+                
                 }
                 else
                 {
@@ -165,6 +160,49 @@ class FriendDetailViewController: UIViewController
         }
 
     }
+    
+    
+    func alertView(View: UIAlertView!, clickedButtonAtIndex buttonIndex: Int)
+    {
+        switch buttonIndex
+        {
+        case 0:
+            if View.tag == 10
+            {
+                self.navigationController?.popViewControllerAnimated(true)
+                
+                if let viewcontrollers = self.navigationController?.viewControllers
+                {
+                    for controller in viewcontrollers
+                    {
+                        if let friendListController = controller as? FriendListViewController
+                        {
+                            friendListController.startRefresh()
+                        }
+                    }
+                }
+            }
+            else if View.tag == 20
+            {
+                self.navigationController?.popViewControllerAnimated(true)
+                
+                if let viewcontrollers = self.navigationController?.viewControllers
+                {
+                    for controller in viewcontrollers
+                    {
+                        if let friendListController = controller as? FriendsSearchViewController
+                        {
+                            friendListController.startRefresh()
+                        }
+                    }
+                }
+            }
+            
+        default: break
+        }
+    }
+    
+
     
     override func viewDidLoad() {
         

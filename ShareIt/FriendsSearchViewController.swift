@@ -14,6 +14,9 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
     var searchText = "a"
     var selectedUser = User()
     
+    
+    var userLoader = ContentLoaderUser()
+    
     @IBOutlet weak var searchBar : UISearchBar!
         {
         didSet
@@ -24,41 +27,61 @@ class FriendsSearchViewController: UITableViewController, UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar)
     {
+        self.refreshControl?.beginRefreshing()
+        
         searchBar.resignFirstResponder()
         searchText = searchBar.text!
+        
+        self.userLoader.users.removeAll()
+        self.tableView.reloadData()
+        
+
         userLoader.searchAllNonFriends(searchText) { (returnMessages) -> Void in
-            
+            self.refreshControl?.endRefreshing()
             self.tableView.reloadData()
         }
-
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.text?.removeAll()
         
-        userLoader.loadAllNonFriends({
-            users in
-            dispatch_async(dispatch_get_main_queue(),{
-                self.tableView.reloadData()
-            })
-        })
+        startRefresh()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.setRefreshControl()
+        startRefresh()
 
+    }
     
-    var userLoader = ContentLoaderUser()
+    func startRefresh()
+    {
+        if self.refreshControl != nil
+        {
+            self.refreshControl?.beginRefreshing()
+            self.refresh(self.refreshControl!)
+        }
+        
+    }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    
+    func refresh(sender:AnyObject)
+    {
+        self.userLoader.users.removeAll()
+        self.tableView.reloadData()
         
         userLoader.loadAllNonFriends({
             users in
             dispatch_async(dispatch_get_main_queue(),{
+                self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
             })
         })
     }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
