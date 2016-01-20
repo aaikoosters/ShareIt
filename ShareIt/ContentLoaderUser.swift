@@ -84,7 +84,7 @@ class ContentLoaderUser
     {
         currentUser = User.getCurrentUserId()
         
-        let predicate1 = NSPredicate(format: "UserID == %@", currentUser)
+        let predicate1 = NSPredicate(format: "UserID == '\(currentUser)' AND accepted == TRUE")
         let predicate2 = NSPredicate(format: "FriendID == %@", currentUser)
         
         let isMyFriendSubquery = PFQuery(className: "Friend", predicate: predicate1)
@@ -95,6 +95,7 @@ class ContentLoaderUser
         
         let hasMeAsFriend = User.query()
         hasMeAsFriend!.whereKey(User.ObjectId(), matchesKey: Friend.userId(), inQuery: hasMeAsFriendSubquery)
+   
         
         let query = PFQuery.orQueryWithSubqueries([hasMeAsFriend!, isMyFriend!])
         
@@ -251,6 +252,96 @@ class ContentLoaderUser
                 
                 completion(returnUser: user)
         })
+    }
+    
+    func findWhatUserIs(searchUser : User , completion: (friends : [Friend?]) -> Void)
+    {
+        print(currentUser)
+        print(searchUser.objectId)
+        let predicate1 = NSPredicate(format: "UserID == '\(currentUser)' AND FriendID == '\(searchUser.objectId!)'")
+        let predicate2 = NSPredicate(format: "FriendID == '\(currentUser)' AND UserID == '\(searchUser.objectId!)'")
+        
+        let isMyFriendSubquery = PFQuery(className: "Friend", predicate: predicate1)
+        let hasMeAsFriendSubquery = PFQuery(className: "Friend", predicate: predicate2)
+        
+        let friends = PFQuery.orQueryWithSubqueries([isMyFriendSubquery, hasMeAsFriendSubquery])
+        
+        var friendsArray = [Friend?]()
+        
+        friends.findObjectsInBackgroundWithBlock
+            {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if error == nil
+                {
+                    if let objects = objects
+                    {
+                        for object in objects
+                        {
+                            if let friendElement = object as? Friend
+                            {
+                                friendsArray.append(friendElement)
+                            }
+                        }
+                    }
+                    completion(friends: friendsArray)
+                }
+                else
+                {
+                    // Log details of the failure
+                    print("Error: \(error!) \(error!.userInfo)")
+                }
+        }
+    }
+    
+    func addFriendForUser(friend : User!, completion: (succeeded: Bool) ->Void)
+    {
+        let friendMake = Friend()
+        friendMake.UserID = currentUser
+        friendMake.FriendID = friend.objectId!
+        friendMake.accepted = false
+        
+        friendMake.saveInBackgroundWithBlock { (succes, errorProb) -> Void in
+            if succes
+            {
+                completion(succeeded: true)
+            }
+            else
+            {
+                completion(succeeded: false)
+            }
+        }
+    }
+    
+     func deleteFriend(friendRel : Friend!, completion: (succeeded: Bool) ->Void)
+     {
+        friendRel.deleteInBackgroundWithBlock { (succes, errorName) -> Void in
+            
+            if succes
+            {
+                completion(succeeded: true)
+            }
+            else
+            {
+                completion(succeeded: false)
+            }
+        }
+    }
+    
+    func confirmFriend(friendRel : Friend!, completion: (succeeded: Bool) ->Void)
+    {
+        friendRel.accepted = true
+        friendRel.saveInBackgroundWithBlock { (succes, errorProb) -> Void in
+            if succes
+            {
+                completion(succeeded: true)
+            }
+            else
+            {
+                completion(succeeded: false)
+            }
+        }
+
     }
     
     func loadPhotoForUser (photoFile: PFFile, completion: (image: NSData?) ->Void)

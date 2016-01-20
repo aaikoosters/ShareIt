@@ -27,6 +27,11 @@ class Friend : PFObject, PFSubclassing
         return "FriendID"
     }
     
+    static func Accepted() ->String
+    {
+        return "accepted"
+    }
+    
     override class func initialize()
     {
         struct Static

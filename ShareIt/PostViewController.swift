@@ -79,6 +79,10 @@ class PostViewController: UITableViewController {
             let post = self.postLoader.posts[indexPath.row]
             
             cell.postMesage.text = post.postTitle
+            
+//            userLoader.loadPhotoForUser(friend.profilePicture!, completion: { (image) -> Void in
+//                cell.postDisplay.image = UIImage(data:image!)
+//            })
             cell.postDisplay.image = UIImage(named: "logo200")
             cell.userName.text = post.userObject
             cell.postBody.text = post.content
