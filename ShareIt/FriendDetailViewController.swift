@@ -13,8 +13,9 @@ class FriendDetailViewController: UIViewController
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userDisplay: UIImageView!
+    @IBOutlet weak var buttonControl: UIButton!
     
-    var friendList = [Friend]()
+    var friendList = [Friend?]()
     var userLoader = ContentLoaderUser()
     var receivedUser: User!
     
@@ -26,10 +27,111 @@ class FriendDetailViewController: UIViewController
         if receivedUser == nil
         {
             userName.text = "Error"
+            buttonControl.hidden = true
         } else
         {
             userName.text = receivedUser.username
+            userLoader.findWhatUserIs(receivedUser, completion: {
+                (friends) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    
+                    self.friendList = friends
+                    
+                    if friends.count == 0
+                    {
+                        //self.buttonControl.backgroundColor = UIColor.redColor()
+                        self.buttonControl.setImage( UIImage(named: "add"), forState: UIControlState.Normal)
+                        self.buttonControl.addTarget(self, action: "addFriend:", forControlEvents: .TouchUpInside)
+                        
+                    }
+                    else
+                    {
+                        if let friend = friends[0]
+                        {
+                            if friend.accepted
+                            {
+                                //self.buttonControl.backgroundColor = UIColor.brownColor()
+                                self.buttonControl.setImage( UIImage(named: "delete"), forState: UIControlState.Normal)
+                                self.buttonControl.addTarget(self, action: "deleteFriend:", forControlEvents: .TouchUpInside)
+                                
+  
+                            }
+                            else
+                            {
+                                //self.buttonControl.backgroundColor = UIColor.blueColor()
+                                self.buttonControl.setImage( UIImage(named: "confirm"), forState: UIControlState.Normal)
+                                self.buttonControl.addTarget(self, action: "confirmFriend:", forControlEvents: .TouchUpInside)
+                                
+                            }
+                        }
+                        
+                    }
+                    
+                })
+            })
         }
+    }
+    
+    func addFriend(sender:UIButton!)
+    {
+        userLoader.addFriendForUser(receivedUser) { (succeded) -> Void in
+            if succeded
+            {
+                let alert = UIAlertView(title: "Friend", message:"Friend request sent", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+               
+            }
+            else
+            {
+                let alert = UIAlertView(title: "Friend", message:"Could not send friend request", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+            }
+            
+        }
+        
+    }
+    
+    func deleteFriend(sender:UIButton!)
+    {
+        if let friend = self.friendList[0]
+        {
+            userLoader.deleteFriend(friend) { (succeded) -> Void in
+                
+                if succeded
+                {
+                    let alert = UIAlertView(title: "Friend", message:"Friend was deleted", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                     self.navigationController?.popViewControllerAnimated(true)
+                }
+                else
+                {
+                    let alert = UIAlertView(title: "Friend", message:"Could not delete friend", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                }
+            }
+        }
+        
+    }
+    
+    func confirmFriend(sender:UIButton!)
+    {
+        if let friend = self.friendList[0]
+        {
+            userLoader.confirmFriend(friend) { (succeded) -> Void in
+                
+                if succeded
+                {
+                    let alert = UIAlertView(title: "Friend", message:"Friend was added", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                }
+                else
+                {
+                    let alert = UIAlertView(title: "Friend", message:"Could not add friend", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                }
+            }
+        }
+
     }
     
     override func viewDidLoad() {

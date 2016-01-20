@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var viewContainer : UIView!
     
     var isLoggingIn = false
+    var isBusy = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     viewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
                     self.presentViewController(viewController, animated: true, completion: nil)
                 })
-
+            }
+            else if View.tag == 200
+            {
+                 isBusy = false
             }
             
         default: break
@@ -66,11 +70,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let username = self.username.text
         let password = self.password.text
         
+        if isBusy
+        {
+            return
+        }
+        
+        isBusy = true
+        
         if username?.characters.count < 3 {
-            let alert = UIAlertView(title: "Error", message: "Submitted username too short", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Username", message: "Submitted username too short", delegate: self, cancelButtonTitle: "OK")
+            alert.tag = 200
             alert.show()
         } else if password?.characters.count < 8 {
-            let alert = UIAlertView(title: "Error", message: "Submitted password too short", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Password", message: "Submitted password too short", delegate: self, cancelButtonTitle: "OK")
+            alert.tag = 200
             alert.show()
         } else {
         let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
@@ -95,31 +108,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             alert.tag = 10
                             
                         }
+                        self.isBusy = false
                         
                         
-                    } else {
-                        //
-                        //                switch (error)
-                        //                {
-                        //                case   :
-                        //                    statement(s);
-                        //                    break; /* optional */
-                        //                case constant-expression  :
-                        //                    statement(s);
-                        //                    break; /* optional */
-                        //
-                        //                    /* you can have any number of case statements */
-                        //                default : /* Optional */
-                        //                    statement(s);
-                        //                }
-                        let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-                        alert.show()
+                    } else
+                    {
+                        switch error!.code {
+                        case PFErrorCode.ErrorObjectNotFound.rawValue  :
+                            
+                            let alert = UIAlertView(title: "Not found", message:"The username and password you entered did not match our records.", delegate: self, cancelButtonTitle: "OK")
+                            alert.tag = 200
+                            alert.show()
+                            
+                        default :
+                            let alert = UIAlertView(title: "Error", message:"There was an error, please try again.", delegate: self, cancelButtonTitle: "OK")
+                            alert.tag = 200
+                            alert.show()
+                            
+                        }
+
                     }
                 })
             }
                 
-            }
-
+        }
+       
         
     }
 }
