@@ -50,8 +50,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         
         let sizeY = NSLayoutConstraint(item: locateButton, attribute:  NSLayoutAttribute.Height, relatedBy: .Equal, toItem: locateButton, attribute:  NSLayoutAttribute.Height, multiplier: 1, constant: 2)
         
-        
-        
         self.locateButton.addConstraint(sizeX)
         self.locateButton.addConstraint(sizeY)
         
@@ -60,10 +58,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         self.mapView.addConstraint(yConstraint)
         
         locateButton.addTarget(self, action: "locatePressed:", forControlEvents: .TouchUpInside)
-        
-    
-        loadLocation()
-        reloadPins()
         
         didLoadLoacation = false
         
@@ -114,7 +108,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     func reloadPins()
     {
-        loader.loadAllPostsinRangeFriends(coreLocation.currentLocation.coordinate.latitude , userlongitude: coreLocation.currentLocation.coordinate.longitude, range: rangePosts) { (returnMessages) -> Void in
+        loader.loadAllPostsinRangeFriends(coreLocation.currentLocation.coordinate.latitude , userlongitude: coreLocation.currentLocation.coordinate.longitude, range: self.rangePosts) { (returnMessages) -> Void in
             dispatch_async(dispatch_get_main_queue(),
                 {
                     self.addPointsToMap(returnMessages)
@@ -171,6 +165,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             
             self.presentViewController(alertController, animated: true, completion: nil)
         }
+        
         reloadRange()
         
     }
@@ -226,6 +221,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         if !didLoadLoacation
         {
             self.loadLocation()
+            self.reloadPins()
             didLoadLoacation = true
             
         }
@@ -267,7 +263,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             }
             
             view?.leftCalloutAccessoryView = viewUI
-
+            view?.annotation = mapAnnotation
             
         }
         

@@ -83,15 +83,8 @@ class ContentLoaderPost
                             }
                         }
                     }
-                    
-                    self.loadUserForPost({ (returnMessages) -> Void in
-                        
-                        dispatch_async(dispatch_get_main_queue(),{
-                            
-                            completion(returnMessages: self.posts)
-                        })
-                        
-                    })
+                    completion(returnMessages: self.posts)
+
                 }
                 else
                 {

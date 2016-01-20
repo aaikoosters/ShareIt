@@ -80,6 +80,59 @@ class ContentLoaderEvent
     }
     
     
+    func addFriendToEvent(friend : User!, currentEvent : Event!, completion: (succeeded: Bool) ->Void)
+    {
+        let invite = Invitation()
+        invite.userID = friend.objectId!
+        invite.eventID = currentEvent.objectId!
+        
+        invite.saveInBackgroundWithBlock { (succes, errorProb) -> Void in
+            if succes
+            {
+                completion(succeeded: true)
+            }
+            else
+            {
+                completion(succeeded: false)
+            }
+        }
+    }
+    
+    
+    func loadAllFriendsOfEvent(currentEvent : Event!, completion: (returnUsers: [User]) ->Void)
+    {
+        let invited = Invitation.query()
+        invited?.whereKey(Invitation.EventID(), equalTo: currentEvent.objectId!)
+    
+        var usersReturn = [User]()
+        
+        invited?.findObjectsInBackgroundWithBlock
+            {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if error == nil
+                {
+                    if let objects = objects
+                    {
+                        for object in objects
+                        {
+                            if let user = object as? User
+                            {
+                                usersReturn.append(user)
+                            }
+                        }
+                    }
+                    completion(returnUsers: usersReturn)
+                }
+                else
+                {
+                    // Log details of the failure
+                    print("Error: \(error!) \(error!.userInfo)")
+                }
+        }
+    }
+    
+    
     
     
 }

@@ -16,6 +16,7 @@
 		3077190F1C3D3EF400469969 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */; };
 		307719111C3D468300469969 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307719101C3D468300469969 /* MapViewViewController.swift */; };
 		307719131C3D740600469969 /* idea.txt in Resources */ = {isa = PBXBuildFile; fileRef = 307719121C3D740600469969 /* idea.txt */; };
+		3087664C1C4FEAA00076C5E9 /* Invitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3087664B1C4FEAA00076C5E9 /* Invitation.swift */; };
 		30919D101C467AA3005CFAB7 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30919D0F1C467AA3005CFAB7 /* PostViewCell.swift */; };
 		30919D161C46B26E005CFAB7 /* PostMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30919D151C46B26E005CFAB7 /* PostMakeViewController.swift */; };
 		309837871C4BAF4C008A6ACB /* HomeSettingViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309837861C4BAF4C008A6ACB /* HomeSettingViewcontroller.swift */; };
@@ -119,6 +120,7 @@
 		3077190E1C3D3EF400469969 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		307719101C3D468300469969 /* MapViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
 		307719121C3D740600469969 /* idea.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = idea.txt; sourceTree = "<group>"; };
+		3087664B1C4FEAA00076C5E9 /* Invitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invitation.swift; sourceTree = "<group>"; };
 		30919D0F1C467AA3005CFAB7 /* PostViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
 		30919D151C46B26E005CFAB7 /* PostMakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMakeViewController.swift; sourceTree = "<group>"; };
 		309837861C4BAF4C008A6ACB /* HomeSettingViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSettingViewcontroller.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			children = (
 				3FB348201C496E6F003EA33E /* ParseExtension.swift */,
 				3F6EAB211C47058C00331250 /* Friend.swift */,
+				3087664B1C4FEAA00076C5E9 /* Invitation.swift */,
 				30F2DF821C43FED00051F7D6 /* User.swift */,
 				30F2DF7B1C43F4B40051F7D6 /* Message.swift */,
 				30F2DF841C4408F10051F7D6 /* Event.swift */,
@@ -637,6 +640,7 @@
 				30F2DF851C4408F10051F7D6 /* Event.swift in Sources */,
 				AB593BF11C3D944F00650C80 /* EventListTableViewController.swift in Sources */,
 				3077190F1C3D3EF400469969 /* MainTabBarViewController.swift in Sources */,
+				3087664C1C4FEAA00076C5E9 /* Invitation.swift in Sources */,
 				3F6EAB221C47058C00331250 /* Friend.swift in Sources */,
 				307719111C3D468300469969 /* MapViewViewController.swift in Sources */,
 				30919D161C46B26E005CFAB7 /* PostMakeViewController.swift in Sources */,
