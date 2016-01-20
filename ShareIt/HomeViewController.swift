@@ -59,6 +59,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         
         locateButton.addTarget(self, action: "locatePressed:", forControlEvents: .TouchUpInside)
         
+ 
+        
         didLoadLoacation = false
         
     }
@@ -223,6 +225,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             self.loadLocation()
             self.reloadPins()
             didLoadLoacation = true
+            mapView.tintColor = UIAssets.logoColor.redColor
             
         }
     }

@@ -26,6 +26,7 @@ class PostMakeViewController: UIViewController, MKMapViewDelegate, UITextFieldDe
             mapView.delegate = self
             mapView.mapType = .Standard
             mapView.showsUserLocation = true
+            mapView.tintColor = UIAssets.logoColor.redColor
             
         }
     }

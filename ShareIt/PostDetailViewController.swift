@@ -19,6 +19,7 @@ class PostDetailViewController : UIViewController
         didSet{
                 messageLocation.mapType = .Standard
                 messageLocation.showsUserLocation = true
+                messageLocation.tintColor = UIAssets.logoColor.redColor
               }
     }
     @IBOutlet weak var messagetext: UILabel!
