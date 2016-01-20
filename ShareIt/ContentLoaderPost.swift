@@ -124,7 +124,7 @@ class ContentLoaderPost
         
         let currentUser = User.getCurrentUserId()
         
-        let predicate1 = NSPredicate(format: "UserID == %@", currentUser)
+        let predicate1 = NSPredicate(format: "UserID == '\(currentUser)' AND accepted == TRUE")
         let predicate2 = NSPredicate(format: "FriendID == %@", currentUser)
         
         let isMyFriendSubquery = PFQuery(className: "Friend", predicate: predicate1)
