@@ -26,6 +26,7 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
     var searchText = "a"
     var eventList = Event()
     var eventLoader = ContentLoaderEvent()
+    let coreLocation = CoreLocation()
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -70,16 +71,17 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
         self.tableView.reloadData()
         
         
-        eventLoader.loadAllEvents({
-            users in
-            dispatch_async(dispatch_get_main_queue(),
-                {
-
-                self.refreshControl?.endRefreshing()
-                self.tableView.reloadData()
+        if let currentRange =  NSUserDefaults.standardUserDefaults().valueForKey(UserDefaultsKeys.UserDefaultsKey.rangeRegion) as? Int
+        {
+            eventLoader.loadAllEventsinRangeFriends(coreLocation.currentLocation.coordinate.latitude, userlongitude: coreLocation.currentLocation.coordinate.longitude, range: currentRange, completion :{ (returnMessages) -> Void in
+               
+                dispatch_async(dispatch_get_main_queue(),
+                    {
+                        self.refreshControl?.endRefreshing()
+                        self.tableView.reloadData()
+                })
             })
-        })
-
+        }
     }
     
     
