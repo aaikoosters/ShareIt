@@ -22,6 +22,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var endDate: UILabel!
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var accessLevel: UILabel!
+    @IBOutlet weak var inviteButton: UIBarButtonItem!
     @IBOutlet weak var eventLocation: MKMapView!
         {
         didSet{
@@ -32,7 +33,8 @@ class EventDetailViewController: UIViewController {
     }
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         let pin = MKPointAnnotation()
@@ -42,7 +44,8 @@ class EventDetailViewController: UIViewController {
         eventLocation.addAnnotation(pin)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool)
+    {
         userDisplay.image = UIImage(named: "logo200")
         self.title = receivedEvent.eventName
         startDate.text = receivedEvent.startDate
@@ -54,6 +57,13 @@ class EventDetailViewController: UIViewController {
         let location = CLLocation(latitude: receivedEvent.position.latitude, longitude: receivedEvent.position.longitude)
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
         eventLocation.setRegion(region, animated: true)
+        
+        inviteButton.enabled = false
+        
+        if receivedEvent.user == User.getCurrentUserId() && receivedEvent.viewAble == "Private"
+        {
+            inviteButton.enabled = true
+        }
         
         userLoader.findUserById(receivedEvent.user) { (returnUser) -> Void in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in

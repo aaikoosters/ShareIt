@@ -943,13 +943,13 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="accessLevel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EG0-jP-oyJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="accessLevel" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EG0-jP-oyJ">
                                         <rect key="frame" x="442" y="169" width="150" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="lO1-KT-v78"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1009,6 +1009,14 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gp4-fp-hUb">
+                        <barButtonItem key="rightBarButtonItem" title="Invite friends" id="CG6-ce-xkx">
+                            <connections>
+                                <action selector="inviteButton:" destination="Iv3-OW-Gii" id="ZF8-pv-8tp"/>
+                                <segue destination="R9L-6P-acs" kind="show" identifier="showInviteFriends" id="SzM-PH-l7H"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="accessLevel" destination="EG0-jP-oyJ" id="7sy-o3-xfJ"/>
@@ -1016,6 +1024,7 @@
                         <outlet property="endDate" destination="pab-FC-5Qn" id="ue8-nT-U8Q"/>
                         <outlet property="eventLocation" destination="IUO-5j-tas" id="QBQ-GZ-gvd"/>
                         <outlet property="eventTitle" destination="Pcg-gA-yhK" id="tzZ-ry-SeT"/>
+                        <outlet property="inviteButton" destination="CG6-ce-xkx" id="xeB-lz-zgf"/>
                         <outlet property="startDate" destination="GHB-vd-fXg" id="7oT-ey-hZ1"/>
                         <outlet property="userDisplay" destination="tjF-00-3tY" id="0hV-m8-CWm"/>
                         <outlet property="userName" destination="5VY-9X-IJF" id="s1D-pN-l0W"/>
@@ -1851,12 +1860,71 @@
             </objects>
             <point key="canvasLocation" x="5913" y="2323"/>
         </scene>
+        <!--InviteFriends-->
+        <scene sceneID="NeE-M9-6ll">
+            <objects>
+                <tableViewController storyboardIdentifier="InviteFriends" title="InviteFriends" id="R9L-6P-acs" customClass="InviteFriendsViewController" customModule="ShareIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="6xM-Sv-WDm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InviteFriendsViewCell" rowHeight="80" id="qHz-oA-Koa" customClass="InviteFriendsViewCell" customModule="ShareIt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qHz-oA-Koa" id="CBj-t5-UqV">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jxm-VK-GQK">
+                                            <rect key="frame" x="8" y="8" width="63" height="63"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="63" id="uEp-gh-sns"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP8-aX-m3T">
+                                            <rect key="frame" x="79" y="8" width="42" height="63"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo200.png" translatesAutoresizingMaskIntoConstraints="NO" id="QYm-8k-Y3s">
+                                            <rect key="frame" x="532" y="10" width="60" height="60"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Jxm-VK-GQK" firstAttribute="top" secondItem="CBj-t5-UqV" secondAttribute="top" constant="8" id="0Z4-Em-alH"/>
+                                        <constraint firstItem="Jxm-VK-GQK" firstAttribute="bottom" secondItem="fP8-aX-m3T" secondAttribute="bottom" id="Asr-lQ-TJJ"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="Jxm-VK-GQK" secondAttribute="leading" id="JhP-Jb-FTL"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Jxm-VK-GQK" secondAttribute="bottom" id="OxK-52-9kf"/>
+                                        <constraint firstItem="fP8-aX-m3T" firstAttribute="leading" secondItem="Jxm-VK-GQK" secondAttribute="trailing" constant="8" id="PhP-wv-NVH"/>
+                                        <constraint firstItem="Jxm-VK-GQK" firstAttribute="top" secondItem="fP8-aX-m3T" secondAttribute="top" id="faP-0I-ngM"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkMark" destination="QYm-8k-Y3s" id="8ng-O3-pu7"/>
+                                    <outlet property="userDisplay" destination="Jxm-VK-GQK" id="E4L-bq-X1E"/>
+                                    <outlet property="userName" destination="fP8-aX-m3T" id="WWU-rC-mJD"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="R9L-6P-acs" id="a4x-VU-ro5"/>
+                            <outlet property="delegate" destination="R9L-6P-acs" id="JHy-FT-PQv"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cj9-4T-Hcn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8311" y="2428"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ShareIt-friends1" width="200" height="200"/>
         <image name="ShareIt_logo.png" width="239" height="434"/>
         <image name="event" width="30" height="29"/>
         <image name="friends" width="30" height="30"/>
+        <image name="logo200.png" width="200" height="200"/>
         <image name="map" width="30" height="30"/>
         <image name="message" width="30" height="30"/>
         <image name="settings" width="29" height="30"/>
