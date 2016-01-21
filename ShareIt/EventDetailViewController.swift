@@ -16,9 +16,11 @@ class EventDetailViewController: UIViewController {
     
     @IBOutlet weak var userDisplay: UIImageView!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet weak var startDate: UILabel!
     @IBOutlet weak var endDate: UILabel!
     @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var accessLevel: UILabel!
     @IBOutlet weak var eventLocation: MKMapView!
         {
         didSet{
@@ -45,6 +47,8 @@ class EventDetailViewController: UIViewController {
         startDate.text = receivedEvent.startDate
         endDate.text = receivedEvent.endDate
         content.text = receivedEvent.content
+        eventTitle.text = receivedEvent.title
+        accessLevel.text! = "\(receivedEvent.viewAble) event"
         
         let location = CLLocation(latitude: receivedEvent.position.latitude, longitude: receivedEvent.position.longitude)
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
