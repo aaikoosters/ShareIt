@@ -132,6 +132,49 @@ class ContentLoaderEvent
         }
     }
     
+    func isFriendInvited(currentEvent : Event!,  friends : [User], completion: (returnUsers: [User]) ->Void)
+    {
+        let invited = Invitation.query()
+        invited?.whereKey(Invitation.EventID(), equalTo: currentEvent.objectId!)
+        invited?.whereKey(Invitation.UserId(), equalTo: friends)
+
+        var returnFriends = [User]()
+        invited?.findObjectsInBackgroundWithBlock
+            {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if error == nil
+                {
+                    if let objects = objects
+                    {
+                        for object in objects
+                        {
+                            if let invite = object as? Invitation
+                            {
+                                for user in friends
+                                {
+                                    if user.objectId == invite.userID
+                                    {
+                                        
+                                    }
+                                    else
+                                    {
+                                        returnFriends.append(user)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    completion(returnUsers: returnFriends)
+                }
+                else
+                {
+                    // Log details of the failure
+                    print("Error: \(error!) \(error!.userInfo)")
+                }
+        }
+    }
+    
     
     
     func loadAllEventsFriends(completionReturn: (returnMessages: [Event]) -> Void)
@@ -226,6 +269,47 @@ class ContentLoaderEvent
         
     }
     
+    func loadAllInvitedEvents(completion: (returnMessages: [Event]) -> Void)
+    {
+        
+        let currentUser = User.getCurrentUserId()
+        let predicate = NSPredicate(format: "userID == '\(currentUser)'")
+        let queryMyEvents = PFQuery(className: "Invitation", predicate: predicate)
+        
+        let eventQuery = Event.query()
+        eventQuery?.whereKey("objectId", matchesKey: Invitation.EventID(), inQuery: queryMyEvents)
+        
+        eventQuery?.findObjectsInBackgroundWithBlock
+            {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if error == nil
+                {
+                    if let objects = objects
+                    {
+                        for object in objects
+                        {
+                            if let event = object as? Event
+                            {
+                                if  !self.events.contains(event)
+                                {
+                                    self.events.append(event)
+                                }
+                                
+                            }
+                        }
+                    }
+                    completion(returnMessages: self.events)
+                }
+                else
+                {
+                    // Log details of the failure
+                    print("Error: \(error!) \(error!.userInfo)")
+                }
+        }
+        
+    }
+    
     func loadAllEventsinRangeFriends(userLatitude: Double, userlongitude: Double, range : Int ,completion: (returnMessages: [Event]) -> Void)
     {
         
@@ -233,49 +317,244 @@ class ContentLoaderEvent
             
             self.loadAllMyEvents({ (returnMessages) -> Void in
                 
-                let query = Event.query()
-                
-                
-                var doubleRange = Double(range)
-                doubleRange = doubleRange / 1000.0
-                query?.whereKey("position", nearGeoPoint: PFGeoPoint(latitude: userLatitude, longitude: userlongitude), withinKilometers: doubleRange)
-                
-                query?.findObjectsInBackgroundWithBlock
-                    {
-                        (objects: [PFObject]?, error: NSError?) -> Void in
-                        
-                        if error == nil
+                self.loadAllInvitedEvents({ (returnMessages) -> Void in
+                    
+                    let query = Event.query()
+                    
+                    
+                    var doubleRange = Double(range)
+                    doubleRange = doubleRange / 1000.0
+                    query?.whereKey("position", nearGeoPoint: PFGeoPoint(latitude: userLatitude, longitude: userlongitude), withinKilometers: doubleRange)
+                    
+                    query?.findObjectsInBackgroundWithBlock
                         {
-                            if let objects = objects
+                            (objects: [PFObject]?, error: NSError?) -> Void in
+                            
+                            if error == nil
                             {
-                                for object in objects
+                                if let objects = objects
                                 {
-                                    if let event = object as? Event
+                                    for object in objects
                                     {
-                                        if  !self.events.contains(event) && event.viewAble == "Public"
+                                        if let event = object as? Event
                                         {
+                                            if  !self.events.contains(event) && event.viewAble == "Public"
+                                            {
+                                                
+                                                self.events.append(event)
+                                            }
                                             
-                                            self.events.append(event)
                                         }
-                                        
                                     }
                                 }
-                            }
-                            
+                                
                                 completion(returnMessages: self.events)
-
-                        }
-                        else
-                        {
-                            // Log details of the failure
-                            print("Error: \(error!) \(error!.userInfo)")
-                        }
-                }
+                                
+                            }
+                            else
+                            {
+                                // Log details of the failure
+                                print("Error: \(error!) \(error!.userInfo)")
+                            }
+                    }
+                    
+                })
             })
         }
     }
-
-
+    
+    func isFriendInvited(event : Event, completion: (returnUsers: [User]) ->Void)
+        
+    {
+        
+        loadAllFriends { (returnFriends) -> Void in
+            
+            
+            
+            let invited = Invitation.query()
+            
+            invited?.whereKey(Invitation.EventID(), equalTo: event.objectId!)
+            
+            
+            
+            var usersReturn = returnFriends
+            
+            var invitations = [Invitation]()
+            
+            
+            
+            invited?.findObjectsInBackgroundWithBlock
+                
+                {
+                    
+                    (objects: [PFObject]?, error: NSError?) -> Void in
+                    
+                    
+                    
+                    if error == nil
+                        
+                    {
+                        
+                        if let objects = objects
+                            
+                        {
+                            
+                            for object in objects
+                                
+                            {
+                                
+                                if let invite = object as? Invitation
+                                    
+                                {
+                                    
+                                    invitations.append(invite)
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                        for us in usersReturn
+                            
+                        {
+                            
+                            var isInvited = false
+                            
+                            for inv in invitations
+                                
+                            {
+                                
+                                if us.objectId == inv.userID
+                                    
+                                {
+                                    if let index = usersReturn.indexOf(us)
+                                    {
+                                        usersReturn.removeAtIndex(index)
+                                        
+                                    }
+                                }
+                                
+                               
+                            }
+                            
+                        }
+                        
+                        completion(returnUsers: usersReturn)
+                        
+                    }
+                        
+                    else
+                        
+                    {
+                        
+                        // Log details of the failure
+                        
+                        print("Error: \(error!) \(error!.userInfo)")
+                        
+                    }
+                    
+            }
+            
+            
+            
+        }
+        
+    }
+    
+    
+    
+    func loadAllFriends(completion: (returnMessages: [User]) -> Void)
+        
+    {
+        
+        let currentUser = User.getCurrentUserId()
+        
+        
+        
+        let predicate1 = NSPredicate(format: "UserID == '\(currentUser)' AND accepted == TRUE")
+        
+        let predicate2 = NSPredicate(format: "FriendID == %@", currentUser)
+        
+        
+        
+        let isMyFriendSubquery = PFQuery(className: "Friend", predicate: predicate1)
+        
+        let hasMeAsFriendSubquery = PFQuery(className: "Friend", predicate: predicate2)
+        
+        
+        
+        let isMyFriend = User.query()
+        
+        isMyFriend!.whereKey(User.ObjectId(), matchesKey: Friend.friendId(), inQuery: isMyFriendSubquery)
+        
+        
+        
+        let hasMeAsFriend = User.query()
+        
+        hasMeAsFriend!.whereKey(User.ObjectId(), matchesKey: Friend.userId(), inQuery: hasMeAsFriendSubquery)
+        
+        
+        
+        
+        
+        let query = PFQuery.orQueryWithSubqueries([hasMeAsFriend!, isMyFriend!])
+        
+        
+        
+        var users = [User]()
+        
+        
+        
+        query.findObjectsInBackgroundWithBlock
+            
+            {
+                
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                
+                
+                if error == nil
+                    
+                {
+                    
+                    if let objects = objects
+                        
+                    {
+                        
+                        for object in objects
+                            
+                        {
+                            
+                            if let user = object as? User
+                                
+                            {
+                                
+                                users.append(user)
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                    completion(returnMessages: users)
+                    
+                }
+                    
+                else
+                    
+                {
+                    
+                    // Log details of the failure
+                    
+                    print("Error: \(error!) \(error!.userInfo)")
+                    
+                }
+                
+        }
+        
+    }
     
     
     
