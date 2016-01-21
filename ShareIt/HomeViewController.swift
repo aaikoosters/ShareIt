@@ -61,9 +61,9 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         
         locateButton.addTarget(self, action: "locatePressed:", forControlEvents: .TouchUpInside)
         
- 
-        
+
         didLoadLoacation = false
+        
         
     }
     
@@ -112,7 +112,13 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     func reloadPins()
     {
+        
         mapView?.removeAnnotations(mapView.annotations)
+        
+        if let currentRange = NSUserDefaults().valueForKey(UserDefaultsKeys.UserDefaultsKey.rangeRegion) as? Int
+        {
+            self.rangePosts = currentRange
+        }
         
         loader.loadAllPostsinRangeFriends(coreLocation.currentLocation.coordinate.latitude , userlongitude: coreLocation.currentLocation.coordinate.longitude, range: self.rangePosts) { (returnMessages) -> Void in
             dispatch_async(dispatch_get_main_queue(),

@@ -47,21 +47,5 @@ class Message : PFObject, PFSubclassing
     {
         self.position = PFGeoPoint(latitude: latitude, longitude: longitudeInput)
     }
-    
-    
-    //        func iconView() -> UIImageView
-    //        {
-    //            let view = PFImageView(imageView: PlaceholderImage)
-    //            view.file = imageFile
-    //            view.loadInBackground()
-    //            return view
-    //        }
 }
 
-
-
-
-//let message = Message()
-//message.Content = "test"
-//message.User = User.getCurrentUser()?.objectId
-//message.saveInBackground()
