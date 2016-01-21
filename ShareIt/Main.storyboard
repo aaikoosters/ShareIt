@@ -922,8 +922,8 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IUO-5j-tas">
-                                        <rect key="frame" x="8" y="195" width="584" height="284"/>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IUO-5j-tas">
+                                        <rect key="frame" x="8" y="227" width="584" height="284"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="284" id="p3R-2Q-MfH"/>
                                         </constraints>
