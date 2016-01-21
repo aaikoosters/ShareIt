@@ -869,7 +869,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPZ-PI-am5">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFF-2D-HHR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFF-2D-HHR">
                                         <rect key="frame" x="8" y="166" width="584" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1054,8 +1054,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hwj-X0-jNv">
-                                <rect key="frame" x="281" y="15" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hwj-X0-jNv">
+                                <rect key="frame" x="282" y="481" width="37" height="37"/>
+                                <color key="color" red="0.89019607840000003" green="0.25882352939999997" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="1W5-xI-0Cd">
                                 <rect key="frame" x="0.0" y="64" width="600" height="887"/>
@@ -1192,17 +1193,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hwj-X0-jNv" firstAttribute="centerY" secondItem="8hR-OU-ny5" secondAttribute="centerY" id="8WY-ER-eXc"/>
                             <constraint firstItem="1W5-xI-0Cd" firstAttribute="top" secondItem="NSt-hF-3pT" secondAttribute="bottom" id="Ge8-cG-C2q"/>
                             <constraint firstItem="1W5-xI-0Cd" firstAttribute="width" secondItem="8hR-OU-ny5" secondAttribute="width" id="KQC-zp-cf5"/>
                             <constraint firstItem="1W5-xI-0Cd" firstAttribute="leading" secondItem="8hR-OU-ny5" secondAttribute="leadingMargin" constant="-20" id="Lg5-B4-7aO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1W5-xI-0Cd" secondAttribute="trailing" constant="-20" id="Oqi-K4-crA"/>
+                            <constraint firstItem="hwj-X0-jNv" firstAttribute="centerX" secondItem="8hR-OU-ny5" secondAttribute="centerX" id="RDC-wt-WmG"/>
                             <constraint firstItem="Pmz-tY-cxu" firstAttribute="top" secondItem="1W5-xI-0Cd" secondAttribute="bottom" id="cel-En-4Yv"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Oqi-K4-crA"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="T1s-rm-Rx5">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="HJR-ha-UuW">
@@ -1408,7 +1406,7 @@
                                     <constraint firstAttribute="height" constant="35" id="ur8-VU-6Lc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Post">
+                                <state key="normal" title="Share it!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -1436,7 +1434,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Share it!" translatesAutoresizingMaskIntoConstraints="NO" id="6uA-fm-LBU">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Post body" translatesAutoresizingMaskIntoConstraints="NO" id="6uA-fm-LBU">
                                 <rect key="frame" x="36" y="118" width="528" height="221"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
