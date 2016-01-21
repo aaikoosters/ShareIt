@@ -14,21 +14,18 @@ class MainTabBarViewController: UITabBarController
         super.viewWillAppear(animated)
         self.tabBar.barTintColor = UIAssets.logoColor.greyColor
         self.tabBar.translucent = false
-        self.tabBar.tintColor = UIColor.whiteColor()
 
-        
+        UITabBar.appearance().tintColor = UIAssets.logoColor.redColor
+         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIAssets.logoColor.redColor], forState:.Selected)
         //images in tabbar items
-        for controller in self.viewControllers!
-        {
-//            controller.tabBarItem.image = UIImage(named: "message")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-//            
-//            controller.tabBarItem.selectedImage = UIImage(named: "messageRed")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-            
-            UITabBar.appearance().tintColor = UIAssets.logoColor.redColor
-            
-            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIAssets.logoColor.redColor], forState:.Selected)
-            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
-        }
+//        for controller in self.viewControllers!
+//        {
+////            controller.tabBarItem.image = UIImage(named: "message")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+////            
+////            controller.tabBarItem.selectedImage = UIImage(named: "messageRed")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+//
+//           
+//        }
 
         let border = CALayer()
         let width = CGFloat(2.0)
@@ -39,9 +36,6 @@ class MainTabBarViewController: UITabBarController
         self.tabBar.layer.addSublayer(border)
         self.tabBar.layer.masksToBounds = true
 
-
-        
-        
     }
     
     
