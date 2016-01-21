@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
 {
     
     var loader = ContentLoaderPost()
+    var userLoader = ContentLoaderUser()
     
     let coreLocation = CoreLocation()
     
@@ -49,8 +50,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         
         let sizeY = NSLayoutConstraint(item: locateButton, attribute:  NSLayoutAttribute.Height, relatedBy: .Equal, toItem: locateButton, attribute:  NSLayoutAttribute.Height, multiplier: 1, constant: 2)
         
-        
-        
         self.locateButton.addConstraint(sizeX)
         self.locateButton.addConstraint(sizeY)
         
@@ -60,8 +59,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         
         locateButton.addTarget(self, action: "locatePressed:", forControlEvents: .TouchUpInside)
         
-    
-        loadLocation()
+ 
         
         didLoadLoacation = false
         
@@ -89,18 +87,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         {
             self.rangePosts = currentRange
         }
- 
-        reloadPins()
-        
-//        loader.loadAllPosts({
-//            messages in
-//            dispatch_async(dispatch_get_main_queue(),{
-//                self.addPointsToMap(messages)
-//            })
-//            
-//        })
-
-    
     }
     
     
@@ -124,7 +110,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     func reloadPins()
     {
-        loader.loadAllPostsinRangeFriends(coreLocation.currentLocation.coordinate.latitude , userlongitude: coreLocation.currentLocation.coordinate.longitude, range: rangePosts) { (returnMessages) -> Void in
+        loader.loadAllPostsinRangeFriends(coreLocation.currentLocation.coordinate.latitude , userlongitude: coreLocation.currentLocation.coordinate.longitude, range: self.rangePosts) { (returnMessages) -> Void in
             dispatch_async(dispatch_get_main_queue(),
                 {
                     self.addPointsToMap(returnMessages)
@@ -181,6 +167,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             
             self.presentViewController(alertController, animated: true, completion: nil)
         }
+        
         reloadRange()
         
     }
@@ -236,12 +223,14 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         if !didLoadLoacation
         {
             self.loadLocation()
+            self.reloadPins()
             didLoadLoacation = true
+            mapView.tintColor = UIAssets.logoColor.redColor
             
         }
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView!
     {
         if !(annotation is Message)
         {
@@ -266,8 +255,37 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         {
             let viewUI = UIImageView(frame: CGRectMake(0, 0, 40, 40))
             viewUI.image = UIImage(named: "logo200")
+            
+            userLoader.findWholeUserById(mapAnnotation.user) { (returnUser) -> Void in
+                if returnUser != nil
+                {
+                    self.userLoader.loadPhotoForUser(returnUser!.profilePicture!, completion: { (image) -> Void in
+                        viewUI.image = UIImage(data:image!)
+                    })
+                }
+            }
+            
+            
             view?.leftCalloutAccessoryView = viewUI
+            view?.annotation = mapAnnotation
+            if let pinView =  view as? MKPinAnnotationView
+            {
+                if #available(iOS 9.0, *) {
+                    //pinView.pinTintColor = UIAssets.logoColor.redColor
+                    
+                    pinView.pinTintColor = UIColor(red:
+                        CGFloat(arc4random_uniform(255))/255.0,
+                        green:
+                        CGFloat(arc4random_uniform(255))/255.0,
+                        blue:
+                        CGFloat(arc4random_uniform(255))/255.0, alpha: 1.0)
+     
 
+                } else {
+                    pinView.pinColor = MKPinAnnotationColor.Red
+                }
+            }
+            
             
         }
         

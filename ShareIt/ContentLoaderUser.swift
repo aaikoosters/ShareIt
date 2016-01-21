@@ -254,6 +254,56 @@ class ContentLoaderUser
         })
     }
     
+    func findWholeUserById(userId: String, completion: (returnUser: User?) ->Void)
+    {
+        var returnUser = User?()
+        
+        currentUser = User.getCurrentUserId()
+        
+ 
+        if userId == currentUser
+        {
+            returnUser = UserHandler.getCurrentUser()
+            
+            completion(returnUser: returnUser)
+        }
+        else
+        {
+            let userQuery = User.query()
+            userQuery?.whereKey(User.ObjectId(), equalTo: userId)
+                
+                userQuery?.findObjectsInBackgroundWithBlock
+                {
+                    (objects: [PFObject]?, error: NSError?) -> Void in
+                    
+                    if error == nil
+                    {
+                        if let objects = objects
+                        {
+                            for object in objects
+                            {
+                                if let userElement = object as? User
+                                {
+                                    returnUser = userElement
+                                }
+                            }
+                        }
+                       completion(returnUser: returnUser)
+                    }
+                    else
+                    {
+                        // Log details of the failure
+                        print("Error: \(error!) \(error!.userInfo)")
+                    }
+            }
+
+            
+        }
+
+    }
+    
+    
+    
     func findWhatUserIs(searchUser : User , completion: (friends : [Friend?]) -> Void)
     {
         print(currentUser)
@@ -344,22 +394,31 @@ class ContentLoaderUser
 
     }
     
-    func loadPhotoForUser (photoFile: PFFile, completion: (image: NSData?) ->Void)
+    func loadPhotoForUser (photoFile: PFFile?, completion: (image: NSData?) ->Void)
     {
-        photoFile.getDataInBackgroundWithBlock
-            {
-                (imageData: NSData?, error: NSError?) -> Void in
-                if error == nil {
-                    if let imageData = imageData {
-                        
-                        dispatch_async(dispatch_get_main_queue(),
-                            {
-                                completion(image: imageData)
-                        })
+        if let photo =  photoFile
+        {
+            photo.getDataInBackgroundWithBlock
+                {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    if error == nil {
+                        if let imageData = imageData {
+                            
+                            dispatch_async(dispatch_get_main_queue(),
+                                {
+                                    completion(image: imageData)
+                            })
+                        }
                     }
-                }
+            }
+
+            
         }
-    
+        else
+        {
+            
+        }
+        
     }
     
     

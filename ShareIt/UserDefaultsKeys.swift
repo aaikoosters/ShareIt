@@ -14,5 +14,6 @@ class UserDefaultsKeys
     {
         static let mapType = "mapKey"
         static var rangeRegion = "regionKey"
+        static var firstLaunch = "firstLaunch"
     }
 }

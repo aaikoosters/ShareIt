@@ -19,10 +19,11 @@ class PostDetailViewController : UIViewController
         didSet{
                 messageLocation.mapType = .Standard
                 messageLocation.showsUserLocation = true
-                messageLocation.scrollEnabled = false
+                messageLocation.tintColor = UIAssets.logoColor.redColor
               }
     }
     @IBOutlet weak var messagetext: UILabel!
+    @IBOutlet weak var titleMessage: UILabel!
     
     
     var receivedMessage: Message!
@@ -48,16 +49,33 @@ class PostDetailViewController : UIViewController
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
         messageLocation.setRegion(region, animated: true)
         
-        userLoader.findUserById(receivedMessage.user) { (returnUser) -> Void in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.userName.text = returnUser
-            })
-            
+        titleMessage.text = receivedMessage.title
+        
+        userLoader.findWholeUserById(receivedMessage.user) { (returnUser) -> Void in
+            if returnUser != nil
+            {
+                self.userName.text = returnUser?.username
+                
+                
+                self.userLoader.loadPhotoForUser(returnUser!.profilePicture!, completion: { (image) -> Void in
+                    self.userDisplay.image  = UIImage(data:image!)
+                })
+            }
+       
+    
+    
+//        userLoader.findUserById(receivedMessage.user) { (returnUser) -> Void in
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                self.userName.text = returnUser
+//                
+//                userDisplay.image = UIImage(named: "logo200")
+//            })
+        
         }
     }
     
     override func viewDidLoad() {
-        self.title = receivedMessage.title
+        
         
         let pin = MKPointAnnotation()
         pin.coordinate.longitude = receivedMessage.position.longitude

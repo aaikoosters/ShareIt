@@ -30,6 +30,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
+        
+        //
+        if let launch =  NSUserDefaults.standardUserDefaults().valueForKey(UserDefaultsKeys.UserDefaultsKey.firstLaunch)
+        {
+        }
+        else
+        {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setBool(true, forKey:  UserDefaultsKeys.UserDefaultsKey.mapType)
+            defaults.synchronize()
+            
+            defaults.setInteger(400, forKey:  UserDefaultsKeys.UserDefaultsKey.rangeRegion)
+            defaults.setBool(true, forKey: UserDefaultsKeys.UserDefaultsKey.firstLaunch)
+            defaults.synchronize()
+        }
+        
+        
 
         
         return true

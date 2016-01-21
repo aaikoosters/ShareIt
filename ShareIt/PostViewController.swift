@@ -13,6 +13,9 @@ class PostViewController: UITableViewController {
     var searchText = "a"
     
     var postLoader = ContentLoaderPost()
+    var userLoader = ContentLoaderUser()
+    
+    let coreLocation = CoreLocation()
     
     var selectedMessage: Message!
     
@@ -55,19 +58,18 @@ class PostViewController: UITableViewController {
         
         let check = postLoader
         
-        postLoader.loadAllPosts({
-            posts in
-            dispatch_async(dispatch_get_main_queue(),
+        if let currentRange =  NSUserDefaults.standardUserDefaults().valueForKey(UserDefaultsKeys.UserDefaultsKey.rangeRegion) as? Int
+        {
+            postLoader.loadAllPostsinRangeFriends(coreLocation.currentLocation.coordinate.latitude, userlongitude: coreLocation.currentLocation.coordinate.longitude, range: currentRange, completion: { (returnMessages) -> Void in
+                if check === self.postLoader
                 {
-                    if check === self.postLoader
-                    {
-                        self.refreshControl?.endRefreshing()
-                        self.tableView.reloadData()
-                    }
-                    
-                    
+                    self.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
+                }
+
             })
-        })
+
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -80,10 +82,18 @@ class PostViewController: UITableViewController {
             
             cell.postMesage.text = post.postTitle
             
-//            userLoader.loadPhotoForUser(friend.profilePicture!, completion: { (image) -> Void in
-//                cell.postDisplay.image = UIImage(data:image!)
-//            })
             cell.postDisplay.image = UIImage(named: "logo200")
+            
+            userLoader.findWholeUserById(post.user)
+                { (returnUser) -> Void in
+                if returnUser != nil
+                {
+                    self.userLoader.loadPhotoForUser(returnUser!.profilePicture!, completion: { (image) -> Void in
+                        cell.postDisplay.image  = UIImage(data:image!)
+                    })
+                }
+            }
+
             cell.userName.text = post.userObject
             cell.postBody.text = post.content
 

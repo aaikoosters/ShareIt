@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ShareIt_event1.png",
+      "filename" : "ShareIt_event.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ShareIt_event3.png",
+      "filename" : "ShareIt_event@2x.png",
       "scale" : "2x"
     },
     {

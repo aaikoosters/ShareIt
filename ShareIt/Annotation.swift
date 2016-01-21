@@ -27,6 +27,11 @@ extension Message : MKAnnotation
             return content
     }
     
+     var color: MKPinAnnotationColor
+        {
+        return  MKPinAnnotationColor.Green
+    }
+    
 }
 
 
