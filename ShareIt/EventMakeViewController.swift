@@ -25,7 +25,7 @@ class EventMakeViewController: UIViewController, MKMapViewDelegate
             mapView.delegate = self
             mapView.mapType = .Standard
             mapView.showsUserLocation = true
-            
+            mapView.tintColor = UIAssets.logoColor.redColor
         }
     }
     @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
@@ -156,6 +156,7 @@ class EventMakeViewController: UIViewController, MKMapViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.bringSubviewToFront(self.view)
 
         // Do any additional setup after loading the view.
     }

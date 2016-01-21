@@ -235,6 +235,7 @@ class ContentLoaderEvent
                 
                 let query = Event.query()
                 
+                
                 var doubleRange = Double(range)
                 doubleRange = doubleRange / 1000.0
                 query?.whereKey("position", nearGeoPoint: PFGeoPoint(latitude: userLatitude, longitude: userlongitude), withinKilometers: doubleRange)
@@ -251,8 +252,9 @@ class ContentLoaderEvent
                                 {
                                     if let event = object as? Event
                                     {
-                                        if  !self.events.contains(event)
+                                        if  !self.events.contains(event) && event.viewAble == "Public"
                                         {
+                                            
                                             self.events.append(event)
                                         }
                                         

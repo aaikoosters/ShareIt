@@ -50,6 +50,11 @@ class Event : PFObject, PFSubclassing
         return "eventName"
     }
     
+    static func ViewAble() ->String
+    {
+        return "viewAble"
+    }
+    
     func setPosition(latitude : Double, longitudeInput : Double )
     {
         self.position = PFGeoPoint(latitude: latitude, longitude: longitudeInput)
