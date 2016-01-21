@@ -13,6 +13,7 @@ class EventDetailViewController: UIViewController {
 
     var receivedEvent: Event!
     var userLoader = ContentLoaderUser()
+    var eventLoader = ContentLoaderEvent()
     
     @IBOutlet weak var userDisplay: UIImageView!
     @IBOutlet weak var userName: UILabel!
@@ -70,15 +71,11 @@ class EventDetailViewController: UIViewController {
             })
             
         }
+        eventLoader.loadPhotoForEvent(receivedEvent.eventPicture!, completion: { (image) -> Void in
+            self.userDisplay.image = UIImage(data:image!)
+        })
+
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-        if segue.identifier == "showInviteFriends"
-        {
-            let inviteFriends = segue.destinationViewController as! InviteFriendsViewController
-            
-            inviteFriends.receivedEvent = receivedEvent
-        }
-    }
+
 }

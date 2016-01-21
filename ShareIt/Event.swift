@@ -19,6 +19,7 @@ class Event : PFObject, PFSubclassing
     @NSManaged var endDate: String
     @NSManaged var viewAble: String
     @NSManaged var user: String
+    @NSManaged var eventPicture: PFFile?
     
     //@NSManaged var imageFile: PFFile
     
