@@ -84,6 +84,7 @@
                             <mask key="constraints">
                                 <exclude reference="h9n-K4-zw6"/>
                                 <exclude reference="sKV-xk-3pu"/>
+                                <exclude reference="lbY-2t-KFJ"/>
                             </mask>
                         </variation>
                     </view>
@@ -111,8 +112,16 @@
                                 <rect key="frame" x="229" y="72" width="143" height="261"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="143" id="06C-Y6-Pad"/>
+                                    <constraint firstAttribute="width" constant="143" id="1r1-T1-R4x"/>
+                                    <constraint firstAttribute="height" constant="261" id="577-Wy-YQI"/>
                                     <constraint firstAttribute="height" constant="261" id="FdS-6M-inr"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="06C-Y6-Pad"/>
+                                        <exclude reference="FdS-6M-inr"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnk-SE-B6l">
                                 <rect key="frame" x="250" y="385" width="100" height="40"/>
@@ -177,6 +186,7 @@
                                 <exclude reference="Wep-iK-VNW"/>
                                 <exclude reference="8zr-xP-KIi"/>
                                 <exclude reference="fEH-CA-AfH"/>
+                                <exclude reference="bEL-CF-rA6"/>
                             </mask>
                         </variation>
                     </view>
@@ -306,6 +316,11 @@
                             <constraint firstItem="eIn-wW-qg4" firstAttribute="centerX" secondItem="gq4-fc-8qN" secondAttribute="centerX" id="kBq-NQ-Nu2"/>
                             <constraint firstItem="eIn-wW-qg4" firstAttribute="top" secondItem="KGx-sE-Wgy" secondAttribute="bottom" constant="23" id="sfr-OD-fNy"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="N4i-lY-xTf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="FTz-bJ-7Ov">
                         <barButtonItem key="backBarButtonItem" title="Back" id="NTT-fl-B7Y"/>
@@ -432,6 +447,11 @@
                             <constraint firstItem="Jcj-sR-Vlo" firstAttribute="top" secondItem="4IT-7M-gza" secondAttribute="bottom" constant="8" id="qyG-Qk-80R"/>
                             <constraint firstItem="OBb-fH-P4c" firstAttribute="top" secondItem="XVT-DP-MPG" secondAttribute="bottom" constant="203" id="yui-cQ-0UV"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="yui-cQ-0UV"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="emailField" destination="UOz-tS-XVp" id="aWP-BS-HwV"/>
@@ -849,8 +869,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPZ-PI-am5">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFF-2D-HHR">
-                                        <rect key="frame" x="8" y="166" width="584" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFF-2D-HHR">
+                                        <rect key="frame" x="8" y="198" width="584" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -893,7 +913,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlY-Q1-Hp6">
-                                        <rect key="frame" x="8" y="137" width="124" height="21"/>
+                                        <rect key="frame" x="8" y="169" width="124" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="0EB-LA-dyE"/>
                                             <constraint firstAttribute="width" constant="124" id="7cA-94-Lqr"/>

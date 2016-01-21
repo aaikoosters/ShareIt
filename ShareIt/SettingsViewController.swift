@@ -39,8 +39,8 @@ class SettingsViewController: UIViewController {
             self.userName.text = pUserName
             
 
-            userLoader.loadPhotoForUser(PFUser.currentUser()!["profilePicture"] as! PFFile, completion: { (image) -> Void in
-                self.userDisplay.image = UIImage(data:image!)
+            userLoader.loadPhotoForUser(PFUser.currentUser()!["profilePicture"] as? PFFile, completion: { (image) -> Void in
+                    self.userDisplay.image = UIImage(data:image!)
             })
 
         }
