@@ -43,11 +43,11 @@ extension Event : MKAnnotation
     }
     var title : String?
         {
-            return content
+            return eventName
     }
     
     var subtitle : String?
         {
-            return "test"
+            return content
     }
 }

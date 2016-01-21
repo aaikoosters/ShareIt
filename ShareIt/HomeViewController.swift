@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
 {
     
     var loader = ContentLoaderPost()
+    var loaderEvent = ContentLoaderEvent()
     var userLoader = ContentLoaderUser()
     
     let coreLocation = CoreLocation()
@@ -20,6 +21,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     let locateButton = UIButton()
     
     var radiusCircle = MKCircle()
+    
     
     var rangePosts = Int()
     
@@ -110,10 +112,16 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     func reloadPins()
     {
+        mapView?.removeAnnotations(mapView.annotations)
+        
         loader.loadAllPostsinRangeFriends(coreLocation.currentLocation.coordinate.latitude , userlongitude: coreLocation.currentLocation.coordinate.longitude, range: self.rangePosts) { (returnMessages) -> Void in
             dispatch_async(dispatch_get_main_queue(),
                 {
                     self.addPointsToMap(returnMessages)
+                    
+                    self.loaderEvent.loadAllEventsinRangeFriends(self.coreLocation.currentLocation.coordinate.latitude , userlongitude:  self.coreLocation.currentLocation.coordinate.longitude, range: self.rangePosts, completion: { (returnEvents) -> Void in
+                         self.addPointsToMap(returnEvents)
+                    })
             })
             
         }
@@ -169,7 +177,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         }
         
         reloadRange()
-        
     }
     
     
@@ -189,11 +196,9 @@ class HomeViewController: UIViewController, MKMapViewDelegate
         }
     }
     
-    func addPointsToMap( anotations : [Message])
+    func addPointsToMap( anotations : [MKAnnotation])
     {
-        mapView.removeAnnotations(mapView.annotations)
         mapView.addAnnotations(anotations)
-        //mapView.showAnnotations(anotations, animated: true)
     }
     
     
@@ -232,7 +237,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView!
     {
-        if !(annotation is Message)
+        if !(annotation is Message) && !(annotation is Event)
         {
             return nil
         }
@@ -271,22 +276,47 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             if let pinView =  view as? MKPinAnnotationView
             {
                 if #available(iOS 9.0, *) {
-                    //pinView.pinTintColor = UIAssets.logoColor.redColor
-                    
-                    pinView.pinTintColor = UIColor(red:
-                        CGFloat(arc4random_uniform(255))/255.0,
-                        green:
-                        CGFloat(arc4random_uniform(255))/255.0,
-                        blue:
-                        CGFloat(arc4random_uniform(255))/255.0, alpha: 1.0)
-     
+                    pinView.pinTintColor = UIAssets.logoColor.redColor
 
                 } else {
                     pinView.pinColor = MKPinAnnotationColor.Red
                 }
             }
+        }
+        else if let mapAnnotationEvent = annotation as? Event
+        {
+            let viewUI = UIImageView(frame: CGRectMake(0, 0, 40, 40))
+            viewUI.image = UIImage(named: "logo200")
+            
+            userLoader.findWholeUserById(mapAnnotationEvent.user) { (returnUser) -> Void in
+                if returnUser != nil
+                {
+                    self.userLoader.loadPhotoForUser(returnUser!.profilePicture!, completion: { (image) -> Void in
+                        viewUI.image = UIImage(data:image!)
+                    })
+                }
+            }
             
             
+            view?.leftCalloutAccessoryView = viewUI
+            view?.annotation = mapAnnotationEvent
+            if let pinView =  view as? MKPinAnnotationView
+            {
+                if #available(iOS 9.0, *) {
+                    pinView.pinTintColor = UIColor.yellowColor()
+                    
+                    //                    pinView.pinTintColor = UIColor(red:
+                    //                        CGFloat(arc4random_uniform(255))/255.0,
+                    //                        green:
+                    //                        CGFloat(arc4random_uniform(255))/255.0,
+                    //                        blue:
+                    //                        CGFloat(arc4random_uniform(255))/255.0, alpha: 1.0)
+                    
+                    
+                } else {
+                    pinView.pinColor = MKPinAnnotationColor.Red
+                }
+            }
         }
         
         return view
@@ -323,6 +353,13 @@ class HomeViewController: UIViewController, MKMapViewDelegate
                 let postDetail = self.storyboard?.instantiateViewControllerWithIdentifier("BerichtZien") as! PostDetailViewController
                 postDetail.receivedMessage = customMessage
                 self.navigationController?.pushViewController(postDetail, animated: true)
+            }
+            else if let customEvent = annotationView.annotation as? Event
+            {
+                let eventDetail = self.storyboard?.instantiateViewControllerWithIdentifier("eventDetail") as! EventDetailViewController
+                eventDetail.receivedEvent = customEvent
+                self.navigationController?.pushViewController(eventDetail, animated: true)
+
             }
         }
     }

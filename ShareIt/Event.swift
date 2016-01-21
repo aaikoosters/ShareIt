@@ -34,6 +34,12 @@ class Event : PFObject, PFSubclassing
         }
     }
     
+    static func User() -> String
+    {
+        return "user"
+    }
+
+    
     static func parseClassName() -> String
     {
         return "Event"

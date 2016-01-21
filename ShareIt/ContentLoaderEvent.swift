@@ -134,6 +134,148 @@ class ContentLoaderEvent
     
     
     
+    func loadAllEventsFriends(completionReturn: (returnMessages: [Event]) -> Void)
+    {
+        let query = Event.query()
+        
+        let currentUser = User.getCurrentUserId()
+        
+        let predicate1 = NSPredicate(format: "UserID == '\(currentUser)' AND accepted == TRUE")
+        let predicate2 = NSPredicate(format: "FriendID == %@", currentUser)
+        
+        let isMyFriendSubquery = PFQuery(className: "Friend", predicate: predicate1)
+        let hasMeAsFriendSubquery = PFQuery(className: "Friend", predicate: predicate2)
+        
+        let isMyFriend = User.query()
+        isMyFriend!.whereKey(User.ObjectId(), matchesKey: Friend.friendId(), inQuery: isMyFriendSubquery)
+        
+        let hasMeAsFriend = User.query()
+        hasMeAsFriend!.whereKey(User.ObjectId(), matchesKey: Friend.userId(), inQuery: hasMeAsFriendSubquery)
+        
+        let friends = PFQuery.orQueryWithSubqueries([hasMeAsFriend!, isMyFriend!])
+        
+        
+        query?.whereKey(Event.User(), matchesKey: User.ObjectId(), inQuery: friends)
+        
+        
+        //////////////////////////
+        self.events.removeAll()
+        
+        query?.findObjectsInBackgroundWithBlock
+            {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if error == nil
+                {
+                    if let objects = objects
+                    {
+                        for object in objects
+                        {
+                            if let event = object as? Event
+                            {
+                                self.events.append(event)
+                            }
+                        }
+                    }
+                    completionReturn(returnMessages: self.events)
+                }
+                else
+                {
+                    // Log details of the failure
+                    print("Error: \(error!) \(error!.userInfo)")
+                }
+        }
+    }
+    
+    
+    func loadAllMyEvents(completion: (returnMessages: [Event]) -> Void)
+    {
+        let queryMyEvents = Event.query()
+        
+        let currentUser = User.getCurrentUserId()
+        queryMyEvents?.whereKey(Event.User(), equalTo: currentUser)
+        
+        queryMyEvents?.findObjectsInBackgroundWithBlock
+            {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if error == nil
+                {
+                    if let objects = objects
+                    {
+                        for object in objects
+                        {
+                            if let event = object as? Event
+                            {
+                                if  !self.events.contains(event)
+                                {
+                                    self.events.append(event)
+                                }
+                                
+                            }
+                        }
+                    }
+                    completion(returnMessages: self.events)
+                }
+                else
+                {
+                    // Log details of the failure
+                    print("Error: \(error!) \(error!.userInfo)")
+                }
+        }
+        
+    }
+    
+    func loadAllEventsinRangeFriends(userLatitude: Double, userlongitude: Double, range : Int ,completion: (returnMessages: [Event]) -> Void)
+    {
+        
+        loadAllEventsFriends { (returnMessages) -> Void in
+            
+            self.loadAllMyEvents({ (returnMessages) -> Void in
+                
+                let query = Event.query()
+                
+                var doubleRange = Double(range)
+                doubleRange = doubleRange / 1000.0
+                query?.whereKey("position", nearGeoPoint: PFGeoPoint(latitude: userLatitude, longitude: userlongitude), withinKilometers: doubleRange)
+                
+                query?.findObjectsInBackgroundWithBlock
+                    {
+                        (objects: [PFObject]?, error: NSError?) -> Void in
+                        
+                        if error == nil
+                        {
+                            if let objects = objects
+                            {
+                                for object in objects
+                                {
+                                    if let event = object as? Event
+                                    {
+                                        if  !self.events.contains(event)
+                                        {
+                                            self.events.append(event)
+                                        }
+                                        
+                                    }
+                                }
+                            }
+                            
+                                completion(returnMessages: self.events)
+
+                        }
+                        else
+                        {
+                            // Log details of the failure
+                            print("Error: \(error!) \(error!.userInfo)")
+                        }
+                }
+            })
+        }
+    }
+
+
+    
+    
     
 }
 
