@@ -202,13 +202,7 @@ class ContentLoaderPost
                 }
         }
     }
-    
-        
-
-    
-
-
-    
+ 
     
     func loadUserForPost(completionReturn: (returnMessages: [Message]) -> Void)
     {
@@ -240,28 +234,6 @@ class ContentLoaderPost
                  completionReturn(returnMessages: self.posts)
             })
     }
-       
-       
-        
-//        let query = User.query()
-//        //        query?.getObjectWithId(<#T##objectId: String##String#>)
-//        
-//        do
-//        {
-//            print(message.user)
-//            let user = try query?.getObjectWithId(message.user)
-//            if let realUser = user as? User
-//            {
-//                message.userObject = realUser
-//            }
-//            
-//            
-//            
-//        } catch
-//        {
-//            print(error)
-//        }
-
         
     }
     
