@@ -44,4 +44,9 @@ class Event : PFObject, PFSubclassing
         return "eventName"
     }
     
+    func setPosition(latitude : Double, longitudeInput : Double )
+    {
+        self.position = PFGeoPoint(latitude: latitude, longitude: longitudeInput)
+    }
+    
 }

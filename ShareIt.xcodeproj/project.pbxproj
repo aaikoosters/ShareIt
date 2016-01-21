@@ -46,6 +46,7 @@
 		3FB3481F1C496E62003EA33E /* ContentLoaderPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB3481E1C496E62003EA33E /* ContentLoaderPost.swift */; };
 		3FB348211C496E6F003EA33E /* ParseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB348201C496E6F003EA33E /* ParseExtension.swift */; };
 		3FB348231C496EE1003EA33E /* EventSearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB348221C496EE1003EA33E /* EventSearchViewCell.swift */; };
+		3FCBF2261C50606F004032AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FCBF2251C50606F004032AE /* Main.storyboard */; };
 		A3799B361C4D729A007E3134 /* ShareIt_map2(New).png in Resources */ = {isa = PBXBuildFile; fileRef = A3799B351C4D729A007E3134 /* ShareIt_map2(New).png */; };
 		A39BF2D21C4A67680055F72B /* ShareIt_29px.png in Resources */ = {isa = PBXBuildFile; fileRef = A39BF2B11C4A67680055F72B /* ShareIt_29px.png */; };
 		A39BF2D31C4A67680055F72B /* ShareIt_40px.png in Resources */ = {isa = PBXBuildFile; fileRef = A39BF2B21C4A67680055F72B /* ShareIt_40px.png */; };
@@ -101,7 +102,6 @@
 		ABEBE5061C1AC43200E320F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5051C1AC43200E320F2 /* SystemConfiguration.framework */; };
 		ABEBE5081C1AC43F00E320F2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5071C1AC43F00E320F2 /* libz.tbd */; };
 		ABEBE50A1C1AC44900E320F2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEBE5091C1AC44900E320F2 /* libsqlite3.tbd */; };
-		ABEBE50D1C1AC5E900E320F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */; };
 		ABEBE50F1C1B0E3100E320F2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */; };
 		ABEBE5111C1B0E5B00E320F2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */; };
 		ABEBE5131C1B0E6900E320F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBE5121C1B0E6900E320F2 /* SignUpViewController.swift */; };
@@ -165,6 +165,7 @@
 		3FB3481E1C496E62003EA33E /* ContentLoaderPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentLoaderPost.swift; sourceTree = "<group>"; };
 		3FB348201C496E6F003EA33E /* ParseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseExtension.swift; sourceTree = "<group>"; };
 		3FB348221C496EE1003EA33E /* EventSearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchViewCell.swift; sourceTree = "<group>"; };
+		3FCBF2251C50606F004032AE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A3799B351C4D729A007E3134 /* ShareIt_map2(New).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShareIt_map2(New).png"; sourceTree = "<group>"; };
 		A39BF2B11C4A67680055F72B /* ShareIt_29px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShareIt_29px.png; sourceTree = "<group>"; };
 		A39BF2B21C4A67680055F72B /* ShareIt_40px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShareIt_40px.png; sourceTree = "<group>"; };
@@ -226,7 +227,6 @@
 		ABEBE5051C1AC43200E320F2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ABEBE5071C1AC43F00E320F2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		ABEBE5091C1AC44900E320F2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ABEBE50E1C1B0E3100E320F2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ABEBE5101C1B0E5B00E320F2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ABEBE5121C1B0E6900E320F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -452,7 +452,7 @@
 		ABEBE4C41C1A00C500E320F2 /* ShareIt */ = {
 			isa = PBXGroup;
 			children = (
-				ABEBE50C1C1AC5E900E320F2 /* Main.storyboard */,
+				3FCBF2251C50606F004032AE /* Main.storyboard */,
 				ABEBE4C51C1A00C500E320F2 /* AppDelegate.swift */,
 				309837951C4D1FBC008A6ACB /* UserDefaultsKeys.swift */,
 				30F2DF801C43FE6F0051F7D6 /* UIAssets.swift */,
@@ -617,6 +617,7 @@
 				A39BF2E11C4A67680055F72B /* ShareIt_friends2.png in Resources */,
 				A39BF2E61C4A67680055F72B /* ShareIt_map3.png in Resources */,
 				A39BF2F01C4A67680055F72B /* ShareIt_settings3.png in Resources */,
+				3FCBF2261C50606F004032AE /* Main.storyboard in Resources */,
 				307719211C3D7FD100469969 /* settings.png in Resources */,
 				A39BF2DB1C4A67680055F72B /* ShareIt_180px.png in Resources */,
 				A39BF2D61C4A67680055F72B /* ShareIt_80px.png in Resources */,
@@ -630,7 +631,6 @@
 				A39BF2F11C4A67680055F72B /* ShareIt_settings4.png in Resources */,
 				3098378F1C4BB1B6008A6ACB /* add.png in Resources */,
 				A39BF2D91C4A67680055F72B /* ShareIt_152px.png in Resources */,
-				ABEBE50D1C1AC5E900E320F2 /* Main.storyboard in Resources */,
 				A39BF2E41C4A67680055F72B /* ShareIt_map1.png in Resources */,
 				A39BF2DD1C4A67680055F72B /* ShareIt_event2.png in Resources */,
 				A39BF2D41C4A67680055F72B /* ShareIt_58px.png in Resources */,
