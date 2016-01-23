@@ -270,7 +270,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             userLoader.findWholeUserById(mapAnnotation.user) { (returnUser) -> Void in
                 if returnUser != nil
                 {
-                    self.userLoader.loadPhotoForUser(returnUser!.profilePicture!, completion: { (image) -> Void in
+                    self.userLoader.loadPhotoForUser(returnUser!.profilePicture, completion: { (image) -> Void in
                         viewUI.image = UIImage(data:image!)
                     })
                 }
@@ -297,7 +297,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate
             userLoader.findWholeUserById(mapAnnotationEvent.user) { (returnUser) -> Void in
                 if returnUser != nil
                 {
-                    self.userLoader.loadPhotoForUser(returnUser!.profilePicture!, completion: { (image) -> Void in
+                    self.userLoader.loadPhotoForUser(returnUser!.profilePicture, completion: { (image) -> Void in
                         viewUI.image = UIImage(data:image!)
                     })
                 }

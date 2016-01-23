@@ -62,7 +62,7 @@ class InviteFriendsViewController : UITableViewController
             cell.userDisplay.image = UIImage(named: "logo200")
             cell.checkMark.hidden = true
             
-            userLoader.loadPhotoForUser(friend.profilePicture!, completion: { (image) -> Void in
+            userLoader.loadPhotoForUser(friend.profilePicture, completion: { (image) -> Void in
                 cell.userDisplay.image = UIImage(data:image!)
             })
         }

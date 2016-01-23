@@ -71,7 +71,7 @@ class EventDetailViewController: UIViewController {
             })
             
         }
-        eventLoader.loadPhotoForEvent(receivedEvent.eventPicture!, completion: { (image) -> Void in
+        eventLoader.loadPhotoForEvent(receivedEvent.eventPicture, completion: { (image) -> Void in
             self.userDisplay.image = UIImage(data:image!)
         })
 

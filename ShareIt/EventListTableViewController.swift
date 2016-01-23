@@ -102,7 +102,7 @@ class EventListTableViewController: UITableViewController, UISearchBarDelegate {
             
             cell.eventName.text = event.eventName
             cell.eventDisplay.image = UIImage(named: "logo200")
-            eventLoader.loadPhotoForEvent(event.eventPicture!, completion: { (image) -> Void in
+            eventLoader.loadPhotoForEvent(event.eventPicture, completion: { (image) -> Void in
                 cell.eventDisplay.image = UIImage(data:image!)
             })
         }

@@ -57,7 +57,7 @@ class PostDetailViewController : UIViewController
                 self.userName.text = returnUser?.username
                 
                 
-                self.userLoader.loadPhotoForUser(returnUser!.profilePicture!, completion: { (image) -> Void in
+                self.userLoader.loadPhotoForUser(returnUser!.profilePicture, completion: { (image) -> Void in
                     self.userDisplay.image  = UIImage(data:image!)
                 })
             }

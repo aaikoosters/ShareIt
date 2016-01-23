@@ -88,7 +88,7 @@ class PostViewController: UITableViewController {
                 { (returnUser) -> Void in
                 if returnUser != nil
                 {
-                    self.userLoader.loadPhotoForUser(returnUser!.profilePicture!, completion: { (image) -> Void in
+                    self.userLoader.loadPhotoForUser(returnUser!.profilePicture, completion: { (image) -> Void in
                         cell.postDisplay.image  = UIImage(data:image!)
                     })
                 }
